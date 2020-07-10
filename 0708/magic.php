@@ -26,6 +26,7 @@
             magic_6($input_value);
             break;
         case 6:
+            echo "현재 값은".$input_data."입니다<br/>";
             result_page($input_value);
     }
     
@@ -162,7 +163,7 @@
         echo "<button id=\"btnfun2\" name=\"btnfun2\" onClick='location.href=\"magic.php?val=6".($currect_value+0)."\"'>존재하지 않음</button>";
     }
     function result_page($input_value) {
-        echo "당신이 찾고있는 숫자는".$input_value."입니다.";
+        echo "당신이 찾고있는 숫자는".$input_value."입니다.<br/>";
         echo "<button id=\"btnfun1\" name=\"btnfun1\" onClick='location.href=\"magic.html\"'>다시하기</button>";
     }
 ?>
