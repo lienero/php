@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+<style type="text/css">
+	table{
+		border: 1px solid black;
+		width: 70%;
+		height: 70%;
+		padding: 50px;
+		margin: 30px;
+	}
+	
+	body{
+		text-align: center;
+	}
+	body > h1 {
+		color: blue;
+	}
+	
+</style>
+</head>
+<body>
+<h1>Sign up</h1>
+<form action="sign_up.php" method="post">
+	<div id = "content">
+		<h3>User name</h3>
+		<span><input type="text" name = "u_name" size = "15"></span>
+	</div>
+	<div id= "content">
+		<h3>ID</h3>
+		<span><input type="text" name ="id" size ="18"></span>
+	</div>
+	<div>
+		<h3>Password</h3>
+		<span><input type = "password" name="pwd" size="18"></span>
+	</div>
+	<div>
+		<h3>E-mail</h3>
+		<span><input type="email" name = "email"></span>
+	</div>
+	<div>
+		<h3>profile</h3>
+		<span><input type="text" name="profile" size ="36"></span>
+	</div>
+	<div>
+		<h3>Birthday</h3>
+		<span><input type="date" name="b-day"></span>
+	</div>
+	<div>
+		<h3>Gender</h3>
+		<span><input type="radio" name="gender" value ="male">Male</span>
+		<span><input type="radio" name="gender" value ="female">female</span>
+	</div>
+	<div>
+		Submit <input type="submit" name="submit">
+	</div>
+	
+</form>
+</body>
+</html>
