@@ -7,7 +7,8 @@
 	$username = $_POST['name'];
 	$age = $_POST['age'];
 	$sex = $_POST['sex'];
-	
+
+	//mq() 한수를 이용하여 쿼리를 $sql에 삽입
 $sql = mq("insert into member (id,pw,name,age,sex) values('".$userid."','".$userpw."','".$username."','".$age."','".$sex."')");
 
 ?>

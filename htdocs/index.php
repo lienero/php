@@ -1,10 +1,12 @@
 <?php   
+// include로 db.php 불러오기
 include "./member/db/db.php";
 ?>
 
 <head>
 	<meta charset="utf-8" />
 	<title></title>
+<!-- <link href =""> href 링크에 있는 파일을 불러옴 -->	
 <link rel="stylesheet" type="text/css" href="/css/common.css" />
 </head>
 <body>
@@ -32,6 +34,7 @@ include "./member/db/db.php";
 					</tr>
 					<tr>
 						<td class="mem"> 
+							<!-- onclick 할 시에 href location.href='/member/member.php'로 이동 -->
 							<button type="button" onclick="location.href='/member/member.php'" >Create Account</button>
 						</td>
 						<td> 
