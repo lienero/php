@@ -23,10 +23,13 @@
        }
        
        $check = "SELECT * FROM user where u_id = '$id'";
+       // $mysqli->query($check) -> : 멤버연산자(클래스에 접근)
        $result = $mysqli->query($check);
+       //num_rows : 데이터 열 수를 반환
        if($result -> num_rows == 1) {
            echo "이 아이디는 이미 있는 아이디입니다.";
            echo "<a href=register.html>홈페이지로 돌아갑니다.</a>";
+           // exit() : 프로그램 처리 중단 명령어
            exit();
        } else {
            echo "좋아요!";
@@ -36,7 +39,8 @@
        $execute = $mysqli->query($query);
        if($execute) {
            echo "회원 가입에 성공하였습니다.";
-           header("location:sign_up.php");
+           // header() : raw HTTP header를 클라이언트에게 보낸다. (사이트 이동)
+           header("location:login.php");
        } else {
            echo "에러가 발생하였습니다."."<br>";
            echo $mysqli->error;

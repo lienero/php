@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	table{
+		border: 1px solid black;
+		width: 70%;
+		height: 70%;
+		padding: 50px;
+		margin: 30px;
+	}
+	
+	body{
+		text-align: center;
+	}
+	body > h1 {
+		color: blue;
+	}	
+</style>
+</head>
+<body>
+	<h1>Sign in</h1>
+	<form action="login_check.php" method="POST">
+		<div id= "content">
+			<h3>ID</h3>
+			<span><input type="text" name ="id" size ="18"></span>
+		</div>
+		<div>
+			<h3>Password</h3>
+			<span><input type = "password" name="pwd" size="18"></span>
+		</div>
+		<div>
+			Submit <input type="submit" name="submit">
+		</div>
+	</form>	
+</body>
+</html>
