@@ -3,6 +3,7 @@
 	include "./method/password.php";
 
 	$userid = $_POST['userid'];
+	// password_hash()함수를 이용하여 $_POST['userpw']를 암호화 한다.
 	$userpw = password_hash($_POST['userpw'], PASSWORD_DEFAULT);
 	$username = $_POST['name'];
 	$age = $_POST['age'];
