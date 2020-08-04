@@ -1,7 +1,7 @@
 <!--- 게시글 수정 -->
 
 <?php
-	include $_SERVER['DOCUMENT_ROOT']."/db.php";
+    include $_SERVER['DOCUMENT_ROOT']."../member/db/db.php";
    
 	$bno = $_GET['idx'];
 	$sql = mq("select * from movie_info where m_idx='$bno';");
@@ -38,7 +38,7 @@
 	?>
 	
 	<div id="board_write">
-	<br>
+
         <h1><a href="/">영화 정보 수정</a></h1>
             <div id="write_area">
                 <form action="movie_modify_ok.php?idx=<?php echo $bno; ?>" method="post">
@@ -47,43 +47,7 @@
 					</div>
 					<br>
 					<div>
-					주연: <input type="text" size="40" name="lead_role" id="lead_role" placeholder="<?php echo $movie_info['m_lead_role']; ?>" required>
-					</div>
-					<br>
-					<div>
-					개봉 날짜: <input type="text" size="35" name="Opening_date" id="Opening_date" placeholder="<?php echo $movie_info['m_Opening_date']; ?>" required>
-					</div>
-					<br>
-					<div>
-					대표 OST: <input type="text" size="35" name="OST" id="OST" placeholder="<?php echo $movie_info['m_OST']; ?>" required>
-					</div>
-					<br>
-					<div>
-					관람가: <input type="text" size="38" name="r_age" id="r_age" placeholder="<?php echo $movie_info['m_r_age']; ?>" required>
-					</div>
-					<br>
-					<div>
-					수상 내역: <input type="text" size="35" name="awards" id="awards" placeholder="<?php echo $movie_info['m_awards']; ?>" required>
-					</div>
-					<br>
-					<div>
-					장르: <input type="text" size="40" name="genre" id="genre" placeholder="<?php echo $movie_info['m_genre']; ?>" required>
-					</div>
-					<br>
-					<div>
-					줄거리: <input type="text" size="38" name="summay" id="summay" placeholder="<?php echo $movie_info['m_summay']; ?>" required>
-					</div>
-					<br>
-					<div>
-					러닝타임: <input type="text" size="35" name="r_time" id="r_time" placeholder="<?php echo $movie_info['m_r_time']; ?>" required>
-					</div>
-					<br>
-					<div>
-					다운로드 링크: <input type="text" size="30" name="link" id="link" placeholder="<?php echo $movie_info['m_link']; ?>" required>
-					</div>
-					<br>
-					<div>
-					제작국가: <input type="text" size="35" name="country" id="country" placeholder="<?php echo $movie_info['m_country']; ?>" required>
+					포스터: <input type="text" size="38" name="lo_image_link" id="lo_image_link" placeholder="<?php echo $movie_info['m_lo_image_link']; ?>" required>
 					</div>
 					<br>
 					<div>
@@ -91,11 +55,22 @@
 					</div>
 					<br>
 					<div>
-					이미지: <input type="text" size="38" name="lo_image_link" id="lo_image_link" placeholder="<?php echo $movie_info['m_lo_image_link']; ?>" required>
+					주연: <input type="text" size="40" name="local_role" id="lead_role" placeholder="<?php echo $movie_info['m_local_role']; ?>" required>
 					</div>
 					<br>
 					<div>
-					기타: <input type="text" size="40" name="etc" id="etc" placeholder="<?php echo $movie_info['etc']; ?>" required>
+					개봉 날짜: <input type="text" size="35" name="Opening_date" id="Opening_date" placeholder="<?php echo $movie_info['m_Opening_date']; ?>" required>
+					</div>
+					<br>
+					<div>
+					관람가: <input type="text" size="38" name="r_age" id="r_age" placeholder="<?php echo $movie_info['m_r_age']; ?>" required>
+					</div>
+					<br>
+					줄거리: <input type="text" size="38" name="summay" id="summay" placeholder="<?php echo $movie_info['m_summay']; ?>" required>
+					</div>
+					<br>
+					<div>
+					러닝타임: <input type="text" size="35" name="r_time" id="r_time" placeholder="<?php echo $movie_info['m_r_time']; ?>" required>
 					</div>
 					<br>
                     <div class="bt_se">

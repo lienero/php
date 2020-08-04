@@ -1,5 +1,5 @@
 <?php
-	include $_SERVER['DOCUMENT_ROOT']."/db.php";
+include $_SERVER['DOCUMENT_ROOT']."../member/db/db.php";
 	
 	$bno = $_GET['idx'];
 	$sql = mq("delete from movie_info where m_idx='$bno';");
