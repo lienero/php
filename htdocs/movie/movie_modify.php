@@ -9,6 +9,7 @@
  ?>
 
 <!doctype html>
+<html>
 <head>
 <meta charset="UTF-8">
 <title>영화 정보 수정</title>
@@ -73,11 +74,8 @@
 					러닝타임: <input type="text" size="35" name="r_time" id="r_time" placeholder="<?php echo $movie_info['m_r_time']; ?>" required>
 					</div>
 					<br>
-                    <div class="bt_se">
-                        <button type="submit">정보 수정</button>
-                    </div>
+                    <div class="bt_se"><button type="submit">정보 수정</button></div>
                 </form>
             </div>
-        </div>
     </body>
 </html>

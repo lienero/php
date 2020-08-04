@@ -3,6 +3,7 @@
     include $_SERVER['DOCUMENT_ROOT']."../member/db/db.php";
 
 //각 변수에 write.php에서 input name값들을 저장한다
+// 이전 링크에서 idx 값을 받아온다
 $bno = $_GET['idx'];
 $name = $_POST['name'];
 $role = $_POST['local_role'];
@@ -23,6 +24,7 @@ if($name && $role && $date && $r_age && $summay && $r_time && $director && $lo_i
 	m_director='".$director."',
 	m_lo_image_link='".$lo_image_link."'");
 
+// arter() 팝업 메세지 표현 
 echo "<script>
 	alert('글 수정이 완료되었습니다.');
 	location.href='movie_list.php';</script>";
