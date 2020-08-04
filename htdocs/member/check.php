@@ -1,7 +1,7 @@
 <?php
 	include "./db/db.php";
     
-	// $uid 로 가져온 userid를 삽입
+	// $uid 으로 document.getElementById("uname").value; 로 가져온  userid를 삽입
 	$uid = $_GET["userid"];
     
 	// $sql에 .$uid. 와 같은 id를 가진 쿼리를 삽입
