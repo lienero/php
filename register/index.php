@@ -1,11 +1,11 @@
 <?php   
-include "./db.php";
+include "./db/db.php";
 ?>
 
 <head>
 	<meta charset="utf-8" />
 	<title></title>
-<link rel="stylesheet" type="text/css" href="/css/common.css" />
+<link rel="stylesheet" type="text/css" href="./css/common.css" />
 </head>
 <body>
 	<br>
@@ -13,7 +13,7 @@ include "./db.php";
 	<br>
 	<div id="login_box">
 		<h1>Login</h1>							
-			<form method="post" action="login_ok.php">
+			<form method="post" action="./login_ok.php">
 				<table align="center" border="0" cellspacing="0" width="300">
 					<tr>
 						<td colspan="2"> 
@@ -32,7 +32,7 @@ include "./db.php";
 					</tr>
 					<tr>
 						<td class="mem"> 
-							<button type="button" onclick="location.href='member.php'" >Create Account</button>
+							<button type="button" onclick="location.href='./member.php'" >Create Account</button>
 						</td>
 						<td> 
 							<button type="submit" id="btn" >Sign in</button>

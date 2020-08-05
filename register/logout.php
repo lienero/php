@@ -5,4 +5,4 @@
 ?>
 <meta charset="utf-8">
 <!-- alret() : 경고창 띄우기 -->
-<script>alert("로그아웃되었습니다."); location.href="/"; </script>
+<script>alert("로그아웃되었습니다."); location.href="./index.php"; </script>

@@ -7,7 +7,7 @@
 	<meta charset="utf-8" />
 	<title>선문대학교 종합프로젝트 5조 영화 추천 사이트</title>
 	<!-- 아이디 중복 검사 와 비밀번호 보안성 체크 함수가 담긴 js파일 -->
-	<script src ="checks.js"></script>
+	<script src ="./checks.js"></script>
 </head>
 <body>
 	<form method="post" action="member_ok.php">
@@ -30,7 +30,7 @@
 							<!-- safetyPasswordPattern(this) : 비밀번호의 보안레벨을 체크함 -->
 							<!-- isSame() : 비밀번호가 비밀번호 확인과 일치하는 지를 체크함 -->
 							<!-- ime-mode:disabled - 영문자만 입력 가능하도록 설정  -->
-							<td><input type="password" name="wUserPW" id="pw" value=""  onKeyup="safetyPasswordPattern(this); isSame();" style="ime-mode:disabled;" required/></td>
+							<td><input type="password" name="userpw" id="pw" value="" onKeyup="safetyPasswordPattern(this); isSame();" style="ime-mode:disabled;" required/></td>
 						</tr>
 						<tr>
 							<td></td>	
@@ -40,7 +40,7 @@
 							<td>비밀번호 확인</td>
 							<!-- isSame() : 비밀번호가 비밀번호 확인과 일치하는 지를 체크함 -->
 							<!-- ime-mode:disabled - 영문자만 입력 가능하도록 설정  -->
-							<td><input type="password" name="wUserPWConfirm" id="pwCheck" onKeyup="isSame()" style="ime-mode:disabled;" required/></td>
+							<td><input type="password" name="userpwconfirm" id="pwcheck" onKeyup="isSame()" style="ime-mode:disabled;" required/></td>
 						</tr>
 						<tr>
 							<td></td>	

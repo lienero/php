@@ -90,8 +90,8 @@
 
 		// 비밀번호 재입력 일치여부 확인
 		function isSame() {
-			if(document.getElementById('pw').value!='' && document.getElementById('pwCheck').value!='') {
-				if(document.getElementById('pw').value==document.getElementById('pwCheck').value) {
+			if(document.getElementById('pw').value!='' && document.getElementById('pwcheck').value!='') {
+				if(document.getElementById('pw').value==document.getElementById('pwcheck').value) {
                     // id : same을 매개체로 비밀번호 확인 밑에서 비밀번호의 확인 메세지를 출력함
 					document.getElementById('same').innerHTML='비밀번호가 일치합니다.';
 					document.getElementById('same').style.color='blue';
