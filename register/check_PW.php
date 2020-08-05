@@ -2,6 +2,20 @@
 <head>
 <title>비밀번호 안전성 검사 코드</title>
 <script type="text/javascript">
+	// 중복 검사를 위한 checkid() 함수 생성
+	function checkid(){
+		// document.getElementById("uid").value; : 이 문서에 있는 uid 값의 안에 있는 값
+		var userid = document.getElementById("uid").value;
+		if(userid)
+		{
+			url = "check.php?userid="+userid;
+			// window.open('새창에 불러올 문서','새창이름','새창속성') : 새창을 열어주는 함수
+				window.open(url,"chkid","width=300,height=100");
+		}else{
+			alert("아이디를 입력하세요");
+		}
+	}
+    
     function safetyPasswordPattern(str) {
 
         var pass = str.value;
