@@ -15,8 +15,7 @@
 	$member = $sql->fetch_array();
 	
 	// fetch_array(): 인덱스가 처음이면(0) 이면 사용 가능한 아이디
-	if($member==0)
-	{	
+	if($member==0){	
 		// strlen(문자열) 함수를 이용하여, 패스워드 길이가 8 이상이면 참
 		if(strlen($_POST['userpw']) >= 8){
 			// $_POST로 받아온 두 비밀번호 비교후 일치하면 참
@@ -25,42 +24,21 @@
 				if($agree == "agree"){
 					//mq() 한수를 이용하여 쿼리를 $sql에 삽입
 					$sql = mq("insert into member (id,pw,email) values('".$userid."','".$userpw."','".$email."')");
-				?>
-					<meta charset="utf-8" />
-					<!-- alert() :  alert()은 경고창(alert box)를 나타내 주는 스크립트입니다.-->
-					<script type="text/javascript">alert('회원가입이 완료되었습니다.');</script>
-					<!-- 회원가입이 완료되었을 시 index.php로  -->
-					<meta http-equiv="refresh" content="0 url=/register/index.php">
-				<?php		
+					// alert() :  alert()은 경고창(alert box)를 나타내 주는 스크립트입니다.
+					//회원가입이 완료되었을 시 index.php로  
+					echo "<script>alert('회원가입이 완료되었습니다.'); location.href='./index.php';</script>";
 				} else {
-				?>
-					<meta charset="utf-8" />
-					<script type="text/javascript">alert('백종원님에 대한 사랑이 부족하여 회원가입이 실패하였습니다.');</script>
-					<!-- 회원가입이 실패됐을 시 member.php로  -->
-					<meta http-equiv="refresh" content="0 url= /register//member.php">
-				<?php	
-				}
-					
+					// history.back() : 현재 페이지의 한단계 이전 페이지로 이동
+					echo "<script>alert('백종원님에 대한 사랑이 부족합니다.'); history.back();</script>";
+				}						
 			} else {
-			?>
-				<meta charset="utf-8" />
-				<script type="text/javascript">alert('비밀번호 확인이 틀려 회원가입이 실패하였습니다.');</script>
-				<meta http-equiv="refresh" content="0 url= /register//member.php">
-			<?php
+				echo "<script>alert('비밀번호 확인이 틀렸습니다.'); history.back();</script>";
 			}
 		} else {
-		?>
-			<meta charset="utf-8" />
-			<script type="text/javascript">alert('비밀번호 길이가 안 맞아 회원가입에 실패하였습니다.');</script>
-			<meta http-equiv="refresh" content="0 url= /register//member.php">
-		<?php 
+			echo "<script>alert('비밀번호의 길이가 안 맞습니다.'); history.back();</script>";
 		}
 	} else {
-	?>
-		<meta charset="utf-8" />
-		<script type="text/javascript">alert('아이디가 중복되어 회원가입에 실패하였습니다.');</script>
-		<meta http-equiv="refresh" content="0 url= /register//member.php">
-	<?php 	
+		echo "<script>alert('아이디가 중복되었습니다.'); history.back();</script>";
 	}	
 ?>
 
