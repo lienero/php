@@ -18,7 +18,7 @@
 <?php 
 	}else{
 ?>
-	<div style='font-family:"malgun gothic"; color:red;'><?php echo $uid; ?>은 중복된아이디입니다.<div>
+	<div style='font-family:"malgun gothic"; color:red;'><?php echo $userid; ?>은 중복된아이디입니다.<div>
 <?php
 	}
 ?>

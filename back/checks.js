@@ -5,7 +5,7 @@ function checkid() {
   if (userid) {
     // userid 값이 존재할 시
     // "check.php?userid="+userid; 로 이동
-    url = "./register/check.php?userid=" + userid;
+    url = "check.php?userid=" + userid;
     // window.open('새창에 불러올 문서','새창이름','새창속성') : 새창을 열어주는 함수
     window.open(url, "chkid", "width=300,height=100");
   } else {
