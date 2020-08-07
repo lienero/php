@@ -2,6 +2,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="../css/style.css" />
 <link rel="stylesheet" type="text/css" href="../css/common.css" />
+<script src =../checks.js></script>
 </head>
 <body>
 <?php
@@ -70,7 +71,7 @@ if(isset($_SESSION['userid'])){
 				<br>
 				<div class="bt_cm">
 					<!-- location.href = '' : 새로운 페이지로 이동 -->
-					<button type="button"onclick="location.href='../login/index.php'">로그인 페이지로</button>
+					<button type="button" onclick="location.href='../login/index.php'">로그인 페이지로</button>
 				</div>
 			<?php
 			}
@@ -84,28 +85,49 @@ if(isset($_SESSION['userid'])){
     			<tr>
 					<th>아이디</th>
 					<th>이미지</th>
-    				<th>내용</th>
+					<th>내용</th>
+					<th>업로드 시간</th>
     			</tr>
     		</thead>
-    		<?php 
-    		//comment 테이블에서 comment_id를 기준으로 오름차순해서 5개까지(limit 0,5) 표시
-    		$sql = mq("select * from comment order by comment_id limit 0,5");
+			<?php
+			if(isset($_GET['page'])){
+				$min = $_GET['page'];
+				$max = $_GET['page'] + 5;
+			} else {
+				$min = 0;
+				$max = 5;
+			}
+			//comment 테이블에서 comment_id를 기준으로 오름차순해서 5개까지(limit 0,5) 표시
+				$sql = mq("select * from comment order by comment_id limit $min,$max");
 			//$sql->fetch_array()l에 데이터가 존재할 때 까지 반복한다.
-			while($comment_info = $sql->fetch_array())
-    		{
-    		?>      
-    		<tbody>
-            <tr>
-				<!-- <a href="mycomment_read.php?idx=<?php //echo $comment_info["id"];?>"> 링크로 이동  -->
-				<!-- mycomment_read.php?idx= = comment_info["id"] == mycomment_read.php? idx== 2 -->
-				<td width="70"><a href="mycomment_read.php?idx=<?php echo $comment_info["id"];?>"><?php echo $comment_info["id"];?></a></td>
-				<td width="100"><img src="http://localhost/back/img/poster/<?php echo $comment_info['image']; ?>" width="100"/></td>
-				<td width="200"><?php echo $comment_info['content']; ?></td>  
-            </tr>
+				while($comment_info = $sql->fetch_array())
+    			{
+    			?>      
+    			<tbody>
+           		<tr>
+					<!-- <a href="mycomment_read.php?idx=<?php //echo $comment_info["id"];?>"> 링크로 이동  -->
+					<!-- mycomment_read.php?idx= = comment_info["id"] == mycomment_read.php? idx== 2 -->
+					<td width="70"><a href="mycomment_read.php?idx=<?php echo $comment_info["id"];?>"><?php echo $comment_info["id"];?></a></td>
+					<td width="100"><img src="http://localhost/back/img/poster/<?php echo $comment_info['image']; ?>" width="100"/></td>
+					<td width="200"><?php echo $comment_info['content']; ?></td>
+					<td width="70"><?php echo $comment_info['date']; ?></td>  
+				</tr>
+				<?php
+				}
+				$nextpage = $min + 5;
+				$prevpage = $min - 5;
+				$pagenum = $max / 5;
+				if($nextpage > 5){
+				?>
+				<tr>
+					<td><a href="./comment_write_read.php?page= <?php echo $prevpage; ?>">이전 페이지</a></td>
+				<?php	
+				}
+				?>
+					<td><?php echo $pagenum; ?></td>	
+					<td><a href="./comment_write_read.php?page= <?php echo $nextpage; ?>">다음 페이지</a></td>
+				</tr>		
       	</tbody>
-      	<?php 
-    		}
-     	 ?>
     </table>
     </div>
 </body>
