@@ -7,7 +7,6 @@ include $_SERVER['DOCUMENT_ROOT']."/back/db/db.php";
 $userid = $_SESSION['userid'];
 //각 변수에 comment_write_read.php에서 content 값을 저장한다.
 $content = $_POST['content'];
-$time = DATE("Y-m-d h:i:s", time());
 
 // $_FILES['userfile']['tmp_name'] : 서버에 저장된 업로드된 파일의 임시 파일 이름. 
 $tmpfile = $_FILES['image_link']['tmp_name'];
@@ -21,9 +20,9 @@ move_uploaded_file($tmpfile,$folder);
 
 // $etc = $_POST['etc'];
 
-if($userid && $content && $time){
-    $sql = mq("insert into comment(id, content, image, date)
-    values('".$userid."','".$content."','".$o_name."','".$time."')");
+if($userid && $content && $o_name){
+    $sql = mq("insert into comment(id, content, image)
+    values('".$userid."','".$content."','".$o_name."')");
     echo "<script>
     alert('댓글이 등록되었습니다.');
     location.href='./comment_write_read.php';</script>";
