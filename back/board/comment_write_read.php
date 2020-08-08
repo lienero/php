@@ -88,6 +88,7 @@ if(isset($_SESSION['userid'])){
 					<th>이미지</th>
 					<th>내용</th>
 					<th>업로드 시간</th>
+					<th>좋아요</th>
     			</tr>
     		</thead>
 			<?php
@@ -114,7 +115,8 @@ if(isset($_SESSION['userid'])){
 					<td width="100"><img src="http://localhost/back/img/poster/<?php echo $comment_info['image']; ?>" width="100"/></td>
 					<!-- $comment_info['content'] $comment_info 쿼리의 첫번째 라인의 content 필드를 출력 -->
 					<td width="200"><?php echo $comment_info['content']; ?></td>
-					<td width="70"><?php echo $comment_info['date']; ?></td>  
+					<td width="70"><?php echo $comment_info['date']; ?></td> 
+					<td width="70"><a href="like_count.php?comment_id=<?php echo $comment_info["comment_id"];?>&like=<?php echo $comment_info["like_count"];?>"><?php echo $comment_info["like_count"];?></a></td> 
 				</tr>
 				<?php
 				}
@@ -125,7 +127,7 @@ if(isset($_SESSION['userid'])){
 				// 페이지 넘버를 표현하기 위한 식
 				$pagenum = ($min / 5) + 1;
 				// nextpage의 값이 5를 넘을 때 이전페이지 버튼을 표시.
-				if($nextpage > 6){
+				if($nextpage > 5){
 				?>
 				<tr>
 					<!-- ./comment_write_read.php?page =  echo $prevpage;  값은 $_GET['page']와 같다-->
