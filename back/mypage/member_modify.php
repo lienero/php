@@ -1,5 +1,6 @@
-<?php  
-    include "../db/db.php";
+<?php 
+	//db 폴더에 있는 db.php 불러오기
+	include "../db/db.php";
 ?>
 
 <!DOCTYPE html>

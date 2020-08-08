@@ -1,4 +1,5 @@
-<?php  
+<?php 
+	//db 폴더에 있는 db.php 불러오기
 	include "../db/db.php";
 ?>
 <!DOCTYPE html>
@@ -10,6 +11,7 @@
 	<script src ="../checks.js"></script>
 </head>
 <body>
+	<!-- post 방식으로 member_ok.php 로 입력값을 보낸다. -->
 	<form method="post" action="./member_ok.php">
 		<h1>회원가입</h1>
 			<fieldset>

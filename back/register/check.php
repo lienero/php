@@ -1,4 +1,6 @@
 <?php
+	
+	//db 폴더에 있는 db.php 불러오기
 	include "../db/db.php";
     
 	// checkid() url 로 보내진 userid를 가져온다($_GET["userid"])

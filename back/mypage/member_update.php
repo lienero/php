@@ -1,7 +1,9 @@
 <meta charset="utf-8" />
 <?php
 
+//db 폴더에 있는 db.php 불러오기
 include "../db/db.php";
+//method 폴더에 있는 passwrod.php;를 불러온다.
 include "../method/password.php";
 //session_start() 세션을 시작하는 함수 (세션이 필요한 모든 페이지에 필요함)
 session_start();

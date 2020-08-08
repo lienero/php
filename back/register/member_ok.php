@@ -1,7 +1,10 @@
 <?php
+	//db 폴더에 있는 db.php 불러오기
 	include "../db/db.php";
+	//method 폴더에 있는 passwrod.php;를 불러온다.
 	include "../method/password.php";
 
+	//member.php 에서 post값을 받아온다
 	$userid = $_POST['userid'];
 	// password_hash()함수를 이용하여 $_POST['userpw']를 암호화 한다.
 	$userpw = password_hash($_POST['userpw'], PASSWORD_DEFAULT);

@@ -1,4 +1,5 @@
 <?php   
+//db 폴더에 있는 db.php 불러오기
 include "../db/db.php";
 ?>
 
@@ -12,7 +13,8 @@ include "../db/db.php";
 	<br>
 	<br>
 	<div id="login_box">
-		<h1>Login</h1>							
+		<h1>Login</h1>		
+			<!-- post 방식으로 login.ok.php 로 보낸다-->					
 			<form method="post" action="./login_ok.php">
 				<table align="center" border="0" cellspacing="0" width="300">
 					<tr>

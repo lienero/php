@@ -6,6 +6,7 @@
 </head>
 <body>
 <?php
+// $_SERVER['DOCUMENT_ROOT'] : httpd.conf 파일에 설정된 웹서버의 루트 디렉토리
 include $_SERVER['DOCUMENT_ROOT']."/back/db/db.php";
 
 if(isset($_SESSION['userid'])){
@@ -51,7 +52,7 @@ if(isset($_SESSION['userid'])){
 				<br>
 				<br>
 				<span>
-				<!-- 타입 file로 movie_write_ok.php 로 보낸다 -->
+				<!-- 타입 file로 comment_write_ok.php 로 보낸다 -->
 				<input type="file" name="image_link" value="1" />
 				</span>
 				<sapn class="bt_cm">
@@ -65,7 +66,7 @@ if(isset($_SESSION['userid'])){
 				</div>
 				<br>
 				<div>
-					<!-- 타입 file로 movie_write_ok.php 로 보낸다 -->
+					<!-- 타입 file로comment_write_ok.php 로 보낸다 -->
 					<input type="file" name="image_link" value="1" />
 				</div>
 				<br>
@@ -90,16 +91,18 @@ if(isset($_SESSION['userid'])){
     			</tr>
     		</thead>
 			<?php
+			// limit min : 불러올 데이터 시작점 변경을 위해 변수설정
+			// $_GET['page']에 값이 있을 때 $min 값과 max 값에 $min = $_GET['page'];입력
 			if(isset($_GET['page'])){
 				$min = $_GET['page'];
-				$max = $_GET['page'] + 5;
 			} else {
+				// $_GET['page']에 값이 없을 때 $min 값과 max 값에 0, 5 입력
 				$min = 0;
-				$max = 5;
 			}
-			//comment 테이블에서 comment_id를 기준으로 오름차순해서 5개까지(limit 0,5) 표시
-				$sql = mq("select * from comment order by comment_id limit $min,$max");
-			//$sql->fetch_array()l에 데이터가 존재할 때 까지 반복한다.
+			//comment 테이블에서 comment_id를 기준으로 오름차순해서 0부터 5개를(limit 0(시작할 위치),5(출력할 갯수)) 출력
+				$sql = mq("select * from comment order by comment_id limit $min,5");
+				//$sql->fetch_array() 쿼리에 있는 데이터를 한줄씩 표시(있을 때 까지)
+				//$sql->fetch_array()에 데이터가 존재할 때 까지 반복한다.
 				while($comment_info = $sql->fetch_array())
     			{
     			?>      
@@ -109,22 +112,30 @@ if(isset($_SESSION['userid'])){
 					<!-- mycomment_read.php?idx= = comment_info["id"] == mycomment_read.php? idx== 2 -->
 					<td width="70"><a href="mycomment_read.php?idx=<?php echo $comment_info["id"];?>"><?php echo $comment_info["id"];?></a></td>
 					<td width="100"><img src="http://localhost/back/img/poster/<?php echo $comment_info['image']; ?>" width="100"/></td>
+					<!-- $comment_info['content'] $comment_info 쿼리의 첫번째 라인의 content 필드를 출력 -->
 					<td width="200"><?php echo $comment_info['content']; ?></td>
 					<td width="70"><?php echo $comment_info['date']; ?></td>  
 				</tr>
 				<?php
 				}
+				// 다음페이지를 위한 값 $nextpage변수
 				$nextpage = $min + 5;
+				// 이전페이지를 위한 값 $prevpage변수
 				$prevpage = $min - 5;
-				$pagenum = $max / 5;
-				if($nextpage > 5){
+				// 페이지 넘버를 표현하기 위한 식
+				$pagenum = ($min / 5) + 1;
+				// nextpage의 값이 5를 넘을 때 이전페이지 버튼을 표시.
+				if($nextpage > 6){
 				?>
 				<tr>
+					<!-- ./comment_write_read.php?page =  echo $prevpage;  값은 $_GET['page']와 같다-->
 					<td><a href="./comment_write_read.php?page= <?php echo $prevpage; ?>">이전 페이지</a></td>
 				<?php	
 				}
 				?>
-					<td><?php echo $pagenum; ?></td>	
+					<!-- 페이지 넘버 $pagenum를 출력   -->
+					<td><?php echo $pagenum; ?></td>
+					<!-- ./comment_write_read.php?page =  echo $nextpage  값은 $_GET['page']와 같다-->	
 					<td><a href="./comment_write_read.php?page= <?php echo $nextpage; ?>">다음 페이지</a></td>
 				</tr>		
       	</tbody>
