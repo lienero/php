@@ -16,7 +16,7 @@ if($member['rank'] == "manager"){
 <html>
 <br>
 <!-- 버튼을 클릭할 시에 페이지 이동 --> 
-<span><button type="button" onclick="location.href='../main.php'" >메인페이지</button></span>
+<span><button type="button" onclick="location.href='/back/index.php'" >메인페이지</button></span>
 <br>
 <span><button type="button" onclick="location.href='./member_modify.php'" >개인 정보수정</button></span>
 <sapn><button type="button" onclick="location.href='../login/logout.php'" >로그아웃</button></sapn>

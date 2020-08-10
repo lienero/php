@@ -18,7 +18,7 @@ if(strlen($_POST['userpw']) >= 8){
     // mq($sql) 함수를 이용하여 퀴리를 $sql에 삽입 (update)
     $sql = mq("update member set pw='".$userpw."',email='".$_POST['email']."' where id='".$_SESSION['userid']."'");
     // history.back() : 현재 페이지의 한단계 이전 페이지로 이동
-    echo "<script>alert('정보변경이 완료되었습니다.'); location.href='../PC/main.php';</script>";
+    echo "<script>alert('정보변경이 완료되었습니다.'); location.href='/back/index.php';</script>";
 } else {
     echo "<script>alert('정보변경에 실패했습니다.(비밀번호 오류)'); history.back();</script>";
 }    

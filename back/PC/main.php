@@ -82,7 +82,7 @@ if(isset($_SESSION['userid'])){
 }
 ?>
       </ul>
-      <div class="logo_1"><a href = "/back/PC/main.php"><img src="/back/img/TheBack_white.png" alt=""></a></div>
+      <div class="logo_1"><a href = "/back/index.php"><img src="/back/img/TheBack_white.png" alt=""></a></div>
         <div class="slide_control">
             <div class="slide_box">
               	<a href=""><img src="/back/img/back_2.png" alt="width=1890;" height="700"></a>

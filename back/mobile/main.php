@@ -1,13 +1,13 @@
 <?php
-include "../db/db.php";
+include "./db/db.php";
 ?>
 <!DOCTYPE html>
 <html class = "no-js"; lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" href="../css/mainproject_home.css"> <!--CSS연결-->
-    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="/back/css/mainproject_home.css"> <!--CSS연결-->
+    <link rel="stylesheet" href="/back/css/reset.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous">
     </script><!--라이브러리는 항상 적용할 것 보다 위에-->
@@ -41,7 +41,7 @@ include "../db/db.php";
           </div>		
         </li>
         <li>
-          <a href="../board/comment_write_read.php">찬양 페이지</a>
+          <a href="/back/board/comment_write_read.php">찬양 페이지</a>
         </li>
 <?php
 // 서버에 아이디가 존재할 시(로그인 상태) 아래 메뉴를 띄움(마이페이지,로그아웃)
@@ -60,11 +60,11 @@ if(isset($_SESSION['userid'])){
 	?>
 	<li class="bar_right">
 	<!-- 클릭할 시 로그인으로 이동 -->
-        <a href='../mypage/mypage.php''>마이페이지</a>
+        <a href='/back/mypage/mypage.php''>마이페이지</a>
 	</li>
     <li class="bar_right">
 		<!-- 클릭할 시 회원가입으로 이동 -->
-        <a href='../login/logout.php' >로그아웃</a>
+        <a href='/back/login/logout.php' >로그아웃</a>
     </li>
 <?php
 // 서버에 아이디가 존재하지 않을 시(로그아웃상태) 아래 메뉴를 띄움(회원가입 로그인)
@@ -72,22 +72,22 @@ if(isset($_SESSION['userid'])){
 ?>		
 		<li class="bar_right">
 		<!-- 클릭할 시 로그인으로 이동 -->
-          	<a href='../login/login.php'>로그인</a>
+          	<a href='/back/login/login.php'>로그인</a>
 		</li>
         <li class="bar_right">
 			<!-- 클릭할 시 회원가입으로 이동 -->
-          	<a href='../register/member.php' >회원가입</a>
+          	<a href='/back/register/member.php' >회원가입</a>
         </li>
 <?php
 }
 ?>
       </ul>
-      <div class="logo_1"><a href = "../PC/main.php"><img src="../img/TheBack_white.png" alt=""></a></div>
+      <div class="logo_1"><a href = "/back/index.php"><img src="/back/img/TheBack_white.png" alt=""></a></div>
         <div class="slide_control">
             <div class="slide_box">
-              	<a href=""><img src="../img/back_2.png" alt="width=1890;" height="700"></a>
-            	<a href=""><img src="../img/back_3.png" alt="width=1890;" height="700"></a>
-           		<a href=""><img src="../img/back_4.png" alt="width=1600;" height="700"></a>
+              	<a href=""><img src="/back/img/back_2.png" alt="width=1890;" height="700"></a>
+            	<a href=""><img src="/back/img/back_3.png" alt="width=1890;" height="700"></a>
+           		<a href=""><img src="/back/img/back_4.png" alt="width=1600;" height="700"></a>
             </div>
         </div>
         <section id="two">
@@ -98,7 +98,7 @@ if(isset($_SESSION['userid'])){
                   <h3 class="back_mapa">백종원의 바지락칼국수</h3>
                 </header>
                 <div class="image fit">
-                  <img src="../img/cook_1.jpg.png" alt="" />
+                  <img src="/back/img/cook_1.jpg.png" alt="" />
                 </div>
                 <p class="back_mapa_sub">재료: 바지락,애호박,당근,칼국수
                    양념 :멸치가루1스푼,국간장2스푼,후추조금,다시다조금
@@ -112,7 +112,7 @@ if(isset($_SESSION['userid'])){
                   <h3 class="back_mapa">백종원의 마파두부</h3>
                 </header>
                 <div class="image fit">
-                  <img src="../img/cook_2.jpg.png" alt="" />
+                  <img src="/back/img/cook_2.jpg.png" alt="" />
                 </div>
                 <p class="back_mapa_sub">재료 : 두부한모,돼지고기 한줌,
                   햄,양파,대파,된장,고추장,전분<div class="br"></div></p>
@@ -120,7 +120,7 @@ if(isset($_SESSION['userid'])){
             </article>
           </div>
           <div class="final_box">
-            <img src="../img/board.png" alt="">
+            <img src="/back/img/board.png" alt="">
           </div>
         </section>
       </body>
