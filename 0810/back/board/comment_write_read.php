@@ -23,11 +23,19 @@ if(isset($_SESSION['userid'])){
 ?>
 	<sapn><button type="button" onclick="location.href='../mypage/mypage.php'" >마이페이지</button></sapn>
     <sapn><button type="button" onclick="location.href='../login/logout.php'" >로그아웃</button></sapn>
+    <div>
 <?php
 }
-// 만들어 놓은 헤더 (홈, 프로필, 레시피, 게시판) 삽입(include)
-include '../header/header.php';
 ?>	
+    <nav id="topMenu">
+        <ul>
+            <li><a class="menuLink" href="/back/main.php">홈</a></li>
+            <li><a class="menuLink" href="bookmark.php">프로필</a></li>
+            <li><a class="menuLink" href="/back/mypage.php">레시피</a></li>
+            <li><a class="menuLink" href="/back/board/comment_write_read.php">게시판</a></li>
+        </ul>
+    </nav>
+    </div>
     <div id="comment_write">
 		<!--enctype 속성은 폼 데이터(form data)가 서버로 제출될 때 해당 데이터가 인코딩되는 방법을 명시합니다. -->
 		<!-- multipart/form-data :
@@ -64,13 +72,13 @@ include '../header/header.php';
 				<br>
 				<div class="bt_cm">
 					<!-- location.href = '' : 새로운 페이지로 이동 -->
-					<button type="button" onclick="location.href='../login/login.php'">로그인 페이지로</button>
+					<button type="button" onclick="location.href='../login/index.php'">로그인 페이지로</button>
 				</div>
 			<?php
 			}
 			?>
 		</form>
-	</>			
+	</div>			
     <div id="comment_info_area">
     	<h1>댓글 목록</h1>
     	<table class="list-table">
