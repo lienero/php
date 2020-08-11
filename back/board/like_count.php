@@ -20,7 +20,9 @@ $current_like_date = DATE("Y-m-d", time());
 
 if(isset($userid)){    
     if($like_date < $current_like_date){
+        // 현재 시간(추천한 시간을) UPDATE 구문으로 like_date 에 삽입 
         $sql = mq("update member set like_date='".$current_like_date."' where id='".$userid."'");
+        // 추천횟수 + 1을 UPDATE 구문으로 like_count 에 삽입
         $sql = mq("update comment set like_count='".$like_count."' where comment_id='".$comment_id."'");
         echo "<script>
         alert('추천하셨습니다.');
