@@ -19,6 +19,7 @@ if($member['rank'] == "manager"){
 <span><button type="button" onclick="location.href='/back/index.php'" >메인페이지</button></span>
 <br>
 <span><button type="button" onclick="location.href='./member_modify.php'" >개인 정보수정</button></span>
+<span><button type="button" onclick="location.href='./member_withdrawal.php'" >회원탈퇴</span>
 <sapn><button type="button" onclick="location.href='../login/logout.php'" >로그아웃</button></sapn>
 <?php
 // member['rank'] 필드에 있는 값이 매니저이면 사이트 관리 버튼 출현
