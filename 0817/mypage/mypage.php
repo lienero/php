@@ -2,6 +2,12 @@
 include $_SERVER['DOCUMENT_ROOT']."/recipe_site/db/db.php";
 // 만들어 놓은 헤더 (홈, 프로필, 레시피, 게시판) 삽입(include)
 include '../header/header.php';
+$userid = $_SESSION['userid'];
+$sql = mq("select * from member where mem_id='".$userid."'");
+// $sql에 있는 fetch_array(): 인덱스를 변수에 삽입
+$member = $sql->fetch_array();
+$filter_Array = explode(",", $member['mem_filter']); //시스템에 미리 지정된 고종폭 글꼴을 사용하여 표현
+var_dump($filter_Array); //배열의 모든 요소를 출력
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +50,7 @@ include '../header/header.php';
                     <img src="../img/picky_catB.png" alt="" width="200" class="img-responsive left-block">
                 </div>
                 <!-- <form class="form-inline"> : 입력폼의 입력 항목이 가로로 표시되게 된다. -->
-                <form class="form-inline">
+                <form class="form-inline" method="get" action="./myfilter.php">
                     <fieldset>
                         <legend>체크박스다냥</legend>
                         <div class="checkbox">
@@ -53,42 +59,44 @@ include '../header/header.php';
                     <label for = 'id'> 는 해당 입력폼의 id를 지정함-->
                             재료&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;
                             <label>
-                                <input type="checkbox" value="pig" /> 돼지고기&nbsp;&nbsp;
+                                <input type="checkbox" name="pork" value="pork" /> 돼지고기&nbsp;&nbsp;
                             </label>
                             <label>
-                                <input type="checkbox" value="cow" /> 소고기&nbsp;&nbsp;
+                                <input type="checkbox" name="beef" value="beef" /> 소고기&nbsp;&nbsp;
                             </label>
                             <label>
-                                <input type="checkbox" value="chicken" /> 닭고기&nbsp;&nbsp;
+                                <input type="checkbox" name="chicken" value="chicken" /> 닭고기&nbsp;&nbsp;
                             </label>
                             <label>
-                                <input type="checkbox" value="vegetable" /> 채소&nbsp;&nbsp;
+                                <input type="checkbox" name="vegetable" value="vegetable" /> 채소&nbsp;&nbsp;
                             </label>
                             <label>
-                                <input type="checkbox" value="fruit" /> 과일&nbsp;&nbsp;
+                                <input type="checkbox" name="fruit" value="fruit" /> 과일&nbsp;&nbsp;
+                            </label>
+                            <label>
+                                <input type="checkbox" name="seasoning" value="seasoning" />조미료&nbsp;&nbsp;
                             </label>
                         </div>
                         </br>
                         <div class="checkbox">
                             매운맛&nbsp;: &nbsp;
                             <label>
-                                <input type="checkbox" value="0" /> 안 매운맛&nbsp;
+                                <input type="checkbox" name="spicy0" value="0" /> 안 매운맛&nbsp;
                             </label>
                             <label>
-                                <input type="checkbox" value="1" /> 조금 매운맛&nbsp;&nbsp;
+                                <input type="checkbox" name="spicy1" value="1" /> 조금 매운맛&nbsp;&nbsp;
                             </label>
                             <label>
-                                <input type="checkbox" value="2" /> 매운맛&nbsp;&nbsp;
+                                <input type="checkbox" name="spicy2" value="2" /> 매운맛&nbsp;&nbsp;
                             </label>
                             <label>
-                                <input type="checkbox" value="3" /> 그냥 죽여라냥&nbsp;&nbsp;
+                                <input type="checkbox" name="spicy3" value="3" /> 그냥 죽여라냥&nbsp;&nbsp;
                             </label>
                         </div>
                     </fieldset>
+                    <div><input type="submit" class="btn btn-info pull-right" value="저장"></div>
                 </form>
                 </table>
-
-                <div><a href="" class="btn btn-info pull-right">저장</a></div>
                 <br><br>
                 <fieldset>
                     <legend>내정보</legend>
