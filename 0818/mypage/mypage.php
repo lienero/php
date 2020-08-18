@@ -1,7 +1,5 @@
 <?php
 include $_SERVER['DOCUMENT_ROOT']."/recipe_site/db/db.php";
-// 만들어 놓은 헤더 (홈, 프로필, 레시피, 게시판) 삽입(include)
-include '../header/header.php';
 // 서버에 있는 아이디를 $userid 변수에 삽입
 $userid = $_SESSION['userid'];
 $sql = mq("select * from member where mem_id='".$userid."'");
@@ -19,7 +17,6 @@ while($i < count($filter_Array)){
     } else {
         $num[$i] = ""; 
     }
-    echo $num[$i];
     $i++;
 }
 // 반복문을 이용하여 배열에 값이 null이 아닐 경우에 'checked' 문자열 삽입
@@ -32,7 +29,6 @@ while($j < count($spicy_Array)){
     } else {
         $idx[$j] = ""; 
     }
-    echo $idx[$j];
     $j++;
 }
 
