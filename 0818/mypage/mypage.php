@@ -10,10 +10,6 @@ $member = $sql->fetch_array();
 // 콤마를 기준으로 나눠서 배열로 저장
 $filter_Array = explode(",", $member['mem_filter']); 
 $spicy_Array = explode(",", $member['mem_spicy']); 
-$filter = implode($filter_Array);
-$spicy = implode($spicy_Array);
-echo $filter,"<br>";
-echo $spicy,"<br>";
 // 반복문을 이용하여 배열에 값이 null이 아닐 경우에 'checked' 문자열 삽입
 // count(배열) 배열의 총 숫자보다 i가 작을 때 까지 반복한다.
 $i = 0;
