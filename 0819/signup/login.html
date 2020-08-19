@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/login2.css">
+
+    <title>login</title>
+  </head>
+<body>
+    <div class="container">
+        <form class="form-signin" action="login_ok.php" method="POST">
+            <!--메일 로고 이미지-->
+            <div>
+                <img src="./img/logo.png"  class="rounded mx-auto d-block" alt="">
+            </div>
+            <br>
+            <!--아이디 입력칸-->
+            <div class="form-label-group">
+                <input type="text" id="mem_id" name="mem_id" class="form-control rounded mx-auto d-block" placeholder="ID" required="" autofocus="">
+                <label for="mem_id"><font style="vertical-align: inherit;"></font></label>
+            </div>
+            <!--비밀번호 입력칸-->
+            <div class="form-label-group">
+                <input type="password" id="mem_pw" name="mem_pw" class="form-control rounded mx-auto d-block" placeholder="password" required="">
+                <label for="mem_pw"><font style="vertical-align: inherit;"></font></label>
+            </div>
+            <!--로그인 버튼-->
+            <button class="btn btn-lg btn-primary btn-block rounded mx-auto d-block" type="submit"><font style="vertical-align: inherit;">로그인</font></button>
+            <!--구글 로그인 버튼-->
+            <button class="btn btn-lg btn-primary btn-block rounded mx-auto d-block" type="submit"><font style="vertical-align: inherit;">구글 로그인</font></button>
+            <br>
+            <!--아이디 찾기 / 비밀번호 찾기 링크-->
+             <div class="forget">
+                <a href="id.html">아이디 찾기</a> | <a href="password.html">비밀번호 찾기</a>
+            </div>                
+
+        </form>
+    </div>
+</body>
+</html>
