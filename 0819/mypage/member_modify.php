@@ -24,7 +24,7 @@
 				<div class="page-header">
                     <h1 class="text-info">회원정보수정</h1>
                     <br>
-                    <img src="../img/picky_catB.png" alt="" width="300" class="img-responsive center-block">
+                    <img src="../signup/img/logo.png" alt="" width="300" class="img-responsive center-block">
                 </div>
 				<!-- <form class="form-inline"> : 입력폼의 입력 항목이 가로로 표시되게 된다. -->
 				<form class="form-inline" method="post" action="./member_update.php" style="text-align:center;">

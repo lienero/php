@@ -9,10 +9,31 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="css/login2.css">
 
+    <!-- google sign-in api -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="521937207453-apclabkc4j6kei9f4nb1b2iolkh7poqe.apps.googleusercontent.com">
+
     <title>login</title>
+    <script>
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+        }
+    </script>
+    <style>
+        #google {
+            width: 100%;
+        }
+    </style>
   </head>
 <body>
     <div class="container">
+
+        <div class="row" style="width: 100%; justify-content: center;">
+
         <form class="form-signin" action="login_ok.php" method="POST">
             <!--메일 로고 이미지-->
             <div>
@@ -32,14 +53,19 @@
             <!--로그인 버튼-->
             <button class="btn btn-lg btn-primary btn-block rounded mx-auto d-block" type="submit"><font style="vertical-align: inherit;">로그인</font></button>
             <!--구글 로그인 버튼-->
+        
+            <div class="g-signin2" data-onsuccess="onSignIn" style="margin: 0 auto;"></div>
+
             <button class="btn btn-lg btn-primary btn-block rounded mx-auto d-block" type="submit"><font style="vertical-align: inherit;">구글 로그인</font></button>
             <br>
+
             <!--아이디 찾기 / 비밀번호 찾기 링크-->
              <div class="forget">
                 <a href="id.html">아이디 찾기</a> | <a href="password.html">비밀번호 찾기</a>
             </div>                
 
         </form>
+    </div>
     </div>
 </body>
 </html>

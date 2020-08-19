@@ -75,7 +75,6 @@ if($member['mem_spicy']!= null){
             });
         });
     </script>
-
     <link rel="stylesheet" href="/recipe_site/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/recipe_site/css/bootstrap-theme.min.css" />
 </head>
@@ -92,7 +91,7 @@ if($member['mem_spicy']!= null){
                 <div class="page-header">
                     <h3 class="text-info"><a href ="./mypage.php">마이페이지</a></h3>
                     <br>
-                    <img src="../img/picky_catB.png" alt="" width="200" class="img-responsive left-block">
+                    <img src="../signup/img/logo.png" alt="" width="200" class="img-responsive left-block">
                 </div>
                 <!-- <form class="form-inline"> : 입력폼의 입력 항목이 가로로 표시되게 된다. -->
                 <form class="form-inline" method="get" action="./myfilter.php">
@@ -141,7 +140,6 @@ if($member['mem_spicy']!= null){
                     </fieldset>
                     <div><input type="submit" class="btn btn-info pull-right" value="저장"></div>
                 </form>
-                </table>
                 <br><br>
                 <fieldset>
                     <legend>내정보</legend>

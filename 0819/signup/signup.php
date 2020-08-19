@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../css/signup.css">
+    <link rel="stylesheet" type="text/css" href="./css/signup.css">
 	<title>회원가입</title>
 	<!-- 아이디 중복 검사 와 비밀번호 보안성 체크 함수가 담긴 js파일 -->
 	<script src ="../js/checks.js"></script>
@@ -21,7 +21,7 @@
         <form class="form-signin" method="post" action="./signup_ok.php">
           <!--메인 로고 이미지-->    
 			<div>
-				<img src="../img/logo.png"  class="rounded mx-auto d-block" alt="">  
+				<img src="./img/logo.png"  class="rounded mx-auto d-block" alt="">  
 			</div> 
 			<br>
 			<br>

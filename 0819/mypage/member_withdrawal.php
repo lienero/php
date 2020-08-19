@@ -7,7 +7,6 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="../css/common.css" />
 	<title>회원탈퇴</title>
 	<!-- 아이디 중복 검사 와 비밀번호 보안성 체크 함수가 담긴 js파일 -->
 	<script src ="../js/checks.js"></script>
@@ -25,7 +24,7 @@
 				<div class="page-header">
                     <h1 class="text-info">회원탈퇴</h1>
                     <br>
-                    <img src="../img/picky_catB.png" alt="" width="300" class="img-responsive center-block">
+                    <img src="../signup/img/logo.png" alt="" width="300" class="img-responsive center-block">
                 </div>
 				<!-- <form class="form-inline"> : 입력폼의 입력 항목이 가로로 표시되게 된다. -->
 				<form class="form-inline" method="post" action="./member_delete.php" style="text-align:center;">
