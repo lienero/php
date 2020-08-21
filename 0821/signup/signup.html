@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/signup.css">
+
+    <title>login</title >
+  </head>
+<body>
+    <div class="container">
+        <form class="form-signin">
+          <!--메인 로고 이미지-->    
+          <div>
+                <img src="./img/logo.png"  class="rounded mx-auto d-block" alt="">  
+            </div> 
+            <br>
+            <br>
+            <!--아이디 입력칸과 중복확인 버튼-->
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="ID" aria-label="ID" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                  <button type="button" id="button">중복검사</button>
+                </div>
+              </div>
+            <br>
+            <br>
+            <!--비밀번호 입력칸-->
+            <div class="form-label-group">
+                <input type="password" id="inputPassword" class="form-control rounded mx-auto d-block" placeholder="password" required="">
+                <label for="inputPassword"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"></font></font></label>
+            </div>
+            <br>
+            <div></div>
+            <!--비밀번호 확인 입력칸-->
+            <div class="form-label-group">
+                <input type="password" id="inputPassword" class="form-control rounded mx-auto d-block" placeholder="password" required="">
+                <label for="inputPassword"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"></font></font></label>
+            </div>
+            <br>
+            <div></div>
+            <!--이메일 입력칸-->
+            <div class="input-group">
+              <input type="text" class="form-control" aria-label="Text input with dropdown button">
+              <!--이메일 주소선택-->
+                <select class="form-control" id="exampleFormControlSelect1">
+                  <option>@gmail.com</option>
+                  <option>@naver.com</option>
+                  <option>@daum.net</option>
+                </select>
+            </div>     
+              <br>
+              <br>
+              <!--동의 의사를 묻는 체크박스-->
+              <div class="custom-control custom-checkbox" style="text-align: center;">
+                <input type="checkbox" id="jb-checkbox" class="custom-control-input ">
+                <label class="custom-control-label" for="jb-checkbox">동의하시겠습니까?</label>
+              </div>
+              <br>
+              <br>
+              <!--입력을 완료한다음 회원가입 완료 버튼-->
+            <div>
+              <button type="button" class="btn btn-outline-success rounded mx-auto d-block" id="success">Success</button>
+            </div>
+          
+                              
+            
+        
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>

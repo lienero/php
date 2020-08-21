@@ -1,0 +1,28 @@
+/**------------------------------컨텐츠 구역--------------------------**/
+img {
+  max-width: 100%;
+  height: auto;
+}
+.row {
+  margin: 0 !important;
+}
+.content_box1 {
+  background: white;
+  padding-top: 20px;
+  border: gainsboro solid 1px;
+  margin-top: 20px;
+  justify-content: center;
+}
+.content_box1_title_content {
+  padding: 0 0 2% 7%;
+  font-size: 2em;
+}
+
+.page-section {
+  margin-top: 3%;
+  background: white;
+}
+.review_box,
+.recipe_recommendation_box {
+  padding: 0 !important;
+}
