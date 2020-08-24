@@ -3,7 +3,7 @@
     
     $email = $_POST['email'].$_POST['emailaddress'];
 
-    $sql = mq("select * from member where mem_email='".$email."'");
+    $sql = mq("select * from po_member where mem_email='".$email."'");
     $member = $sql->fetch_array();
 
     // if $email is null >> page back 

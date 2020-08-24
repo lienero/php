@@ -12,7 +12,7 @@
 	$agree = $_POST['agree'];
 
 	// $sql에 .$uid. 와 같은 id를 가진 쿼리를 삽입
-	$sql = mq("select * from member where mem_id='".$userid."'");
+	$sql = mq("select * from po_member where mem_id='".$userid."'");
 	
 	// $sql에 있는 fetch_array(): 인덱스를 변수에 삽입
 	$member = $sql->fetch_array();
@@ -26,7 +26,7 @@
 				// checkbox 를 체크했을 때 참
 				if($agree == "agree"){
 					//mq() 한수를 이용하여 쿼리를 $sql에 삽입
-					$sql = mq("insert into member (mem_id,mem_pw,mem_email) values('".$userid."','".$userpw."','".$email."')");
+					$sql = mq("insert into po_member (mem_id,mem_pw,mem_email) values('".$userid."','".$userpw."','".$email."')");
 					// alert() :  alert()은 경고창(alert box)를 나타내 주는 스크립트입니다.
 
 					//회원가입이 완료되었을 시 login.html로  

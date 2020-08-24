@@ -5,7 +5,7 @@
     $id = $_GET['id'];
     $pw = password_hash($_POST['userpw'], PASSWORD_DEFAULT);
 
-    $sql = mq("select * from member where mem_id='".$id."'");
+    $sql = mq("select * from po_member where mem_id='".$id."'");
     $member = $sql->fetch_array();
 
     if($member) {

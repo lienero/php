@@ -8,7 +8,7 @@
             // put value in array
             $member = $_POST['member'];
             // delect member data
-            $sql = mq("DELETE FROM member WHERE mem_id = '".$member[$idx]."'");
+            $sql = mq("DELETE FROM po_member WHERE mem_id = '".$member[$idx]."'");
             // back manager page
             echo "<script>history.back();</script>";
         }

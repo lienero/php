@@ -5,7 +5,7 @@
 	//password변수에 POST로 받아온 값을 저장하고 sql문으로 POST로 받아온 아이디값을 찾습니다.
     $password = $_POST['userpw']; // 패스워드 입력 값을 post로 받아옴
     $agree = $_POST['agree']; // 동의 체크박스를 post로 받아옴
-	$sql = mq("select * from member where mem_id='".$_SESSION['mem_id']."'");
+	$sql = mq("select * from po_member where mem_id='".$_SESSION['mem_id']."'");
 	$member = $sql->fetch_array();
 	$hash_pw = $member['mem_pw']; //$hash_pw에 POST로 받아온 아이디열의 비밀번호를 저장합니다. 
 
@@ -14,7 +14,7 @@
         if($_POST['userpw'] == $_POST['userpwconfirm']){
             if(password_verify($password, $hash_pw)) {
                 if($agree == "agree"){
-                    $sql = mq("delete from member where mem_id='".$_SESSION['mem_id']."'");
+                    $sql = mq("delete from po_member where mem_id='".$_SESSION['mem_id']."'");
                     session_destroy();
                     echo "<script>alert('회원을 탈퇴하셨습니다.'); location.href='../signup/login.html';</script>";
                 } else {

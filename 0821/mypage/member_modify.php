@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="/recipe_site/signup/css/signup2.css">
 </head>
 <body>
-<form class="form-signin" method="post" action="./signup_ok.php">
+<form class="form-signin" method="post" action="./member_update.php">
     <div class="container">
 		<!-- post 방식으로 signup_ok.php 에 보낸다. -->
     	<!--메인 로고 이미지-->    

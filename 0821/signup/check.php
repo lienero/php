@@ -7,7 +7,7 @@
 	$userid = $_GET["userid"];
     
 	// $sql에 .$uid. 와 같은 id를 가진 쿼리를 삽입
-	$sql = mq("select * from member where mem_id='".$userid."'");
+	$sql = mq("select * from po_member where mem_id='".$userid."'");
 	
 	// $sql에 있는 fetch_array(): 인덱스를 변수에 삽입
 	$member = $sql->fetch_array();

@@ -1,7 +1,7 @@
 <?php
   include "../db/db.php";
-  $sql_mem = mq("select mem_id, mem_email, mem_spicy from member");
-  $sql_recipe = mq("select recipe_name, mem_id, recipe_seq from recipe");
+  $sql_mem = mq("select mem_id, mem_email, mem_spicy from po_member");
+  $sql_recipe = mq("select recipe_name, mem_id, recipe_seq from po_recipe");
 ?>
 <!DOCTYPE html>
 <html lang="ko">

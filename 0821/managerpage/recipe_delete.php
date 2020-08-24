@@ -8,7 +8,7 @@
             $recipe = $_POST['recipe'];
             echo $recipe[$idx];
             // delect recipe data
-            $sql = mq("DELETE FROM recipe WHERE recipe_seq = '".$recipe[$idx]."'");
+            $sql = mq("DELETE FROM po_recipe WHERE recipe_seq = '".$recipe[$idx]."'");
             // back manager page
             echo "<script>history.back();</script>";
         }

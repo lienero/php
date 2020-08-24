@@ -4,7 +4,7 @@
     $id = $_POST['id'];
     $email = $_POST['email'].$_POST['emailaddress'];
     
-    $sql = mq("select * from member where mem_email='".$email."' AND mem_id='".$id."'");
+    $sql = mq("select * from po_member where mem_email='".$email."' AND mem_id='".$id."'");
     $member = $sql->fetch_array();
 
     if($member) {

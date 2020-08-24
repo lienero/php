@@ -16,7 +16,7 @@ $email = $_POST['email'].$_POST['emailaddress'];
 // strlen(문자열) 함수를 이용하여, 패스워드 길이가 8 이상이면 참
 if(strlen($_POST['userpw']) >= 8){
     // mq($sql) 함수를 이용하여 퀴리를 $sql에 삽입 (update)
-    $sql = mq("update member set mem_pw='".$userpw."',mem_email='".$email."' where mem_id='".$_SESSION['mem_id']."'");
+    $sql = mq("update po_member set mem_pw='".$userpw."',mem_email='".$email."' where mem_id='".$_SESSION['mem_id']."'");
     // history.back() : 현재 페이지의 한단계 이전 페이지로 이동
     echo "<script>alert('정보변경이 완료되었습니다.'); location.href='./mypage.php';</script>";
 } else {

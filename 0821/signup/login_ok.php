@@ -9,7 +9,7 @@
 
         //password변수에 POST로 받아온 값을 저장하고 sql문으로 POST로 받아온 아이디값을 찾습니다.
         $password = $_POST['mem_pw'];
-        $sql = mq("select * from member where mem_id='".$_POST['mem_id']."'");
+        $sql = mq("select * from po_member where mem_id='".$_POST['mem_id']."'");
         $member = $sql->fetch_array();
         $hash_pw = $member['mem_pw']; //$hash_pw에 POST로 받아온 아이디열의 비밀번호를 저장합니다. 
         

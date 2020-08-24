@@ -6,7 +6,7 @@ if(!isset($_SESSION))
         session_start(); 
     } 
 $userid = $_SESSION['mem_id'];
-$sql = mq("select * from member where mem_id='".$userid."'");
+$sql = mq("select * from po_member where mem_id='".$userid."'");
 // $sql에 있는 fetch_array(): 인덱스를 변수에 삽입
 $member = $sql->fetch_array();
 // 콤마를 기준으로 나눠서 배열로 저장

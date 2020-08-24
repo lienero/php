@@ -23,20 +23,20 @@ if(!isset($_SESSION))
 
     if(isset($userid)){
         // $sql에 .$uid. 와 같은 id를 가진 쿼리를 삽입
-        $sql = mq("select * from member where mem_id='".$userid."'");
+        $sql = mq("select * from po_member where mem_id='".$userid."'");
         // $sql에 있는 fetch_array(): 인덱스를 변수에 삽입
         $member = $sql->fetch_array();
         // 둘 주엥 하나의 값이라도 존재할시 작동
         if($member['mem_filter'] || $member['mem_spicy']){
             //get으로 받아온 정보를 db에 update. 콤마를 찍는 식으로 저장한다
-            $sql = mq("update member set mem_filter = '".$pork.$beef.$chicken.$vegetable.$fruit.$seasoning."' where mem_id='".$userid."'");
-            $sql = mq("update member set mem_spicy = '".$spicy0.$spicy1.$spicy2.$spicy3."' where mem_id='".$userid."'");
+            $sql = mq("update po_member set mem_filter = '".$pork.$beef.$chicken.$vegetable.$fruit.$seasoning."' where mem_id='".$userid."'");
+            $sql = mq("update po_member set mem_spicy = '".$spicy0.$spicy1.$spicy2.$spicy3."' where mem_id='".$userid."'");
             echo "<script>
             alert('필터링이 수정되었습니다.'); history.back();</script>";
         } else {
             //get으로 받아온 정보를 db에 update. 콤마를 찍는 식으로 저장한다
-            $sql = mq("update member set mem_filter = '".$pork.$beef.$chicken.$vegetable.$fruit.$seasoning."' where mem_id='".$userid."'");
-            $sql = mq("update member set mem_spicy = '".$spicy0.$spicy1.$spicy2.$spicy3."' where mem_id='".$userid."'");
+            $sql = mq("update po_member set mem_filter = '".$pork.$beef.$chicken.$vegetable.$fruit.$seasoning."' where mem_id='".$userid."'");
+            $sql = mq("update po_member set mem_spicy = '".$spicy0.$spicy1.$spicy2.$spicy3."' where mem_id='".$userid."'");
             echo "<script>
             alert('필터링이 등록되었습니다.'); history.back();</script>";
         }
