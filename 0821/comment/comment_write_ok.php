@@ -26,7 +26,7 @@ move_uploaded_file($tmpfile,$folder);
 
 // $userid && $content && $time 값이 존재할(참)시 데이터베이스에 입력  
 if($userid && $content && $time){
-    $sql = mq("insert into comment(mem_id, com_cont, com_img, com_date)
+    $sql = mq("insert into po_comment(mem_id, com_cont, com_img, com_date)
     values('".$userid."','".$content."','".$o_name."','".$time."')");
     echo "<script>
     alert('댓글이 등록되었습니다.');

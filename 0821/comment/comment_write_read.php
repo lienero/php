@@ -11,7 +11,7 @@ include $_SERVER['DOCUMENT_ROOT']."/recipe_site/db/db.php";
 
 if(isset($_SESSION['mem_id'])){
 	// 세션에 있는 유저의 아이디와 같은 테이블을 변수에 삽입함
-	$sql = mq("select * from member where mem_id='".$_SESSION['mem_id']."'");	
+	$sql = mq("select * from po_member where mem_id='".$_SESSION['mem_id']."'");	
 	// $sql에 있는 fetch_array(): 인덱스를 변수에 삽입
 	$member = $sql->fetch_array();
 	// member rankd 필드에 있는 값이 매니저이면 관리자
@@ -89,8 +89,7 @@ if(isset($_SESSION['mem_id'])){
 				// $_GET['page']에 값이 없을 때 $apge 값에 1을 입력
 				$page = 1;
 			}
-			//comment 테이블에서 comment_id를 기준으로 오름차순해서 0부터 5개를(limit 0(시작할 위치),5(출력할 갯수)) 출력
-				$sql2 = mq("select * from comment");
+				$sql2 = mq("select * from po_comment");
 				//mysqli_num_rows : sql의 레코트의 행을 구함, 게시판 총 레코드 수
 				$row_num = mysqli_num_rows($sql2);
 				// 블록당 보여줄 페이지의 개수
@@ -114,7 +113,8 @@ if(isset($_SESSION['mem_id'])){
 				$start_num = ($page-1) * 5;
 				//$sql->fetch_array() 쿼리에 있는 데이터를 한줄씩 표시(있을 때 까지)
 				//$sql->fetch_array()에 데이터가 존재할 때 까지 반복한다.
-				$sql3 = mq("select * from comment order by con_seq limit $start_num,5");
+				//comment 테이블에서 con_seq를 기준으로 오름차순해서 0부터 5개를(limit 0(시작할 위치),5(출력할 갯수)) 출력
+				$sql3 = mq("select * from po_comment order by con_seq limit $start_num,5");
 				while($comment_info = $sql3->fetch_array())
     			{
     			?>      
