@@ -6,7 +6,6 @@
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
-  font-family: "M PLUS Rounded 1c", sans-serif; /*폰트변경*/
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 }
@@ -1085,17 +1084,18 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "M PLUS Rounded 1c", "Noto Sans KR", sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
   background-color: #fff;
 }
+/*바디 기본 폰트 변경*/
 input,
 button,
 select,
 textarea {
-  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-family: "inherit";
   font-size: inherit;
   line-height: inherit;
 }
@@ -1180,7 +1180,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-family: inherit;
   font-weight: 500;
   line-height: 1.1;
   color: inherit;
@@ -3102,7 +3102,7 @@ select[multiple].form-group-lg .form-control {
 .btn:hover,
 .btn:focus,
 .btn.focus {
-  color: #333;
+  color: #fff;
   text-decoration: none;
 }
 .btn:active,
@@ -6567,7 +6567,7 @@ button.close {
   width: 20px;
   height: 20px;
   margin-top: -10px;
-  font-family: serif;
+  font-family: "serif";
   line-height: 1;
 }
 .carousel-control .icon-prev:before {

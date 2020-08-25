@@ -86,7 +86,51 @@ ul {
   justify-content: center !important;
   align-items: center !important;
 }
-
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+  outline-color: white !important;
+  outline-offset: -3px !important;
+}
+.login_button_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 33px;
+}
+.login_button {
+  font-size: 1em !important;
+  background: #e04f5d;
+  color: white;
+  border-radius: 1px;
+}
+.login_button2 {
+  font-size: 1em !important;
+  background: white;
+  color: #e04f5d;
+  border-radius: 1px;
+  border: solid 1px #e04f5d !important;
+}
+.login_button:hover {
+  font-size: 1em !important;
+  background: white;
+  color: #e04f5d !important;
+  border-radius: 3px;
+  border: solid 1px #e04f5d !important;
+}
+.login_button2:hover {
+  font-size: 1em !important;
+  background: #e04f5d;
+  color: white;
+  border-radius: 3px;
+}
+.login_text {
+  color: #fff;
+  background: #e04f5d;
+}
 /**------------------------------카테고리------------------------------------**/
 .dropdown-menu {
   background: #f77e8a !important;
@@ -189,7 +233,6 @@ ul {
 .recipe_recommendation_box {
   padding: 0 !important;
 }
-
 /**------------------------------푸터구역------------------------------------**/
 .footer_main {
   text-align: center;
