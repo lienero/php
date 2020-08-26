@@ -105,6 +105,7 @@
 			echo "로그인을 해주세요";
 		}
 		?>
+		</table>
 		<h1>게시글 목록 2</h1>
     	<table class="table table-bordered"">
 			<thead class="info">
