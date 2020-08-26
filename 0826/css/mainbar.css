@@ -1,0 +1,170 @@
+/**----------------------전체적용-----------------------**/
+img {
+  max-width: 100%;
+  height: auto;
+}
+.row {
+  margin: 0 !important;
+}
+/**---------------------------메인 상단-----------------------**/
+.main_top {
+  background: white;
+  padding: 2% 0 0 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+  justify-items: center;
+}
+/*이미지 가운데 정렬*/
+ul {
+  list-style: none;
+}
+/*ul 스타일 초기화*/
+
+.box1 {
+  align-items: center;
+  justify-content: center;
+  height: 101px;
+  width: 100%;
+  margin: 0 auto;
+}
+.search_button {
+  border-radius: 6px;
+}
+.img-wrap {
+  align-items: center;
+  justify-content: center;
+  margin: 25px 0;
+}
+.box2 {
+  align-items: center;
+  justify-content: center;
+  height: 101px;
+  margin: auto;
+  width: 100%;
+}
+.box2 img {
+  margin-right: 10px;
+}
+.category_button {
+  padding-top: 2%;
+  border: 0;
+  outline: 0;
+  background: none;
+  margin-left: 47%;
+}
+#main-button {
+  font-size: 90%;
+}
+.form-control {
+  width: 70% !important;
+}
+.btn-info {
+  border-style: none;
+  border-color: #fdafb6 !important;
+  background-image: linear-gradient(
+    to bottom,
+    #f77e8a 0%,
+    #fdafb6 100%
+  ) !important;
+}
+.btn-info:active {
+  border-style: none;
+  border-color: #fdafb6 !important;
+  background-color: #fdafb6 !important;
+}
+.btn-info:hover,
+.btn-info:focus {
+  background-color: #fdafb6 !important;
+  border: none !important;
+}
+.toggle_button > .btn {
+  font-size: 1.2em !important;
+  text-align: center;
+}
+.switch_button {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/**------------------------------카테고리------------------------------------**/
+.dropdown-menu {
+  background: #f77e8a !important;
+}
+.dropdown-menu > a {
+  display: inline-block;
+  width: 100%;
+}
+.dropdown-menu > a:hover {
+  background: white;
+  color: #f77e8a !important;
+  text-decoration: none !important;
+}
+.dropdown-item {
+  color: white;
+}
+
+.navbar-collapse {
+  background: #e04f5d;
+  padding: 0 !important;
+}
+.nav-item {
+  font-size: 1.6em;
+  text-align: center;
+  font-weight: 900;
+}
+.nav-item > a {
+  color: white;
+}
+.navbar-search {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-link:hover,
+.nav-link:focus {
+  background: white;
+  color: #f77e8a !important;
+  text-decoration: none !important;
+}
+.nav-link {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+.navbar {
+  border: none !important;
+  min-height: 0 !important;
+}
+.navbar-collapse {
+  margin: 0;
+  width: 100% !important;
+}
+.navbar-nav {
+  margin: 0 auto !important;
+  padding-inline-start: 10px;
+  padding-inline-end: 10px;
+
+  text-align: center;
+}
+.navbar-nav > li > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.col-md-20 {
+  width: 20%;
+}
+
+#dropdonw-menu {
+  border: none;
+  box-shadow: none;
+}
+/**캐러셀 구역**/
+.pictur_box1 {
+  margin-top: 20px;
+}

@@ -1,0 +1,62 @@
+h3 {
+  text-align: center;
+}
+p {
+  text-align: center;
+}
+.thumbnail {
+  text-align: center;
+  border: 1px solid white;
+}
+.icon {
+  width: 30%;
+}
+
+.flex_box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3%;
+}
+ul {
+  list-style: none;
+}
+hr {
+  margin: 5%;
+}
+.recipe {
+  font-size: 20px;
+}
+.comment_box {
+  justify-content: center;
+  align-items: center;
+}
+.comment_button {
+  font-size: 1em;
+}
+.reply_list {
+  border-top: 1px solid #d3d3d3;
+  border-bottom: 1px solid #d3d3d3;
+}
+.btn {
+  font-size: 20px;
+  height: 100%;
+}
+.col-md-5 {
+  margin-top: 3%;
+  justify-content: center;
+}
+.comment_wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.test {
+  padding-right: 0;
+  padding-left: 0;
+}
+.card-img {
+  border: 1px solid #d3d3d3;
+}
+.media-object {
+  border-right: 1px solid #d3d3d3;
+}
