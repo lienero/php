@@ -25,6 +25,16 @@
 	<h4 style="margin-top:30px;"><a href="../index.php">홈으로</a></h4>	
 	<div id="comment_info_area">
 		<h1>게시글 목록</h1>
+		<table class="table table-bordered"">
+			<thead class="info">
+    			<tr>
+					<th>아이디</th>
+					<th>작성자</th>
+					<th>내용</th>
+					<th>매운맛</th>
+					<th>주재료</th>
+    			</tr>
+			</thead>
 		<?php
 		if(isset($userid)){
 			$sql = mq("select * from po_member where mem_id='".$userid."'");
@@ -77,10 +87,18 @@
 			} else {
 				//$sql->fetch_array() 쿼리에 있는 데이터를 한줄씩 표시(있을 때 까지)
 				//$sql->fetch_array()에 데이터가 존재할 때 까지 반복한다.
-				while($recipe_info = $sql->fetch_array()){		
-					echo $recipe_info['recipe_seq'];
-					echo $recipe_info['recipe_spicy'];
-					echo $recipe_info['recipe_food']."<br>";
+				while($recipe_info = $sql->fetch_array()){
+				?>
+					<tbody>
+						<tr>
+							<td><?php echo $recipe_info['recipe_seq'];?></td>
+							<td><?php echo $recipe_info['mem_id'];?></td>
+							<td><?php echo $recipe_info['recipe_contant'];?></td>
+							<td><?php echo $recipe_info['recipe_spicy'];?></td>
+							<td><?php echo $recipe_info['recipe_food'];?></td>
+						</tr>
+					</tbody>			
+				<?php
 				}
 			}
 		} else {
