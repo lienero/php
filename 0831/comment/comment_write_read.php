@@ -100,7 +100,7 @@ if(isset($_SESSION['mem_id'])){
 				$block_start = (($block_num - 1) * $block_ct) + 1;
 				// 블록의 마지막 번호
 				$block_end = $block_start + $block_ct -1;
-				//페이징한 페이지의 숫자를 구한다.
+				//페이징한 총 페이지의 숫자를 구한다.
 				//ceil 은 입력값에 소수부분이 존재할 때 값을 올려서 리턴하는 함수
 				$total_page = ceil($row_num/5);
 				//만약 블록의 마지막 번호가 페이지수보다 많다면
@@ -109,11 +109,11 @@ if(isset($_SESSION['mem_id'])){
 				}
 				//블럭의 총 개수를 구함
 				$total_block = ceil($total_page/$block_ct);
-				//시작번호 (page-1)에서 $list를 곱한다.
+				//시작번호 (page-1)에서 5를 곱한다.
 				$start_num = ($page-1) * 5;
 				//$sql->fetch_array() 쿼리에 있는 데이터를 한줄씩 표시(있을 때 까지)
 				//$sql->fetch_array()에 데이터가 존재할 때 까지 반복한다.
-				//comment 테이블에서 con_seq를 기준으로 오름차순해서 0부터 5개를(limit 0(시작할 위치),5(출력할 갯수)) 출력
+				//comment 테이블에서 con_seq를 기준으로 오름차순해서 $start_num부터 5개를(limit $start_num(시작할 위치),5(출력할 갯수)) 출력
 				$sql3 = mq("select * from po_comment order by con_seq limit $start_num,5");
 				while($comment_info = $sql3->fetch_array())
     			{
