@@ -1,0 +1,62 @@
+.category_box {
+  text-align: center;
+}
+.check_box_title {
+  font-size: 2em;
+  color: black;
+}
+.btn-group-toggle > .btn {
+  font-size: 1em;
+}
+.btn-primary {
+  background-image: linear-gradient(
+    to bottom,
+    #f87b8a 0%,
+    #fb9faa 100%
+  ) !important;
+  border-color: #f45a6c !important;
+}
+.btn-primary:hover {
+  background: #f45a6c !important;
+}
+.btn-primary:active {
+  outline: none !important;
+  border-color: #f45a6c !important;
+  background-color: #f45a6c !important;
+  outline-color: #fff !important;
+}
+.btn-primary:focus {
+  border-color: #fff !important;
+  outline: none !important;
+  background-color: white !important;
+}
+.btn-primary:visited {
+  background-color: white !important;
+}
+.btn:checked {
+  background: #fff !important;
+}
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+  outline-color: white !important;
+  outline-offset: -3px !important;
+}
+.btn-default:active,
+.btn-primary:active,
+.btn-success:active,
+.btn-info:active,
+.btn-warning:active,
+.btn-danger:active,
+.btn-default.active,
+.btn-primary.active,
+.btn-success.active,
+.btn-info.active,
+.btn-warning.active,
+.btn-danger.active {
+  color: #f45a6c !important;
+  background: white !important;
+}
