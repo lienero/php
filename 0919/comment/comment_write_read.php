@@ -62,7 +62,7 @@ if(isset($_SESSION['mem_id'])){
 				<br>
 				<div class="bt_cm">
 					<!-- location.href = '' : 새로운 페이지로 이동 -->
-					<button type="button" onclick="location.href='../signup/login.html'">로그인 페이지로</button>
+					<button type="button" onclick="location.href='../signup/login.php'">로그인 페이지로</button>
 				</div>
 			<?php
 			}

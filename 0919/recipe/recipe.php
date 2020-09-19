@@ -44,6 +44,7 @@
                 <a href="/recipe_site/index.php"><img src="../img/logo_pink.png" alt="" class=""></a>
             </div>
             <?php
+            include "../db/db.php";
             if(isset($_SESSION['mem_id'])){
             ?>    
                 <div class="col-md-2 box1 text-center row">
@@ -145,7 +146,7 @@
     </div>
     <br>
     <div class="container">
-        <form>
+        <form action="../comment/comment_write_ok.php" method="POST" enctype="multipart/form-data">
             <!--레시피 대표 이미지-->
             <div class="row flex_box">
                 <div class="col-md-10 text-center">
@@ -283,6 +284,9 @@
     </div>
     <br>
     <!--댓글 쓰기-->
+    <?php
+    if(isset($_SESSION['mem_id'])){
+	?>	
     <div class="container">
         <div class="row comment_wrap">
             <div class="col-md-3 test">
@@ -290,30 +294,130 @@
                     <img src="../img/plus.png" class="card-img" />
                 </div>
             </div>
-            <div class="col-md-6 test">
-                <textarea class="form-control" rows="2"></textarea>
+            <div class="col-md-6 test">        
+                <textarea class="form-control" rows="2" name="content" id="content" placeholder="댓글을 입력하세요" required></textarea>
             </div>
             <div class="col-md-3 test">
-                <button type="button" class="btn btn-danger">등록</button>
-
+                <button type="submit" class="btn btn-danger">등록</button>
             </div>
         </div>
     </div>
+    <?php
+	}else{
+	?>
+        <div class="container">
+        <div class="row comment_wrap">
+            <div class="col-md-3 test">
+                <div class="test2 text-right">
+                    <img src="../img/plus.png" class="card-img" />
+                </div>
+            </div>
+            <div class="col-md-6 test">        
+                <textarea class="form-control" rows="2" name="content" id="content" placeholder="로그인을 해주세요" required></textarea>
+            </div>
+            <div class="col-md-3 test">
+                <button type="button" class="btn btn-danger" onclick="location.href='../signup/login.php'">로그인</button>
+            </div>
+        </div>
+    </div>
+    <?php
+	}
+	?>
     </div>
     </div>
 
     <!--댓글 리스트-->
     <div class="row flex_box">
         <div class="col-md-5 review_margin">
-            <div class="reply_tit"><span id="recipeCommentListCount">댓글 갯수</span></div>
+        <?php
+			// $_GET['page']에 값이 있을 때 $apge 값에 $_GET['page'];입력
+			if(isset($_GET['page'])){
+				$page = $_GET['page'];
+			} else {
+				// $_GET['page']에 값이 없을 때 $apge 값에 1을 입력
+				$page = 1;
+			}
+				$sql2 = mq("select * from po_comment");
+				//mysqli_num_rows : sql의 레코트의 행을 구함, 게시판 총 레코드 수
+				$row_num = mysqli_num_rows($sql2);
+				// 블록당 보여줄 페이지의 개수
+				$block_ct = 5;
+				// 현재 페이지 블록 구하기
+				$block_num = ceil($page/$block_ct); 
+				// 페이지의 시작번호
+				$block_start = (($block_num - 1) * $block_ct) + 1;
+				// 블록의 마지막 번호
+				$block_end = $block_start + $block_ct -1;
+				//페이징한 총 페이지의 숫자를 구한다.
+				//ceil 은 입력값에 소수부분이 존재할 때 값을 올려서 리턴하는 함수
+				$total_page = ceil($row_num/5);
+				//만약 블록의 마지막 번호가 페이지수보다 많다면
+				if($block_end > $total_page) {
+					$block_end = $total_page; 
+				}
+				//블럭의 총 개수를 구함
+				$total_block = ceil($total_page/$block_ct);
+				//시작번호 (page-1)에서 5를 곱한다.
+                $start_num = ($page-1) * 5;
+            ?>
+            <div class="reply_tit"><span id="recipeCommentListCount">총 댓글 갯수:<?php echo $row_num ?></span></div>
             <div class="media reply_list">
                 <div class="media-left">
                     <img class="media-object" src="../img/logo_pink.png" data-holder-rendered="true">
                 </div>
+                <?php
+                $sql3 = mq("select * from po_comment order by con_seq limit $start_num,5");
+				while($comment_info = $sql3->fetch_array())
+    			{
+                ?>
                 <div class="media-body">
-                    <h4><b>아이디 출력</b> | 날짜 시간</h4>과연 가능한 것인가....
+                    <h4><b><?php echo $comment_info["mem_id"];?></b> | <?php echo $comment_info['com_date']; ?></h4><?php echo $comment_info['com_cont']; ?>
                 </div>
+                <br>
+                <?php 
+                }
+                ?>
             </div>
+            <div class="container" id ="page_num" style="text-align: center;">
+				<!-- 현재 페이지의 숫자를 출력 -->
+				<div class='page-item'> <?php echo "[".$page."]"; ?> </div>
+				<ul class="pagination">
+					<?php
+						//현재 페이지가 1을 초과했을 때 출력한다
+						if($page > 1){
+							// 처음 버튼을 누를 시에 ($_GET('page') 값에 1을 삽입
+							echo "<li class='page-item'><a href='?page=1'>처음</a></li>";
+						}
+						// 현재 페이지가 1을 초과했을 때 출력한다.
+						if($page > 1){
+							//$pre 변수에 $page-1을 해준다.
+							$pre = $page-1;
+							//이전 버튼을 클릭할 시에 ($_GET('page') 값에 $pre 변수를 삽입 
+							echo "<li class='page-item'><a href='?page=$pre'>이전</a></li>";
+						}
+						//반복문을 사용하여, 블록 시작번호가 마지막 블록보다 작거나 같을 때 까지 반복한다 
+						for($i=$block_start; $i<=$block_end; $i++){
+							// 페이지와 $i가 같지 않을 시에 숫자를 출력한다.
+							if($page != $i){
+								// 페이지 숫자를 클릭할 시 ($_GET('page') 값에 $i(페이지의 숫자) 변수를 삽입
+								echo "<li class='page-item'><a href='?page=$i'>[$i]</a></li>";
+							}
+						}	
+						//만약에 현재 블록이 블록의 총 갯수 미만일 경우
+						if($page < $total_page){
+							//$next 변수에 $page변수에 1을 더한 값을 삽입
+							$next = $page +1;
+							// 다음 버튼을 클릭할 시 ($_GET('page') 값에 $next 변수를 삽입
+							echo "<li class='page-item'><a href='?page=$next'>다음</a></li>";
+						}
+						//만약에 page가 총 페이지 수의 미만일 경우
+						if($page < $total_page){
+							// 마지막 버튼을 클릭할 시($_GET('page') 값에 총 페이지 수를 삽입 
+							echo "<li class='page-item'><a href='?page=$total_page'>마지막</a></li>";
+						}
+					?>
+				</ul>
+			</div>
         </div>
     </div>
     </form>

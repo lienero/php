@@ -30,7 +30,7 @@ if($userid && $content && $time){
     values('".$userid."','".$content."','".$o_name."','".$time."')");
     echo "<script>
     alert('댓글이 등록되었습니다.');
-    location.href='./comment_write_read.php';</script>";
+    location.href='../recipe/recipe.php';</script>";
 }else{
     echo "<script>
     alert('댓글을 등록할 수 없습니다.');
