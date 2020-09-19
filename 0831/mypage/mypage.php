@@ -53,6 +53,12 @@ if($member['mem_spicy']!= null){
         $j++;
     }
 }
+//유저아이디 활용해서 현재 로그인되어있는 아이디의 리뷰 리스트 출력
+$sql_review = mq("select review_seq, review_name, review_cont from po_review where mem_id = '".$userid."'");
+////유저아이디 활용해서 현재 로그인되어있는 아이디의 좋아요 리스트 출력
+$sql_like = mq("select likes from po_member where mem_id = '".$userid."'");
+$like = $sql_like->fetch_array();
+
 ?>
 
 <!DOCTYPE html>
@@ -275,7 +281,7 @@ if($member['mem_spicy']!= null){
                 <sapn><a href="./member_modify.php" class="btn btn-info pull-right">정보수정</a></sapn>
                 <sapn><a href="./member_withdrawal.php" class="btn btn-info pull-right">회원탈퇴</a></sapn>
                 <br><br>
-                <form class="form-inline">
+                <form class="form-inline" action="./review_delete.php" method="POST">
                     <fieldset>
                         <legend>작성한 후기리스트</legend>
                         <table class="table table-bordered">
@@ -284,54 +290,60 @@ if($member['mem_spicy']!= null){
                                 <th>제목</th>
                                 <th colspan="3">내용</th>
                             </tr>
-                            <tr>
-                                <td><label><input type="checkbox" value="num" class="check" /></label></td>
-                                <td>오현우</td>
-                                <td>오현우님이 살아계신다</td>
-                            </tr>
-                            <tr>
-                                <td><label><input type="checkbox" value="num" class="check" /></label></td>
-                                <td>오현우</td>
-                                <td>오현우님은 살아계신다</td>
-                            </tr>
-                            <tr>
-                                <td><label><input type="checkbox" value="num" class="check" /></label></td>
-                                <td>오현우</td>
-                                <td>오현우는 살아계신다</td>
-                            </tr>
+                           <!-- start -->
+                           <?php
+                                while($review = $sql_review->fetch_array()) {
+                                echo <<< html
+                            
+                                <tr onClick = "location.href='../review/review_view.php?seq=$review[0]' ">
+                                    <td><label><input type="checkbox" value="$review[0]" name="review[]" class="check" /></label></td>
+                                    <td>$review[1]</td>
+                                    <td>$review[2]</td>
+                                </tr>
+html;
+                                }
+                            ?>
+                            <!-- end -->
                         </table>
                     </fieldset>
+                <sapn><input type="submit" class="btn btn-info pull-right" value="게시물 삭제"></sapn>
                 </form>
-                <sapn><a href="" class="btn btn-info pull-right">게시물 삭제</a></sapn>
                 <br><br>
-                <form class="form-inline">
+                <form class="form-inline" action="./likes_delete.php" method="POST">
                     <fieldset>
                         <legend>좋아요 리스트</legend>
-                        <table class="table table-bordered">
+                        <table class="table table-bordered table-hover">
                             <tr class="info">
                                 <th><label><input type="checkbox" value="all" class="check_all2">&nbsp;선택</label></th>
                                 <th>제목</th>
                                 <th colspan="3">내용</th>
                             </tr>
-                            <tr>
-                                <td><label><input type="checkbox" value="num" class="check2" /></label></td>
-                                <td>오현우</td>
-                                <td>오현우님이 살아계신다</td>
+                            <!-- start -->
+                            <?php
+                                $arr = explode(',', $like[0]);
+                                for($i=0; $i<count($arr); $i++){
+                                
+                                }
+                                $i = 0;
+                                while($i < count($arr)){
+                                   $sql_likes = mq("select recipe_seq, recipe_name, recipe_contant from po_recipe where recipe_seq = '".$arr[$i]."'");
+                                   $likes = $sql_likes->fetch_array();
+                                   $i++;
+                                echo <<< html
+                            <tr onClick = "location.href='../recipe/recipe.php?seq=$likes[0]' ">
+                                <td><label><input type="checkbox" value="$likes[0]" name="likes[]" class="check2" /></label></td>
+                                <td>$likes[1]</td>
+                                <td>$likes[2]</td>
                             </tr>
-                            <tr>
-                                <td><label><input type="checkbox" value="num" class="check2" /></label></td>
-                                <td>오현우</td>
-                                <td>오현우님은 살아계신다</td>
-                            </tr>
-                            <tr>
-                                <td><label><input type="checkbox" value="num" class="check2" /></label></td>
-                                <td>오현우</td>
-                                <td>오현우는 살아계신다</td>
-                            </tr>
+html;
+                                }
+                            ?>
+                            <!-- end -->
                         </table>
                     </fieldset>
+                <!--<sapn><a href="" class="btn btn-info pull-right">좋아요 취소</a></sapn>-->
+                <sapn><input type="submit" class="btn btn-info pull-right" value="좋아요 취소"></sapn>
                 </form>
-                <sapn><a href="" class="btn btn-info pull-right">좋아요 취소</a></sapn>
                 <br><br><br>
                 <div class="text-center"><a href="" class="btn btn-info">홈으로</a></div>
             </div>
