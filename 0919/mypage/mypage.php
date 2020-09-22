@@ -214,7 +214,7 @@ $like = $sql_like->fetch_array();
             <div class="col-md-12">
                 <!-- class="page-header"라는 스타일은 헤더 부분의 스타일 클래스-->
                 <div class="page-header">
-                    <h3 class="text-info"><a href ="./mypage.php">마이페이지</a></h3>
+                    <h3 class="text-info"><a href ="./mypage.php">マイページ</a></h3>
                     <br>
                 </div>
                 <!-- <form class="form-inline"> : 입력폼의 입력 항목이 가로로 표시되게 된다. -->
@@ -225,44 +225,44 @@ $like = $sql_like->fetch_array();
                             <!--<label>태그는 양식 입력 창 (form control)을 설명하는 이름표다. 
                     label 요소로 묶인 텍스트를 클릭하면, form control(양식 입력 창)이 선택 됨.
                     <label for = 'id'> 는 해당 입력폼의 id를 지정함-->
-                            재료&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;
+                        材料&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;
                             <label>
-                                <input type="checkbox" name="pork" value="pork" <?php echo $num[0];?>/>돼지고기&nbsp;&nbsp;
+                                <input type="checkbox" name="pork" value="pork" <?php echo $num[0];?>/>豚肉&nbsp;&nbsp;
                             </label>
                             <label>
-                                <input type="checkbox" name="beef" value="beef" <?php echo $num[1];?>/>소고기&nbsp;&nbsp;
+                                <input type="checkbox" name="beef" value="beef" <?php echo $num[1];?>/>牛肉&nbsp;&nbsp;
                             </label>
                             <label>
-                                <input type="checkbox" name="chicken" value="chicken" <?php echo $num[2];?>/>닭고기&nbsp;&nbsp;
+                                <input type="checkbox" name="chicken" value="chicken" <?php echo $num[2];?>/>鶏肉&nbsp;&nbsp;
                             </label>
                             <label>
-                                <input type="checkbox" name="vegetable" value="vegetable" <?php echo $num[3];?>/>채소&nbsp;&nbsp;
+                                <input type="checkbox" name="vegetable" value="vegetable" <?php echo $num[3];?>/>野菜&nbsp;&nbsp;
                             </label>
                             <label>
-                                <input type="checkbox" name="fruit" value="fruit" <?php echo $num[4];?>/>과일&nbsp;&nbsp;
+                                <input type="checkbox" name="fruit" value="fruit" <?php echo $num[4];?>/>果物&nbsp;&nbsp;
                             </label>
                             <label>
-                                <input type="checkbox" name="seasoning" value="seasoning" <?php echo $num[5];?>/>조미료&nbsp;&nbsp;
+                                <input type="checkbox" name="seasoning" value="seasoning" <?php echo $num[5];?>/>調味料&nbsp;&nbsp;
                             </label>
                         </div>
                         </br>
                         <div class="checkbox">
-                            매운맛&nbsp;: &nbsp;
+                            辛さ&nbsp;: &nbsp;
                             <label>
-                                <input type="checkbox" name="spicy0" value="0" <?php echo $idx[0];?>/> 안 매운맛&nbsp;
+                                <input type="checkbox" name="spicy0" value="0" <?php echo $idx[0];?>/>辛くない&nbsp;
                             </label>
                             <label>
-                                <input type="checkbox" name="spicy1" value="1" <?php echo $idx[1];?>/> 조금 매운맛&nbsp;&nbsp;
+                                <input type="checkbox" name="spicy1" value="1" <?php echo $idx[1];?>/> 少し辛い&nbsp;&nbsp;
                             </label>
                             <label>
-                                <input type="checkbox" name="spicy2" value="2" <?php echo $idx[2];?>/> 매운맛&nbsp;&nbsp;
+                                <input type="checkbox" name="spicy2" value="2" <?php echo $idx[2];?>/> 辛い&nbsp;&nbsp;
                             </label>
                             <label>
-                                <input type="checkbox" name="spicy3" value="3" <?php echo $idx[3];?>/> 그냥 죽여라냥&nbsp;&nbsp;
+                                <input type="checkbox" name="spicy3" value="3" <?php echo $idx[3];?>/> もう死んじゃうにゃ&nbsp;&nbsp;
                             </label>
                         </div>
                     </fieldset>
-                    <div><input type="submit" class="btn btn-info pull-right" value="저장"></div>
+                    <div><input type="submit" class="btn btn-info pull-right" value="セーブ"></div>
                 </form>
                 <br><br>
                 <fieldset>
