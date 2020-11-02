@@ -8,6 +8,12 @@
 <head>
 <meta charset="UTF-8">
 <title>게시판</title>
+<link rel="stylesheet" href="../css/index.css">
+<link rel="stylesheet" href="../css/bootstrap-theme.css">
+<link rel="stylesheet" href="../css/bootstrap.css">
+<link rel="stylesheet" href="../css/bootstrap-theme.css">
+<link rel="stylesheet" href="../js/bootstrap.js">
+<link rel="stylesheet" href="../js/npm.js">
 <link rel="stylesheet" type="text/css" href="../css/style.css" />
 <link rel="stylesheet" type="text/css" href="../css/common.css" />
 </head>
