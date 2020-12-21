@@ -200,16 +200,16 @@
                             $spicy=$recipe["recipe_spicy"];
                             switch($spicy){
                                 case 0:
-                                echo "안매움";
+                                echo "辛くない";
                                 break;
                                 case 1:
-                                echo "조금 매움";
+                                echo "少し辛い";
                                 break;
                                 case 2:
-                                echo "매움";
+                                echo "辛い";
                                 break;
                                 case 3:
-                                echo "그냥 죽여라냥";
+                                echo "死んじゃうニャー";
                                 break;                                
                             }
                             ?>
@@ -244,7 +244,7 @@
                 <div class="col-md-12">
                     <div class="ready_ingre3 text-center">
                         <ul class="col-md-6">
-                            <b class="ready_ingre3">[재료]</b>
+                            <b class="ready_ingre3">[食材]</b>
                             <?php
                             $food_array = $recipe["recipe_food"];
                             $food_array2 = explode(",", $food_array); 
@@ -257,16 +257,12 @@
                             <?php
                                 echo ($food_array2[$i])."<br/>";
                             ?>
-                            <hr>
                             </li>
                             <?php
                                 }
                             }
                             ?>
-                            
-    
                         </ul>
-
                     </div>
                 </div>
             </div>
@@ -284,7 +280,7 @@
             ?>
              <div class="row flex_box">
                 <div class="col-md-7 text-center">
-                    <h3>동영상</h3>
+                    <h3>動画</h3>
                     <div class="embed-responsive embed-responsive-16by9">
                         <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo $id ?>?rel=0&showinfo=0&color=white&iv_load_policy=3" frameborder="0">
                         </iframe>
@@ -422,11 +418,14 @@
                 <?php
                     } else {
                 ?>
-                        <div class="media-body" style="width:auto">
-                        <h4><b><?php echo $comment_info["mem_id"];?></b> | <?php echo $comment_info['com_date']; ?></h4><?php echo $comment_info['com_cont']; ?>
-                        </div>
-                        <br>
-                        <?php
+                <div class="media-left">
+                    <img src="http://localhost/recipe_site/img/logo_huge_pink.png" style="width:50px; height:50px">
+                </div>
+                <div class="media-body" style="width:auto">
+                    <h4><b><?php echo $comment_info["mem_id"];?></b> | <?php echo $comment_info['com_date']; ?></h4><?php echo $comment_info['com_cont']; ?>
+                </div>
+                <br>
+                <?php
                     } 
                 }
                 ?>
