@@ -1,0 +1,41 @@
+/**------------------------------푸터구역------------------------------------**/
+img {
+  max-width: 100%;
+  height: auto;
+}
+.row {
+  margin: 0 !important;
+}
+.footer_main {
+  text-align: center;
+}
+.footer_box1 {
+  background: #f77e8a;
+  color: white;
+  font-weight: 600;
+  width: 100%;
+}
+.footer_box2 {
+  background: #fdafb6;
+  color: white;
+  font-weight: 600;
+  width: 100%;
+}
+.footer_box > a {
+  color: white;
+}
+.footer_main {
+  font-size: 2em;
+}
+.git_address {
+  font-size: 1.1em;
+  font-weight: 600;
+}
+.footer_wrap {
+  background: white;
+  margin-top: 2%;
+}
+.footer_margin {
+  margin: 0 auto;
+  padding-bottom: 3%;
+}
