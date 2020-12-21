@@ -411,9 +411,9 @@
     			{
                 ?>
                 <div class="media-left">
-                    <img src="http://localhost/recipe_site/img/<?php echo $comment_info["com_img"];?>" class="media-object" data-holder-rendered="true">
+                    <img src="http://localhost/recipe_site/img/<?php echo $comment_info["com_img"];?>" style="width:50px; height:50px">
                 </div>
-                <div class="media-body">
+                <div class="media-body" style="width:auto">
                     <h4><b><?php echo $comment_info["mem_id"];?></b> | <?php echo $comment_info['com_date']; ?></h4><?php echo $comment_info['com_cont']; ?>
                 </div>
                 <br>
