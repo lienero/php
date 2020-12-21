@@ -34,8 +34,6 @@ $name_imgMain = iconv("UTF-8", "EUC-KR//IGNORE",($recipe_seq+1)."_main_img.jpeg"
 $img_folder="../img/".$name_imgMain;
 $recipe_sub_img=$_POST['recipe_imgs[]'];
 
-
-
 //move_uploaded_file(서버로 전송된 파일, 지정위치)은x    서버로 전송된 파일을 폴더에 저장할 때 사용하는 함수입니다.
 move_uploaded_file($tmp_imgMain,$img_folder);
 
@@ -53,9 +51,11 @@ for($i=0; $i<$food_count; $i++){
 $file_text = $_POST["sub_img"];
 
 for($j = 0; $j < count($file_text); $j++){
-    $tmp_img_name = $_FILES['recipe_imgs']['tmp_name'];
-    $img_name[] =$_FILES['recipe_imgs']['name'][$j];
-
+    $tmp_img_name = $_FILES['recipe_imgs']['tmp_name'][$j];
+    $o_img_name = $_FILES['recipe_imgs']['name'][$j];
+    $name_imgSub[] = iconv("UTF-8", "EUC-KR//IGNORE",($recipe_seq+1)."_sub_img_".$j.".jpeg");
+    $img_folder="../img/".$name_imgSub[$j];
+    move_uploaded_file($tmp_img_name,$img_folder);
 }
 
 
@@ -72,7 +72,7 @@ if($userid && $time){
     $recipe_seq = $seq_num["recipe_seq"];
 
     for($i = 0; $i<  count($file_text); $i++){
-    $sql2 = mq("insert into po_recipe_img(recipe_seq, recipe_img, img_cont)values('".$seq_num[0]."','".$img_name[$i]."','".$file_text[$i]."')");
+    $sql2 = mq("insert into po_recipe_img(recipe_seq, recipe_img, img_cont)values('".$seq_num[0]."','".$name_imgSub[$i]."','".$file_text[$i]."')");
     }
 
     $security_seq = password_hash($seq_num[0], PASSWORD_DEFAULT);
