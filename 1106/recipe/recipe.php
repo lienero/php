@@ -185,7 +185,7 @@
                     <div class="thumbnail text-center">
                         <a href="like.php?recipe_seq=<?php echo $recipe["recipe_seq"];?>&like=<?php echo $recipe["recipe_likes"]*26543;?>"><img src="../img/heart.png" class="icon"></a>
                         <div class="caption">
-                            <h6>좋아요</h6>
+                            <h6>イイね</h6>
                         </div>
                     </div>
                 </div>
@@ -313,6 +313,7 @@
             </div>
         </div>
     </div>
+    <br>
     <?php
     }
     ?>
@@ -333,10 +334,10 @@
                 </div>
             </div>
             <div class="col-md-6 test">        
-                <textarea class="form-control" rows="2" name="content" id="content" placeholder="댓글을 입력하세요" required></textarea>
+                <textarea class="form-control" rows="2" name="content" id="content" placeholder="コメントを作成してください。" required></textarea>
             </div>
             <div class="col-md-3 test">
-                <button type="submit" class="btn btn-danger">등록</button>
+                <button type="submit" class="btn btn-danger">作成</button>
             </div>
         </div>
     </div>
@@ -354,10 +355,10 @@
                 </div>
             </div>
             <div class="col-md-6 test">        
-                <textarea class="form-control" rows="2" name="content" id="content" placeholder="로그인을 해주세요" required></textarea>
+                <textarea class="form-control" rows="2" name="content" id="content" placeholder="ログインしてください。。" required></textarea>
             </div>
             <div class="col-md-3 test">
-                <button type="button" class="btn btn-danger" onclick="location.href='../signup/login.php'">로그인</button>
+                <button type="button" class="btn btn-danger" onclick="location.href='../signup/login.php'">ログイン</button>
             </div>
         </div>
     </div>
@@ -403,12 +404,13 @@
 				//시작번호 (page-1)에서 5를 곱한다.
                 $start_num = ($page-1) * 5;
             ?>
-            <div class="reply_tit"><span id="recipeCommentListCount">총 댓글 갯수:<?php echo $row_num ?></span></div>
+            <div class="reply_tit"><span id="recipeCommentListCount">コメント数:<?php echo $row_num ?></span></div>
             <div class="media reply_list">
                 <?php
                 $sql3 = mq("SELECT * from po_comment WHERE recipe_seq = '".$seq_check."' order by con_seq limit $start_num,5");
 				while($comment_info = $sql3->fetch_array())
     			{
+                    if( $comment_info["com_img"] != "") {
                 ?>
                 <div class="media-left">
                     <img src="http://localhost/recipe_site/img/<?php echo $comment_info["com_img"];?>" style="width:50px; height:50px">
@@ -417,7 +419,15 @@
                     <h4><b><?php echo $comment_info["mem_id"];?></b> | <?php echo $comment_info['com_date']; ?></h4><?php echo $comment_info['com_cont']; ?>
                 </div>
                 <br>
-                <?php 
+                <?php
+                    } else {
+                ?>
+                        <div class="media-body" style="width:auto">
+                        <h4><b><?php echo $comment_info["mem_id"];?></b> | <?php echo $comment_info['com_date']; ?></h4><?php echo $comment_info['com_cont']; ?>
+                        </div>
+                        <br>
+                        <?php
+                    } 
                 }
                 ?>
             </div>
@@ -429,14 +439,14 @@
 						//현재 페이지가 1을 초과했을 때 출력한다
 						if($page > 1){
 							// 처음 버튼을 누를 시에 ($_GET('page') 값에 1을 삽입
-							echo "<li class='page-item'><a href='?recipe_seq=$security_seq&page=1'>처음</a></li>";
+							echo "<li class='page-item'><a href='?recipe_seq=$security_seq&page=1'>初め</a></li>";
 						}
 						// 현재 페이지가 1을 초과했을 때 출력한다.
 						if($page > 1){
 							//$pre 변수에 $page-1을 해준다.
 							$pre = $page-1;
 							//이전 버튼을 클릭할 시에 ($_GET('page') 값에 $pre 변수를 삽입 
-							echo "<li class='page-item'><a href='?recipe_seq=$security_seq&page=$pre'>이전</a></li>";
+							echo "<li class='page-item'><a href='?recipe_seq=$security_seq&page=$pre'>前に</a></li>";
 						}
 						//반복문을 사용하여, 블록 시작번호가 마지막 블록보다 작거나 같을 때 까지 반복한다 
 						for($i=$block_start; $i<=$block_end; $i++){
@@ -451,12 +461,12 @@
 							//$next 변수에 $page변수에 1을 더한 값을 삽입
 							$next = $page +1;
 							// 다음 버튼을 클릭할 시 ($_GET('page') 값에 $next 변수를 삽입
-							echo "<li class='page-item'><a href='?recipe_seq=$security_seq&page=$next'>다음</a></li>";
+							echo "<li class='page-item'><a href='?recipe_seq=$security_seq&page=$next'>後に</a></li>";
 						}
 						//만약에 page가 총 페이지 수의 미만일 경우
 						if($page < $total_page){
 							// 마지막 버튼을 클릭할 시($_GET('page') 값에 총 페이지 수를 삽입 
-							echo "<li class='page-item'><a href='?recipe_seq=$security_seq&page=$total_page'>마지막</a></li>";
+							echo "<li class='page-item'><a href='?recipe_seq=$security_seq&page=$total_page'>最後に</a></li>";
 						}
 					?>
 				</ul>
