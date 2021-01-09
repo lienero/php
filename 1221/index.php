@@ -1,11 +1,9 @@
+<!DOCTYPE html>
+<html>
 <?php
 include $_SERVER['DOCUMENT_ROOT']."/recipe_site/db/db.php";
 include "signup/method/password.php";
 ?>
-    
-
-<!DOCTYPE html>
-<html>
 
 <head>
     <meta charset="utf-8">
@@ -72,7 +70,7 @@ include "signup/method/password.php";
                 <form action="/recipe_site/search/search_result.php" method="get">
                 <nav class="navbar navbar-search navbar-light bg-light">
                     <select class="form-control search_width text-center" name="catgo">
-                        <option value="content">Content</option>
+                        <option value="recipe_contant">Content</option>
                         <option value="mem_id">ID</option>
                     </select>
                     <input class="form-control" type="search" name="search" placeholder="Search" aria-label="Search">

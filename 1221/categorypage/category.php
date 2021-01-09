@@ -77,7 +77,7 @@ include "../signup/method/password.php";
                 <form action="/recipe_site/search/search_result.php" method="get">
                 <nav class="navbar navbar-search navbar-light bg-light">
                     <select class="form-control search_width text-center" name="catgo">
-                        <option value="content">Content</option>
+                        <option value="recipe_contant">Content</option>
                         <option value="mem_id">ID</option>
                     </select>
                     <input class="form-control" type="search" name="search" placeholder="Search" aria-label="Search">
@@ -221,40 +221,34 @@ include "../signup/method/password.php";
     //comment 테이블에서 comment_id를 기준으로 오름차순해서 0부터 5개를 입력
     //limt 0(시작할 위치) 5(출력할 갯수)출력
     $sql2 = mq("select * from po_recipe order by recipe_seq");
-    //mysqli_num_rows(함수) : sql의 레코드의 행을 구함, 게시판의 총 레코드 수
-    $row_num = mysqli_num_rows($sql2);
-    //블록당 보여줄 페이지의 개수
-    $block_ct = 5;
-    //현재 페이지의 블록 구하기
-    //ceil flooer round함수
-    //ceil은 입력값의 소수부분이 존재할 때 값을 올려서 리턴하는 함수
-    //floor은 입력값을 소수부분이 존재할 때 값을 내려서 리턴하는 함수
-    //round는 입력값에 소수부분이 0.5보다 크면 값을 올리고 작으면 값을 버린 후
-    //리턴하는 반올림 함수
-    //$block_num은 현재 페이지의 블록 구하기
-    $block_num= ceil($page/$block_ct);
-    //블록의 시작번호
-    $block_start =(($block_num-1)*$block_ct)+1;
-    $block_end =$block_start+$block_ct-1;
-    //페이징한 페이지의 숫자 구하기.
-    //전체 글의 개수는 $row_num 한 페이지당 나오는 글의 개수는 5개이기 때문에b
-    //따라서 전체 페이지는 전체 글의 개수나누기 한 페이지당 나오는 글의 수로 나눈다
-    $total_page = ceil($row_num/5);
-    //만약 블록의 마지막 번호가 페이지 수보다 많다면
-    if($block_end>$total_page){
-        $black_end=$total_page;
-    }
-    //블록의 총 개수 구하기
-    $total_block = ceil($total_page/$block_ct);
-    //시작번호 ($page-1)에서 5를 곱한다
-    $start_num = ($page-1) * 5;
+	//mysqli_num_rows : sql의 레코트의 행을 구함, 게시판 총 레코드 수
+	$row_num = mysqli_num_rows($sql2);
+	// 블록당 보여줄 페이지의 개수
+	$block_ct = 12;
+	// 현재 페이지 블록 구하기
+	$block_num = ceil($page/$block_ct); 
+	// 페이지의 시작번호
+	$block_start = (($block_num - 1) * $block_ct) + 1;
+	// 블록의 마지막 번호
+	$block_end = $block_start + $block_ct -1;
+	//페이징한 총 페이지의 숫자를 구한다.
+	//ceil 은 입력값에 소수부분이 존재할 때 값을 올려서 리턴하는 함수
+	$total_page = ceil($row_num/12);
+	//만약 블록의 마지막 번호가 페이지수보다 많다면
+	if($block_end > $total_page) {
+	$block_end = $total_page; 
+	}
+	//블럭의 총 개수를 구함
+	$total_block = ceil($total_page/$block_ct);
+	//시작번호 (page-1)에서 $block_ct를 곱한다.
+    $start_num = ($page-1) * $block_ct;
     ?>
     <div class="container recipe_recommendation_box">
         <div class="row content_box1 img-fluid">
             <div class="content_box1_title">
                 <div class="content_box1_title_content row">おすすめレシピ</div>
                 <?php
-                $sql3 = mq("select * from po_recipe order by recipe_likes desc limit $start_num,12");
+                $sql3 = mq("select * from po_recipe order by recipe_likes desc limit $start_num,$block_ct");
                     while($recipe_info = $sql3->fetch_array()){
                         ?>
                     
@@ -277,49 +271,45 @@ include "../signup/method/password.php";
         </div>
     </div>
     <div class="text-center">
-                    <div class='page-item'>
-                        <?php echo "[".$page."]"; 
-                        for($i=$block_start; $i<=$block_end; $i++){
-                            //페이지와 $i가 같지 않을 시에 숫자를 출력한다
-                            if($page != $i){
-                                //페이지 숫자를 클릭할 시 ($_GET('page'))$next 변수를 삽입
-                                echo "<span class='page-item'><a href='
-                                ?page=$i'>[$i]</a></span>";
-                            }
-                        }  
-                        ?> 
-                    </div>    
-                    <ul class="pagination"> 
-                        
-                        <?php
-                            //현재 페이지가 1을 초과했을 때 출력한다.
-                            if($page >1){
-                                //처음 버튼을 누를 시에 ($_GET('page')값에 1을 삽입)
-                                echo "<li class='page-item'><a href='?page=1'>처음</a></li>";
-                            }
-                            //현재 페이지가 1을 초과했을 때 출력한다.
-                            if($page >1){
-                                //$pre 변수에 $page-1을 해준다.
-                                $pre = $page-1;
-                                //이전 버튼을 클릭할 시에 ($_GET('page')값에 $pre변수를 삽입
-                                echo "<li class='page-item'><a href='?page=$pre'>이전</a></li>";
-                            }
-                                      
-                            //만약에 현재 블록이 블록의 총 갯수 미만일 경우
-                            if($page < $total_page){
-                                //$next 변수에 $page변수에 1을 더한 값을 삽입
-                                $next = $page+1;
-                                // 다음 버튼을 클릭할 시 ($_GET('page')값에 $next 변수를 삽입
-                                echo "<li class='page-item'><a href='?page=$next'>다음</a></li>";
-                            }
-                            //만약에 page가 총 페이지 수의 미만일 경우
-                            if($page<$total_page){
-                                //마지막 버튼을 클릭할 시($_GET('page')값에 총 페이지 수를 삽입
-                                echo "<li class='page-item'><a href='?page=$total_page'>마지막</a></li>";
-                            }
-                        ?>
-                    </ul>
-                    </div>
+			<!-- 현재 페이지의 숫자를 출력 -->
+			<div class='page-item'> <?php echo "[".$page."]"; ?> </div>
+				<ul class="pagination">
+					<?php
+						//현재 페이지가 1을 초과했을 때 출력한다
+						if($page > 1){
+							// 처음 버튼을 누를 시에 ($_GET('page') 값에 1을 삽입
+							echo "<li class='page-item'><a href='?recipe_seq=$security_seq&page=1'>初め</a></li>";
+						}
+						// 현재 페이지가 1을 초과했을 때 출력한다.
+						if($page > 1){
+							//$pre 변수에 $page-1을 해준다.
+							$pre = $page-1;
+							//이전 버튼을 클릭할 시에 ($_GET('page') 값에 $pre 변수를 삽입 
+							echo "<li class='page-item'><a href='?recipe_seq=$security_seq&page=$pre'>前に</a></li>";
+						}
+						//반복문을 사용하여, 블록 시작번호가 마지막 블록보다 작거나 같을 때 까지 반복한다 
+						for($i=$block_start; $i<=$block_end; $i++){
+							// 페이지와 $i가 같지 않을 시에 숫자를 출력한다.
+							if($page != $i){
+								// 페이지 숫자를 클릭할 시 ($_GET('page') 값에 $i(페이지의 숫자) 변수를 삽입
+								echo "<li class='page-item'><a href='?recipe_seq=$security_seq&page=$i'>[$i]</a></li>";
+							}
+						}	
+						//만약에 현재 블록이 블록의 총 갯수 미만일 경우
+						if($page < $total_page){
+							//$next 변수에 $page변수에 1을 더한 값을 삽입
+							$next = $page +1;
+							// 다음 버튼을 클릭할 시 ($_GET('page') 값에 $next 변수를 삽입
+							echo "<li class='page-item'><a href='?recipe_seq=$security_seq&page=$next'>後に</a></li>";
+						}
+						//만약에 page가 총 페이지 수의 미만일 경우
+						if($page < $total_page){
+							// 마지막 버튼을 클릭할 시($_GET('page') 값에 총 페이지 수를 삽입 
+							echo "<li class='page-item'><a href='?recipe_seq=$security_seq&page=$total_page'>最後に</a></li>";
+						}
+					?>
+				</ul>
+            </div>
     </div>
     <div class="container-fluid footer_wrap">
         <footer class="footer_margin">
