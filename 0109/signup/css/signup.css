@@ -1,0 +1,47 @@
+body {
+  background-color: #ffeeee;
+}
+.form-control {
+  width: 30%;
+}
+#button {
+  background-color: #fff;
+  border: 2px solid #e04f5d;
+  text-align: center;
+  color: #e04f5d;
+  border-radius: 4px;
+}
+.btn {
+  width: 30%;
+  background-color: #e04f5d;
+  border: 1px solid #e04f5d;
+  text-align: center;
+  color: white;
+}
+.btn:hover {
+  width: 30%;
+  background-color: #fff;
+  border: 2px solid #e04f5d;
+  color: #e04f5d;
+}
+.forget {
+  text-align: center;
+}
+.input-group {
+  width: 30%;
+  margin: auto;
+}
+.container {
+  margin-top: 5%;
+}
+.button_margin {
+  margin-bottom: 3%;
+}
+body {
+  font-family: "M PLUS Rounded 1c", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+}
+html {
+  font-family: "M PLUS Rounded 1c", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+}

@@ -1,0 +1,39 @@
+#container {
+  width: 100%;
+  margin: 0px auto;
+  padding: 20px;
+  font-size: 1.2em;
+}
+.lim_h2,
+.lim_nav,
+.lim_form {
+  text-align: center;
+  padding: 30px;
+}
+#search {
+  border: 0px solid black;
+  border-bottom: 1px solid black;
+}
+#searchG {
+  width: 100%;
+}
+@media all and (max-width: 480px) {
+  #container {
+    width: 100%;
+    margin: 0px auto;
+    font-size: 10px;
+  }
+  #button {
+    width: 70px;
+    font-size: 10px;
+  }
+}
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  border-top: 2px solid #fff !important;
+  border-bottom: 2px solid #fff !important;
+}
