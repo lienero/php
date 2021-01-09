@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-include $_SERVER['DOCUMENT_ROOT']."/recipe_site/db/db.php";
+include '../mainpage/header.php';
 include "../signup/method/password.php";
-
+if(isset($_SESSION['mem_id'])){
+    $userid = $_SESSION['mem_id'];
+}
 ?>
     
 
@@ -35,115 +37,6 @@ include "../signup/method/password.php";
 </head>
 
 <body style="background :#FFEAE5;">
-
-    <div class="container main_top">
-        <div class="row">
-            <!--row로 열 만들기-->
-            <div class="col-md-2 box1 text-center">
-                <!--그리드로 행 나누기 로고버튼-->
-                <a href="/recipe_site/index.php"><img src="../img/logo_pink.png" alt="" class=""></a>
-            </div>
-            <?php
-            if(isset($_SESSION['mem_id'])){
-            ?>    
-                <div class="col-md-2 box1 text-center row">
-                <div class="login_button_wrap">
-                    <a href="../signup/logout.php"><button class="btn login_button">ログアウト</button></a>
-                    <a href="../mypage/mypage.php"><button class="btn login_button2">マイページ</button></a>
-                </div>
-                <br>
-                <div class="login_text">
-                    <?php
-                    //isset 안에 값이 있는지 없는지 확인하는 식
-                        echo $_SESSION['mem_id']."様ようこそ.";              
-                    ?>
-                </div>     
-            </div>
-            <?php
-            }
-            else{
-            ?>
-            <div class="col-md-2 box1 text-center row">
-                <div class="login_button_wrap">
-                    <a href="../signup/login.php"><button class="btn login_button">ログイン</button></a>
-                    <a href="../signup/signup.php"><button class="btn login_button2">新規取得</button></a>
-                </div> 
-            </div>
-            <?php
-            };
-            ?>
-            <!--서치박스 -->
-            <div class="col-md-4 box1 text-center search_padding">
-                <form action="/recipe_site/search/search_result.php" method="get">
-                <nav class="navbar navbar-search navbar-light bg-light">
-                    <select class="form-control search_width text-center" name="catgo">
-                        <option value="recipe_contant">Content</option>
-                        <option value="mem_id">ID</option>
-                    </select>
-                    <input class="form-control" type="search" name="search" placeholder="Search" aria-label="Search">
-                    <button class="btn search_button" type="submit" id="main-button"
-                        style="color:white; background:#f77e8a">検索</button>
-                    <!--버튼에 아이디 추가-->
-                </nav>
-                </form>
-            </div>
-            <div class="col-md4 btn-group toggle_button switch_button" id="toggle_event_editing">
-                <!--토글 이벤트 아이디 추가-->
-                <button type="button" class="btn btn-info locked_active">KR</button>
-                <button type="button" class="btn btn-default unlocked_inactive">JP</button>
-                <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                <div class="img-wrap">
-                    <a href="#"><img src="../img/facebook.png" alt=""></a>
-                    <a href="#"><img src="../img/youtube.png" alt=""></a>
-                </div>
-            </div>
-        </div>
-        <!--숨겨진 버튼구역-->
-        <nav class="navbar row navbar_margin">
-            <div class="row category_button">
-                <button class="navbar-toggler hidden-lg hidden-md hidden-sm category_button" type="button"
-                    data-toggle="collapse" data-target="#collapsibleNavbar">
-                    <img src="../img/category.png" alt="">
-                </button>
-            </div>
-        </nav>
-    </div>
-    <!--카테고리구역-->
-    <div class="container-fluid text-center" style="justify-content: center;">
-        <div class="collapse navbar-collapse" id="collapsibleNavbar" style="align-items:center;">
-            <!--네브바 아이디 추가-->
-            <ul class="navbar-nav col-md-12">
-                <li class="nav-item col-md-3"> <a class="nav-link disabled" href="../categorypage/category.php">カテゴリー </a> </li>
-                <li class="nav-item dropdown col-md-3">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-                        <span class="caret"></span> 放送局
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">3代天王</a><br>
-                        <a class="dropdown-item" href="#">ゴルモクシクダン</a><br>
-                        <a class="dropdown-item" href="#">マッナムウグァンザン　 </a><br>
-                        <a class="dropdown-item" href="#">マリテル</a>
-                        <a class="dropdown-item" href="#">ベクパド</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown col-md-3">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-                        <span class="caret "></span> 料理
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">韓食</a><br>
-                        <a class="dropdown-item" href="#">和食</a><br>
-                        <a class="dropdown-item" href="#">洋食</a><br>
-                        <a class="dropdown-item" href="#">中食</a>
-                    </div>
-                </li>
-                <li class="nav-item col-md-3"> <a class="nav-link" href="../review/review.php">後記</a> </li>
-                <!-- <li class="nav-item col-md-20"> <a class="nav-link" href="#">マイページ</a> </li>  마이페이지-->
-
-            </ul>
-        </div>
-        </nav>
-    </div>
     <br>
     <div class="container">
         <div class="row text-center">
@@ -212,6 +105,62 @@ include "../signup/method/password.php";
     </div>
     <br>
     <?php
+        if(isset($_SESSION['mem_id'])){
+        $sql = mq("select * from po_member where mem_id='".$userid."'");
+        // $sql에 있는 fetch_array(): 인덱스를 변수에 삽입
+        $member = $sql->fetch_array();
+        //  explode("," DB 필드)콤마를 기준으로 나눠서 배열로 저장
+        $filter_Array = explode(",", $member['mem_filter']); 
+        $spicy_Array = explode(",", $member['mem_spicy']);
+        // $spicy_Array에서 null을 제외한 새 배열을 위한 변수 선언
+        $count=0;
+        // $filter_Array에서 null을 제외한 새 배열을 위한 변수 선언
+        $countf=0;
+        // $spicy_Array의 길이만큼 반복한다.
+        for($i=0; $i< count($spicy_Array); $i++){
+            //$spicy_Array의 값이 null이 아닐 시에 $new_Spicy_Array에 값을 삽입한다.
+            if($spicy_Array[$i] != null){
+                $new_Spicy_Array[$count] = $spicy_Array[$i];
+                //배열에 값을 넣은 수 만큼 증가
+                $count++; 
+            }
+        }
+        // count(배열) 배열 변수의 개수를 반환. 
+        // $filter_Array의 길이만큼 반복한다.
+        for($j=0; $j< count($filter_Array); $j++){
+        //$filter_Array의 값이 null이 아닐 시에 $new_Filter_Array에 값을 삽입한다.
+            if($filter_Array[$j] != null){
+                $new_Filter_Array[$countf] = $filter_Array[$j];
+                //배열에 값을 넣은 수 만큼 증가
+                $countf++; 
+            }
+        }
+    };
+    // 기본 통합 검색 용 쿼리 문 작성
+    $str_sql = "select * from po_recipe";
+    if(isset($_SESSION['mem_id'])){
+		// 배열에 값을 넣은 수 만큼 반복한다.
+        for($k=0; $k < $count; $k++){
+            if($k == 0) {
+                $str_sql .= " where recipe_spicy != '$new_Spicy_Array[$k]'";
+            }
+            // 쿼리 문에 필터링을 위해 문자열 합침 ($new_Spicy_Array[$k])
+            $str_sql .= " AND recipe_spicy != '$new_Spicy_Array[$k]'";
+            $new_sql = $str_sql;
+            $like_sql = $str_sql;  
+        }
+        // 배열에 값을 넣은 수 만큼 반복한다.
+        for($l=0; $l < $countf; $l++){
+            if($count == 0) {
+                $str_sql .= " where recipe_food not like '%$new_Filter_Array[$l]%'";
+            }
+            // 쿼리 문에 필터링(not like)을 위해 문자열 합침 (%$new_Filter_Array[$l]%')
+            // not like : 특정 값이 들어가진 않은 값을 검색
+            $str_sql .= " AND recipe_food not like '%$new_Filter_Array[$l]%'";
+            $new_sql = $str_sql;
+            $like_sql = $str_sql;    
+        }
+    }    
      if(isset($_GET['page'])){
         $page=$_GET['page'];
     }else{
@@ -220,7 +169,7 @@ include "../signup/method/password.php";
     }
     //comment 테이블에서 comment_id를 기준으로 오름차순해서 0부터 5개를 입력
     //limt 0(시작할 위치) 5(출력할 갯수)출력
-    $sql2 = mq("select * from po_recipe order by recipe_seq");
+    $sql2 = mq($str_sql);
 	//mysqli_num_rows : sql의 레코트의 행을 구함, 게시판 총 레코드 수
 	$row_num = mysqli_num_rows($sql2);
 	// 블록당 보여줄 페이지의 개수
@@ -248,7 +197,8 @@ include "../signup/method/password.php";
             <div class="content_box1_title">
                 <div class="content_box1_title_content row">おすすめレシピ</div>
                 <?php
-                $sql3 = mq("select * from po_recipe order by recipe_likes desc limit $start_num,$block_ct");
+                $str_sql .= " order by recipe_likes desc limit $start_num,$block_ct";
+                $sql3 = mq($str_sql);
                     while($recipe_info = $sql3->fetch_array()){
                         ?>
                     
@@ -311,61 +261,8 @@ include "../signup/method/password.php";
 				</ul>
             </div>
     </div>
-    <div class="container-fluid footer_wrap">
-        <footer class="footer_margin">
-            <h3 class="footer_main">開発者</h3>
-            <div class="col-md-5">
-                <div class="text-center footer_box1"><a href="https://github.com/imlimchill"
-                        style="font-weight: 900; color: white; font-size: 1.3em;"><img src="../img/github-logo.png"
-                            alt="">&nbsp;林彩浄(イム・チェジョン
-                        &nbsp;|&nbsp;
-                        チーム・リーダー)</a>
-                    <br>林彩浄(イム・チェジョン |
-                    チーム・リーダー)
-                    <br>林彩浄(イム・チェジョン |
-                    チーム・リーダー)
-                    <br>林彩浄(イム・チェジョン |
-                    チーム・リーダー)
-                </div>
-                <div class="text-center footer_box2"><a href="https://github.com/kanghr1685"
-                        style="font-weight: 900; color: white; font-size: 1.3em;"><img src="../img/github-logo.png"
-                            alt="">&nbsp;姜和林(カン・ファリム)</a>
-                    <br>林彩浄(イム・チェジョン |
-                    チーム・リーダー)
-                    <br>林彩浄(イム・チェジョン |
-                    チーム・リーダー)
-                    <br>林彩浄(イム・チェジョン |
-                    チーム・リーダー)
-                </div>
-            </div>
-            <div class="col-md-2 text-center"><img src="../img/main_git.png" alt="">
-                <div class=" text-center git_address">チームGitアドレス</div>
-            </div>
-
-            <div class="col-md-5">
-                <div class="text-center footer_box2"><a href="https://github.com/lienero"
-                        style="font-weight: 900; color: white; font-size: 1.3em;"><img src="../img/github-logo.png"
-                            alt="">&nbsp;李京珉(イ・ギョンミン)</a>
-                    <br>林彩浄(イム・チェジョン |
-                    チーム・リーダー)
-                    <br>林彩浄(イム・チェジョン |
-                    チーム・リーダー)
-                    <br>林彩浄(イム・チェジョン |
-                    チーム・リーダー)
-                </div>
-                <div class="text-center footer_box1"><a href="https://github.com/hyunwooOh1230"
-                        style="font-weight: 900; color: white; font-size: 1.3em;"><img src="../img/github-logo.png"
-                            alt="">&nbsp;吳賢祐(オ・ヒョンウ)</a>
-                    <br>林彩浄(イム・チェジョン |
-                    チーム・リーダー)
-                    <br>林彩浄(イム・チェジョン |
-                    チーム・リーダー)
-                    <br>林彩浄(イム・チェジョン |
-                    チーム・リーダー)
-                </div>
-            </div>
-        </footer>
-    </div>
+    <!--푸터구역-->
+    <?php include "../mainpage/footer.php"; ?>
 </body>
 
 </html>

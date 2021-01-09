@@ -1,5 +1,5 @@
 <?php
-    include "../db/db.php";
+    include '../mainpage/header.php';
     include "../signup/method/password.php";
     $security_seq = $_GET['recipe_seq'];
     $rec_seq = mq("SELECT recipe_seq FROM po_recipe");
@@ -47,117 +47,46 @@
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
     <script src="../js/recipe_new.js"></script>
+
+    <!-- rarao -->
+    <script type="text/JavaScript" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script type="text/javascript">
+        function shareKakaotalk() {
+            Kakao.init("4c2a4edd5e9c56bc048dc1f7af37ac3a");      // 사용할 앱의 JavaScript 키를 설정
+            Kakao.Link.sendDefault({
+                objectType:"feed"
+                , content : {
+                    title:"피키캣(입짧은 고양이)"   // 콘텐츠의 타이틀
+                    , description:"\"피키캣\"에서레시피를 확신해보세요!"   // 콘텐츠 상세설명
+                    , imageUrl: "http://localhost/recipe_site/img/logo_pink.png" // 썸네일 이미지
+                    , link : {
+                        mobileWebUrl:"http://localhost/recipe_site/img/logo_pink.png"   // 모바일 카카오톡에서 사용하는 웹 링크 URL
+                        , webUrl:"http://localhost/recipe_site/img/logo_pink.png" // PC버전 카카오톡에서 사용하는 웹 링크 URL
+                    }
+                }
+                , social : {
+                    likeCount:2       // LIKE 개수
+                    , commentCount:1    // 댓글 개수
+                    , sharedCount:1     // 공유 회수
+                }
+                , buttons : [
+                    {
+                        title:"게시글 확인"    // 버튼 제목
+                        , link : {
+                            mobileWebUrl:"http://localhost/recipe_site/index.php"   // 모바일 카카오톡에서 사용하는 웹 링크 URL
+                        , webUrl:"http://localhost/recipe_site/index.php" // PC버전 카카오톡에서 사용하는 웹 링크 URL
+                        }
+                    }
+                ]
+            });
+        }
+    </script>
+
+
     <title>repice</title>
 </head>
 
 <body style="background :#FFEAE5;">
-<div class="container main_top">
-        <div class="row">
-            <!--row로 열 만들기-->
-            <div class="col-md-2 box1 text-center">
-                <!--그리드로 행 나누기 로고버튼-->
-                <a href="/recipe_site/index.php"><img src="../img/logo_pink.png" alt="" class=""></a>
-            </div>
-            <?php
-            if(isset($_SESSION['mem_id'])){
-            ?>    
-                <div class="col-md-2 box1 text-center row">
-                <div class="login_button_wrap">
-                    <a href="../signup/logout.php"><button class="btn login_button">ログアウト</button></a>
-                    <a href="../mypage/mypage.php"><button class="btn login_button2">マイページ</button></a>
-                </div>
-                <br>
-                <div class="login_text">
-                    <?php
-                    //isset 안에 값이 있는지 없는지 확인하는 식
-                        echo $_SESSION['mem_id']."様ようこそ.";              
-                    ?>
-                </div>     
-            </div>
-            <?php
-            }
-            else{
-            ?>
-            <div class="col-md-2 box1 text-center row">
-                <div class="login_button_wrap">
-                    <a href="../signup/login.php"><button class="btn login_button">ログイン</button></a>
-                    <a href="../signup/signup.php"><button class="btn login_button2">新規取得</button></a>
-                </div> 
-            </div>
-            <?php
-            };
-            ?>
-            <!--서치박스 -->
-            <div class="col-md-4 box1 text-center search_padding">
-                <form action="/recipe_site/search/search_result.php" method="get">
-                <nav class="navbar navbar-search navbar-light bg-light">
-                    <select class="form-control search_width text-center" name="catgo">
-                        <option value="recipe_contant">Content</option>
-                        <option value="mem_id">ID</option>
-                    </select>
-                    <input class="form-control" type="search" name="search" placeholder="Search" aria-label="Search">
-                    <button class="btn search_button" type="submit" id="main-button"
-                        style="color:white; background:#f77e8a">検索</button>
-                    <!--버튼에 아이디 추가-->
-                </nav>
-                </form>
-            </div>
-            <div class="col-md4 btn-group toggle_button switch_button" id="toggle_event_editing">
-                <!--토글 이벤트 아이디 추가-->
-                <button type="button" class="btn btn-info locked_active">KR</button>
-                <button type="button" class="btn btn-default unlocked_inactive">JP</button>
-                <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                <div class="img-wrap">
-                    <a href="#"><img src="../img/facebook.png" alt=""></a>
-                    <a href="#"><img src="../img/youtube.png" alt=""></a>
-                </div>
-            </div>
-        </div>
-        <!--숨겨진 버튼구역-->
-        <nav class="navbar row navbar_margin">
-            <div class="row category_button">
-                <button class="navbar-toggler hidden-lg hidden-md hidden-sm category_button" type="button"
-                    data-toggle="collapse" data-target="#collapsibleNavbar">
-                    <img src="../img/category.png" alt="">
-                </button>
-            </div>
-        </nav>
-    </div>
-    <!--카테고리구역-->
-    <div class="container-fluid text-center" style="justify-content: center;">
-        <div class="collapse navbar-collapse" id="collapsibleNavbar" style="align-items:center;">
-            <!--네브바 아이디 추가-->
-            <ul class="navbar-nav col-md-12">
-                <li class="nav-item col-md-3"> <a class="nav-link disabled" href="../categorypage/category.php">カテゴリー </a> </li>
-                <li class="nav-item dropdown col-md-3">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-                        <span class="caret"></span> 放送局
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">3大天王</a><br>
-                        <a class="dropdown-item" href="#">골목식당</a><br>
-                        <a class="dropdown-item" href="#">맛남의광장 </a><br>
-                        <a class="dropdown-item" href="#">마리텔</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown col-md-3">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-                        <span class="caret "></span> 料理
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">韓食</a><br>
-                        <a class="dropdown-item" href="#">和食</a><br>
-                        <a class="dropdown-item" href="#">洋食</a><br>
-                        <a class="dropdown-item" href="#">中食</a>
-                    </div>
-                </li>
-                <li class="nav-item col-md-3"> <a class="nav-link" href="#">後記</a> </li>
-                <!-- <li class="nav-item col-md-20"> <a class="nav-link" href="#">マイページ</a> </li>  마이페이지-->
-
-            </ul>
-        </div>
-        </nav>
-    </div>
     <br>
     <div class="container">
         <form action="/recipe_site/comment/comment_write_ok.php?recipe_seq=<?php echo $recipe["recipe_seq"];?>" method="POST" enctype="multipart/form-data">
@@ -222,7 +151,10 @@
             <div class="row flex_box">
                 <div class="col-md-2">
                     <div class="img-rounded text-center">
-                        <img src="../img/facebook.png">
+                        <!-- rarao icon -->
+                        <a onClick="shareKakaotalk();" id="kakao-link-btn"> 
+                            <img src="../img/rarao.png" width="50" /> 
+                        </a>
                     </div>
                 </div>
                 <!--트위터 아이콘-->
@@ -302,7 +234,7 @@
     <div class="row">
         <div class="recipe text-right">
             <div class="col-md-6"><?php echo $recipe_cont["img_cont"]?>
-        </div>
+            </div>
             <!--레시피 이미지-->
             <div class="col-md-6" style="width:250px; height:150px">
                 <img src="http://localhost/recipe_site/img/<?php echo $recipe_cont["recipe_img"];?> "style="width:250px; height:150px">
@@ -473,62 +405,8 @@
         </div>
     </div>
     </form>
-    </div>
-    <div class="container-fluid footer_wrap">
-        <footer class="footer_margin">
-            <h3 class="footer_main">開発者</h3>
-            <div class="col-md-5">
-                <div class="text-center footer_box1"><a href="https://github.com/imlimchill"
-                        style="font-weight: 900; color: white; font-size: 1.3em;"><img src="../img/github-logo.png"
-                            alt="">&nbsp;林彩浄(イム・チェジョン
-                        &nbsp;|&nbsp;
-                        チーム・リーダー)</a>
-                    <br>林彩浄(イム・チェジョン |
-                    チーム・リーダー)
-                    <br>林彩浄(イム・チェジョン |
-                    チーム・リーダー)
-                    <br>林彩浄(イム・チェジョン |
-                    チーム・リーダー)
-                </div>
-                <div class="text-center footer_box2"><a href="https://github.com/kanghr1685"
-                        style="font-weight: 900; color: white; font-size: 1.3em;"><img src="../img/github-logo.png"
-                            alt="">&nbsp;姜和林(カン・ファリム)</a>
-                    <br>林彩浄(イム・チェジョン |
-                    チーム・リーダー)
-                    <br>林彩浄(イム・チェジョン |
-                    チーム・リーダー)
-                    <br>林彩浄(イム・チェジョン |
-                    チーム・リーダー)
-                </div>
-            </div>
-            <div class="col-md-2 text-center"><img src="../img/main_git.png" alt="">
-                <div class=" text-center git_address">チームGitアドレス</div>
-            </div>
-
-            <div class="col-md-5">
-                <div class="text-center footer_box2"><a href="https://github.com/lienero"
-                        style="font-weight: 900; color: white; font-size: 1.3em;"><img src="../img/github-logo.png"
-                            alt="">&nbsp;李京珉(イ・ギョンミン)</a>
-                    <br>林彩浄(イム・チェジョン |
-                    チーム・リーダー)
-                    <br>林彩浄(イム・チェジョン |
-                    チーム・リーダー)
-                    <br>林彩浄(イム・チェジョン |
-                    チーム・リーダー)
-                </div>
-                <div class="text-center footer_box1"><a href="https://github.com/hyunwooOh1230"
-                        style="font-weight: 900; color: white; font-size: 1.3em;"><img src="../img/github-logo.png"
-                            alt="">&nbsp;吳賢祐(オ・ヒョンウ)</a>
-                    <br>林彩浄(イム・チェジョン |
-                    チーム・リーダー)
-                    <br>林彩浄(イム・チェジョン |
-                    チーム・リーダー)
-                    <br>林彩浄(イム・チェジョン |
-                    チーム・リーダー)
-                </div>
-            </div>
-        </footer>
-    </div>
+    <!--푸터구역-->
+    <?php include "../mainpage/footer.php"; ?>
 </body>
 
 </html>

@@ -1,9 +1,15 @@
-<!DOCTYPE html>
-<html>
 <?php
 include $_SERVER['DOCUMENT_ROOT']."/recipe_site/db/db.php";
 include "signup/method/password.php";
+// 서버에 있는 아이디를 $userid변수에 삽입
+if(isset($_SESSION['mem_id'])){
+    $userid = $_SESSION['mem_id'];
+}
 ?>
+    
+
+<!DOCTYPE html>
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -82,8 +88,8 @@ include "signup/method/password.php";
             </div>
             <div class="col-md4 btn-group toggle_button switch_button" id="toggle_event_editing">
                 <!--토글 이벤트 아이디 추가-->
-                <button type="button" class="btn btn-info locked_active">KR</button>
-                <button type="button" class="btn btn-default unlocked_inactive">JP</button>
+                <button type="button" class="btn btn-default unlocked_inactive">KR</button>
+                <button type="button" class="btn btn-info locked_active">JP</button>
                 <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 <div class="img-wrap">
                     <a href="#"><img src="./img/facebook.png" alt=""></a>
@@ -176,34 +182,89 @@ include "signup/method/password.php";
                     <span class="">
                     <?php
                         if(isset($_SESSION['mem_id'])){
+                            $sql = mq("select * from po_member where mem_id='".$userid."'");
+                            // $sql에 있는 fetch_array(): 인덱스를 변수에 삽입
+                            $member = $sql->fetch_array();
+                            //  explode("," DB 필드)콤마를 기준으로 나눠서 배열로 저장
+                            $filter_Array = explode(",", $member['mem_filter']); 
+                            $spicy_Array = explode(",", $member['mem_spicy']);
+                            // $spicy_Array에서 null을 제외한 새 배열을 위한 변수 선언
+                            $count=0;
+                            // $filter_Array에서 null을 제외한 새 배열을 위한 변수 선언
+                            $countf=0;
+                            // $spicy_Array의 길이만큼 반복한다.
+                            for($i=0; $i< count($spicy_Array); $i++){
+                                //$spicy_Array의 값이 null이 아닐 시에 $new_Spicy_Array에 값을 삽입한다.
+                                if($spicy_Array[$i] != null){
+                                    $new_Spicy_Array[$count] = $spicy_Array[$i];
+                                    //배열에 값을 넣은 수 만큼 증가
+                                    $count++; 
+                                }
+                            }
+                            // count(배열) 배열 변수의 개수를 반환. 
+                            // $filter_Array의 길이만큼 반복한다.
+                            for($j=0; $j< count($filter_Array); $j++){
+                                //$filter_Array의 값이 null이 아닐 시에 $new_Filter_Array에 값을 삽입한다.
+                                if($filter_Array[$j] != null){
+                                    $new_Filter_Array[$countf] = $filter_Array[$j];
+                                    //배열에 값을 넣은 수 만큼 증가
+                                    $countf++; 
+                                }
+                            }
                         ?> 
                         <button class="board_new btn board_button">
                            
                         <a href="./recipe/recipe_new.php" style="color:white;">作成</a>
                         </button>
                         <?php
-                         };
+                        };
                     ?>
                     </span>
                 </div>
                 <?php
-                $sql3 = mq("select * from po_recipe order by recipe_date desc limit 0,4");
-                    while($recipe_info = $sql3->fetch_array()){
-                        
-                        ?>
-                    
-                <div class="col-md-3 col-sm-3">
-                    <a href="../recipe_site/recipe/recipe.php?recipe_seq=<?php echo $security_seq=password_hash($recipe_info["recipe_seq"], PASSWORD_DEFAULT);?>"><img class="card-img-top img-responsive img-rounded" src="http://localhost/recipe_site/img/<?php echo $recipe_info["img"];?>" style="width: 212px; height: 160px;"></a>
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            <a href="#"><?php echo $recipe_info["recipe_name"];?>&nbsp;</a>
-                        </h4>
-                        <h5>좋아요 수:<td><?php echo $recipe_info["recipe_likes"];?>&nbsp;</td></h5>
-                        <p class="card-text">작성자: <?php echo $recipe_info["mem_id"];?>&nbsp;</p>
-                    </div>
-                </div>
-                <?php
+                // 기본 통합 검색 용 쿼리 문 작성
+                $str_sql = "select * from po_recipe";
+                $new_sql = $str_sql;
+                $like_sql = $str_sql; 
+                if(isset($_SESSION['mem_id'])){
+                    // 배열에 값을 넣은 수 만큼 반복한다.
+                    for($k=0; $k < $count; $k++){
+                        if($k == 0) {
+                            $str_sql .= " where recipe_spicy != '$new_Spicy_Array[$k]'";
+                        }
+                        // 쿼리 문에 필터링을 위해 문자열 합침 ($new_Spicy_Array[$k])
+                        $str_sql .= " AND recipe_spicy != '$new_Spicy_Array[$k]'";
+                        $new_sql = $str_sql;
+                        $like_sql = $str_sql;      
                     }
+                    // 배열에 값을 넣은 수 만큼 반복한다.
+                    for($l=0; $l < $countf; $l++){
+                        if($count == 0) {
+                            $str_sql .= " where recipe_food not like '%$new_Filter_Array[$l]%'";
+                        }
+                        // 쿼리 문에 필터링(not like)을 위해 문자열 합침 (%$new_Filter_Array[$l]%')
+                        // not like : 특정 값이 들어가진 않은 값을 검색
+                        $str_sql .= " AND recipe_food not like '%$new_Filter_Array[$l]%'";
+                        $new_sql = $str_sql;
+                        $like_sql = $str_sql;    
+                    }
+                }    
+                    $new_sql .= " order by recipe_date desc limit 0,4";
+                    $sql3 = mq($new_sql);
+                        while($recipe_info = $sql3->fetch_array()){      
+                    ?>        
+                    <div class="col-md-3 col-sm-3">
+                        <a href="../recipe_site/recipe/recipe.php?recipe_seq=<?php echo $security_seq=password_hash($recipe_info["recipe_seq"], PASSWORD_DEFAULT);?>"><img class="card-img-top img-responsive img-rounded" src="http://localhost/recipe_site/img/<?php echo $recipe_info["img"];?>" style="width: 212px; height: 160px;"></a>
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <a href="#"><?php echo $recipe_info["recipe_name"];?>&nbsp;</a>
+                            </h4>
+                            <h5>좋아요 수:<td><?php echo $recipe_info["recipe_likes"];?>&nbsp;</td></h5>
+                            <p class="card-text">작성자: <?php echo $recipe_info["mem_id"];?>&nbsp;</p>
+                        </div>
+                    </div>
+                    <?php
+                    }   
                  ?> 
                 </div>
             </div>
@@ -226,7 +287,8 @@ include "signup/method/password.php";
                 </span>
                 </div>
                 <?php
-                $sql3 = mq("select * from po_recipe order by recipe_likes desc limit 0,4");
+                $like_sql .= " order by recipe_likes desc limit 0,4";
+                $sql3 = mq($like_sql);
                     while($recipe_info = $sql3->fetch_array()){
                         ?>
                     
