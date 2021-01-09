@@ -74,7 +74,7 @@ include "../db/db.php";
                 <form action="/recipe_site/search/search_result.php" method="get">
                 <nav class="navbar navbar-search navbar-light bg-light">
                     <select class="form-control search_width text-center" name="catgo">
-                        <option value="content">Content</option>
+                        <option value="recipe_contant">Content</option>
                         <option value="mem_id">ID</option>
                     </select>
                     <input class="form-control" type="search" name="search" placeholder="Search" aria-label="Search">
@@ -86,8 +86,8 @@ include "../db/db.php";
             </div>
             <div class="col-md4 btn-group toggle_button switch_button" id="toggle_event_editing">
                 <!--토글 이벤트 아이디 추가-->
-                <button type="button" class="btn btn-info locked_active">KR</button>
-                <button type="button" class="btn btn-default unlocked_inactive">JP</button>
+                <button type="button" class="btn btn-default unlocked_inactive">KR</button>
+                <button type="button" class="btn btn-info locked_active">JP</button>
                 <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 <div class="img-wrap">
                     <a href="#"><img src="../img/facebook.png" alt=""></a>
