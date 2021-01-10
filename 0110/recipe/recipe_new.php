@@ -76,7 +76,7 @@
 
 <body>
     <div id="container">
-        <h2>레시피 작성 페이지</h2>
+        <h2>レシピ作成ページ</h2>
         <form name="baseForm" action="recipe_commit.php" method="post" enctype="multipart/form-data">
             <!-- first row -->
             <div class="row">
@@ -158,7 +158,7 @@
                         <option value="3">유재석</option>
                     </select>
                     <select class="custom-select" id="inputGroupSelect02" name="tv_show" required>
-                        <option selected>방송</option>
+                        <option selected>番組</option>
                         <option value="1">ユーチューブ</option>
                         <option value="2">골목식당</option>
                         <option value="3">V-LOG</option>

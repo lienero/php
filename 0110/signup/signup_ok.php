@@ -34,7 +34,7 @@
 
 				} else {
 					// history.back() : 현재 페이지의 한단계 이전 페이지로 이동
-					echo "<script>alert('ペクジョンウォンに対する愛が足りません'); history.back();</script>";
+					echo "<script>alert('同意していません'); history.back();</script>";
 				}						
 			} else {
 				echo "<script>alert('パスワードの確認が間違っています'); history.back();</script>";
