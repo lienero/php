@@ -44,11 +44,25 @@ if(isset($_SESSION['mem_id'])){
             </div>
             <?php
             if(isset($_SESSION['mem_id'])){
-            ?>    
-                <div class="col-md-2 box1 text-center row">
+                ?>
+            <div class="col-md-2 box1 text-center row">
                 <div class="login_button_wrap">
+                <?php
+                $sql = mq("select * from po_member where mem_id='".$userid."'");
+                // $sql에 있는 fetch_array(): 인덱스를 변수에 삽입
+                $member = $sql->fetch_array();
+                if($member['rank'] == "manager"){
+                ?>
+                    <a href="./signup/logout.php"><button class="btn login_button">ログアウト</button></a>
+                    <a href="./managerpage/managerpage.php"><button class="btn login_button2">マネージャーページ</button></a>
+                <?php    
+                } else {
+                ?>    
                     <a href="./signup/logout.php"><button class="btn login_button">ログアウト</button></a>
                     <a href="./mypage/mypage.php"><button class="btn login_button2">マイページ</button></a>
+                <?php     
+                }
+                ?>     
                 </div>
                 <br>
                 <div class="login_text">
@@ -259,8 +273,8 @@ if(isset($_SESSION['mem_id'])){
                             <h4 class="card-title">
                                 <a href="#"><?php echo $recipe_info["recipe_name"];?>&nbsp;</a>
                             </h4>
-                            <h5>좋아요 수:<td><?php echo $recipe_info["recipe_likes"];?>&nbsp;</td></h5>
-                            <p class="card-text">작성자: <?php echo $recipe_info["mem_id"];?>&nbsp;</p>
+                            <h5>イイね:<td><?php echo $recipe_info["recipe_likes"];?>&nbsp;</td></h5>
+                            <p class="card-text">by: <?php echo $recipe_info["mem_id"];?>&nbsp;</p>
                         </div>
                     </div>
                     <?php
@@ -293,13 +307,13 @@ if(isset($_SESSION['mem_id'])){
                         ?>
                     
                 <div class="col-md-3 col-sm-3">
-                    <a href="recipe/recipe.php?recipe_seq=<?php echo $recipe_info["recipe_seq"];?>"><img class="card-img-top img-responsive img-rounded" src="http://localhost/recipe_site/img/<?php echo $recipe_info["img"];?>" style="width: 212px; height: 160px;" text-center></a>
+                    <a href="recipe/recipe.php?recipe_seq=<?php echo $security_seq=password_hash($recipe_info["recipe_seq"], PASSWORD_DEFAULT);?>"><img class="card-img-top img-responsive img-rounded" src="http://localhost/recipe_site/img/<?php echo $recipe_info["img"];?>" style="width: 212px; height: 160px;" text-center></a>
                     <div class="card-body">
                         <h4 class="card-title">
                             <a href="#"><?php echo $recipe_info["recipe_name"];?>&nbsp;</a>
                         </h4>
-                        <h5>좋아요 수:<td><?php echo $recipe_info["recipe_likes"];?>&nbsp;</td></h5>
-                        <p class="card-text">작성자: <?php echo $recipe_info["recipe_name"];?>&nbsp;</p>
+                        <h5>イイね:<td><?php echo $recipe_info["recipe_likes"];?>&nbsp;</td></h5>
+                        <p class="card-text">by: <?php echo $recipe_info["mem_id"];?>&nbsp;</p>
                     </div>
                 </div>
                 <?php

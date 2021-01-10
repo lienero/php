@@ -1,6 +1,6 @@
 <?php
 	//db 폴더에 있는 db.php 불러오기
-	include "../db/db.php";
+	include $_SERVER['DOCUMENT_ROOT']."/recipe_site/db/db.php";
 	//method 폴더에 있는 passwrod.php;를 불러온다.
 	include "./method/password.php";
 
