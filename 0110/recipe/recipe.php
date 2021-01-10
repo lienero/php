@@ -283,7 +283,7 @@
                 </div>
             </div>
             <div class="col-md-6 test">        
-                <textarea class="form-control" rows="2" name="content" id="content" placeholder="ログインしてください。。" required></textarea>
+                <textarea class="form-control" rows="2" name="content" id="content" placeholder="ログインしてください" required></textarea>
             </div>
             <div class="col-md-3 test">
                 <button type="button" class="btn btn-danger" onclick="location.href='../signup/login.php'">ログイン</button>
@@ -404,6 +404,15 @@
 			</div>
         </div>
     </div>
+    <?php
+    if(isset($_SESSION['mem_id'])){
+        if($userid == $recipe["mem_id"] || $member['rank'] == "manager") {
+        ?>    
+            <div class="text-center"><a href="/recipe_site/recipe/recipe_delete.php?recipe_seq=<?php echo $recipe["recipe_seq"];?>" class="btn btn-info">削除</a></div>
+        <?php
+        }
+    }
+        ?>
     </form>
     <!--푸터구역-->
     <?php include "../mainpage/footer.php"; ?>

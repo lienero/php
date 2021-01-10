@@ -32,16 +32,16 @@ if(!isset($_SESSION))
             $sql = mq("update po_member set mem_filter = '".$pork.$beef.$chicken.$vegetable.$fruit.$seasoning."' where mem_id='".$userid."'");
             $sql = mq("update po_member set mem_spicy = '".$spicy0.$spicy1.$spicy2.$spicy3."' where mem_id='".$userid."'");
             echo "<script>
-            alert('필터링이 수정되었습니다.'); history.back();</script>";
+            alert('フィルタリングを変更しました'); history.back();</script>";
         } else {
             //get으로 받아온 정보를 db에 update. 콤마를 찍는 식으로 저장한다
             $sql = mq("update po_member set mem_filter = '".$pork.$beef.$chicken.$vegetable.$fruit.$seasoning."' where mem_id='".$userid."'");
             $sql = mq("update po_member set mem_spicy = '".$spicy0.$spicy1.$spicy2.$spicy3."' where mem_id='".$userid."'");
             echo "<script>
-            alert('필터링이 등록되었습니다.'); history.back();</script>";
+            alert('フィルタリングを登録しました'); history.back();</script>";
         }
         
     } else {
-        echo "<script>alert('로그인을 해주세요.'); history.back();</script>";
+        echo "<script>alert('ログインしてください'); history.back();</script>";
     }
 ?>

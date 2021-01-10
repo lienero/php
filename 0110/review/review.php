@@ -50,7 +50,7 @@
   <body style="background :#FFEAE5;">
     <br>
     <div id="container">
-      <h2 class="lim_h2 text-center">후기 게시판</h2>
+      <h2 class="lim_h2 text-center">後記掲示板</h2>
       <!-- Search form -->
       <!-- <form class="form-inline d-flex justify-content-center md-form form-sm mt-0 lim_form">
         <div class="input-group mb-3" id="searchG">
@@ -70,11 +70,11 @@
         <table class="table table-hover" style="width:60%; margin:auto;">
           <thead class="thead-dark">
             <tr>
-              <th scope="col">번호</th>
-              <th scope="col">분류</th>
-              <th scope="col">후기 제목</th>
-              <th scope="col">작성 날짜</th>
-              <th scope="col">작성자</th>
+              <th scope="col">No</th>
+              <th scope="col">分類</th>
+              <th scope="col">後記題名</th>
+              <th scope="col">作成日</th>
+              <th scope="col">by</th>
             </tr>
           </thead>
           <tbody>

@@ -37,10 +37,10 @@ if($userid && $content && $time){
     $sql = mq("insert into po_comment(recipe_seq ,mem_id, com_cont, com_img, com_date)
     values('".$recipe_seq."','".$userid."','".$content."','".$filename."','".$time."')");
     echo "<script>
-    alert('댓글이 등록되었습니다.');
+    alert('コメントが登録されました');
     history.back();</script>";
 }else{
     echo "<script>
-    alert('댓글을 등록할 수 없습니다.');
+    alert('コメントが登録できません');
     </script>";
 }

@@ -6,4 +6,4 @@
 ?>
 <meta charset="utf-8">
 <!-- alret() : 경고창 띄우기 -->
-<script>alert("로그아웃되었습니다."); history.back(); location.href='../index.php'; </script>
+<script>alert("ログアウトされました"); history.back(); location.href='../index.php'; </script>

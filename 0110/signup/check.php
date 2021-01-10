@@ -16,15 +16,15 @@
 	if($member==0)
 	{
 ?>
-	<div style='font-family:"malgun gothic"';><?php echo $userid; ?>는 사용가능한 아이디입니다.</div>
+	<div style='font-family:"malgun gothic"';><?php echo $userid; ?>は使うことができるIDです</div>
 <?php 
 	}else{
 ?>
-	<div style='font-family:"malgun gothic"; color:red;'><?php echo $userid; ?>은 중복된아이디입니다.<div>
+	<div style='font-family:"malgun gothic"; color:red;'><?php echo $userid; ?>は使われているIDです<div>
 <?php
 	}
 ?>
 <!-- onclick 할 시에 window.close() : 윈도우 닫기 함수 실행 -->
-<button value="닫기" onclick="window.close()">닫기</button>
+<button value="닫기" onclick="window.close()">閉じる</button>
 <script>
 </script>

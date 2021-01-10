@@ -63,15 +63,15 @@
     <div id="container">
       <h2><?= $read[3] ?></h2>
       <div class = "text-right">
-        방송종류: <?= $read[2] ?>
+        番組: <?= $read[2] ?>
       </div>
       <br>
       <div class = "text-right">
-        작성자: <?= $read[1] ?>
+        by: <?= $read[1] ?>
       </div>
       <br>
       <div class = "text-right"> 
-        작성 날짜: <?= $read[5] ?>
+        作成日: <?= $read[5] ?>
       </div>
       <br>
       <hr>

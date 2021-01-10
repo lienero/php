@@ -1,6 +1,6 @@
 <?php
 	//db 폴더에 있는 db.php 불러오기
-    include "../db/db.php";
+    include $_SERVER['DOCUMENT_ROOT']."/recipe_site/db/db.php";
     
 	//password변수에 POST로 받아온 값을 저장하고 sql문으로 POST로 받아온 아이디값을 찾습니다.
     $password = $_POST['userpw']; // 패스워드 입력 값을 post로 받아옴
@@ -16,18 +16,18 @@
                 if($agree == "agree"){
                     $sql = mq("delete from po_member where mem_id='".$_SESSION['mem_id']."'");
                     session_destroy();
-                    echo "<script>alert('회원을 탈퇴하셨습니다.'); location.href='../signup/login.html';</script>";
+                    echo "<script>alert('会員退会しました'); location.href='../signup/login.php';</script>";
                 } else {
-                    echo "<script>alert('동의하지 않으셨습니다.'); history.back();</script>";
+                    echo "<script>alert('同意されていません'); history.back();</script>";
                 }
             } else {
-                echo "<script>alert('비밀번호가 틀렷습니다.'); history.back();</script>";
+                echo "<script>alert('このパスワードは間違っています'); history.back();</script>";
             }      
         } else {
-            echo "<script>alert('비밀번호를 확인하세요.'); history.back();</script>";
+            echo "<script>alert('パスワードを確認してください'); history.back();</script>";
         }    
     } else {
-        echo "<script>alert('로그인하세요.'); history.back();</script>";
+        echo "<script>alert('ログインしてください'); history.back();</script>";
     }
 ?>
 ?>

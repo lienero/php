@@ -1,6 +1,6 @@
 <?php
     //db 연결
-    include "../db/db.php";
+    include $_SERVER['DOCUMENT_ROOT']."/recipe_site/db/db.php";
     //입력값 변수 선언
     $review = $_POST['review'];
     //입력값 갯수 카운트
@@ -15,6 +15,6 @@
     }        
         //선택한 후기가 없으면 뒤로 이동!
     }else{
-        echo "<script>alert('선택된 것이 없습니다.');history.back();</script>";
+        echo "<script>alert('選択されていません');history.back();</script>";
     }
 ?>    

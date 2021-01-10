@@ -132,15 +132,15 @@
 								<h4 class="card-title">
 									<a href="#"><?php echo $recipe_info["recipe_name"];?>&nbsp;</a>
 								</h4>
-								<h5>좋아요 수:<td><?php echo $recipe_info["recipe_likes"];?>&nbsp;</td></h5>
-								<p class="card-text">작성자: <?php echo $recipe_info["mem_id"];?>&nbsp;</p>
+								<h5>イイね:<td><?php echo $recipe_info["recipe_likes"];?>&nbsp;</td></h5>
+								<p class="card-text">by: <?php echo $recipe_info["mem_id"];?>&nbsp;</p>
 							</div>
 						</div>
                			<?php
                     	}
 					}
 				}else {
-					echo "로그인을 해주세요";
+					echo "ログインしてください";
 				}
 				?>
                 </div>
@@ -155,14 +155,14 @@
 						//현재 페이지가 1을 초과했을 때 출력한다
 						if($page > 1){
 							// 처음 버튼을 누를 시에 ($_GET('page') 값에 1을 삽입
-							echo "<li class='page-item'><a href='?page=1'>처음</a></li>";
+							echo "<li class='page-item'><a href='?page=1'>初め</a></li>";
 						}
 						// 현재 페이지가 1을 초과했을 때 출력한다.
 						if($page > 1){
 							//$pre 변수에 $page-1을 해준다.
 							$pre = $page-1;
 							//이전 버튼을 클릭할 시에 ($_GET('page') 값에 $pre 변수를 삽입 
-							echo "<li class='page-item'><a href='?page=$pre'>이전</a></li>";
+							echo "<li class='page-item'><a href='?page=$pre'>前に</a></li>";
 						}
 						//반복문을 사용하여, 블록 시작번호가 마지막 블록보다 작거나 같을 때 까지 반복한다 
 						for($i=$block_start; $i<=$block_end; $i++){
@@ -177,12 +177,12 @@
 							//$next 변수에 $page변수에 1을 더한 값을 삽입
 							$next = $page +1;
 							// 다음 버튼을 클릭할 시 ($_GET('page') 값에 $next 변수를 삽입
-							echo "<li class='page-item'><a href='?page=$next'>다음</a></li>";
+							echo "<li class='page-item'><a href='?page=$next'>後に</a></li>";
 						}
 						//만약에 page가 총 페이지 수의 미만일 경우
 						if($page < $total_page){
 							// 마지막 버튼을 클릭할 시($_GET('page') 값에 총 페이지 수를 삽입 
-							echo "<li class='page-item'><a href='?page=$total_page'>마지막</a></li>";
+							echo "<li class='page-item'><a href='?page=$total_page'>最後に</a></li>";
 						}
 					?>
 				</ul>

@@ -13,7 +13,7 @@
             echo "<script>history.back();</script>";
         }
     } else {
-        echo "<script>alert('선택된 레시피가 없습니다.'); history.back();</script>";
+        echo "<script>alert('選択されていません'); history.back();</script>";
         
     }
 

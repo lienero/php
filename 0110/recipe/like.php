@@ -67,7 +67,7 @@ include $_SERVER['DOCUMENT_ROOT']."/recipe_site/db/db.php";
                                 }
                             } else {
                                 echo "<script>
-                                alert('로그인을 해주세요.');
+                                alert('ログインしてください');
                                 location.href='./comment_write_read.php';
                                 </script>";
                                 }

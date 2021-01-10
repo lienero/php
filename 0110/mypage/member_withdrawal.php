@@ -7,7 +7,7 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>회원탈퇴</title>
+	<title>会員退会</title>
 	<!-- 아이디 중복 검사 와 비밀번호 보안성 체크 함수가 담긴 js파일 -->
 	<script src ="../js/checks.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,21 +48,21 @@
       	</div> 
 		<br> 
 		<!-- id="same" : onkeyyup 할 시 작동하는 함수가 변경하는 html  -->
-      	<div id="same">비밀번호를 확인합니다.</div>
+      	<div id="same">パスワードを確認します</div>
 		<br>
 		<br>
      	 <!--동의 의사를 묻는 체크박스-->
       	<div class="row">
         	<div class="checkbox mb-3" style="text-align: center;">
           	<label>  
-            	<input type="checkbox" id="jb-checkbox" name="agree" value="agree">동의하시겠습니까?
+            	<input type="checkbox" id="jb-checkbox" name="agree" value="agree">同意しますか？
           	</label>      
         	</div>
       	</div>  
       <!--입력을 완료한다음 회원가입 완료 버튼-->
       	<div class="row">     
         	<div class="form-group">
-          		<input type="submit" class="btn btn-outline-success" value="탈퇴하기" id="success">
+          		<input type="submit" class="btn btn-outline-success" value="会員退会" id="success">
         	</div>   
       	</div>
     </div>     

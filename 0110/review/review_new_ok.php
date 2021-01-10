@@ -41,7 +41,7 @@
 
         echo "<script>location.href='./review_view.php?seq=".$sql_seq[0]."';</script>";
     }else{
-        echo "<script>alert('잘못 작성하였습니다.');history.back();</script>";
+        echo "<script>alert('間違って作成しました');history.back();</script>";
     }
         
     

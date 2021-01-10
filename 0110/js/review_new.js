@@ -26,7 +26,7 @@ function handleImgFileSelect(e) {
   var index = 0;
   filesArr.forEach(function (f) {
     if (!f.type.match("image.*")) {
-      alert("확장자는 이미지 확장자만 가능합니다.");
+      alert("イメージFileを使ってください");
       return;
     }
 

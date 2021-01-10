@@ -47,26 +47,26 @@
       <div class="col-md-12">
         <!-- class="page-header"라는 스타일은 헤더 부분의 스타일 클래스-->
         <div class="page-header">
-          <h3 class="text-info">관리자 페이지</h3>
+          <h3 class="text-info">マネージャーページ</h3>
           <br />
-          <img src="../signup/img//logo.png" alt="" width="200" class="img-responsive left-block" />
+          <img src="../signup/img/logo.png" alt="" width="200" class="img-responsive left-block" />
         </div>
         <!-- <form class="form-inline"> : 입력폼의 입력 항목이 가로로 표시되게 된다. -->
         <form class="form-inline" action="./review_delete.php" method="POST">
           <fieldset>
-            <legend>작성된 후기리스트</legend>
+            <legend>後記リスト</legend>
             <table class="table table-bordered">
               <tr class="info">
                 <th>
                   <label>
-                    <input type="checkbox" value="all" class="check_all" name="review" />&nbsp;선택
+                    <input type="checkbox" value="all" class="check_all" name="review" />&nbsp;選択
                   </label>
                 </th>
-                <th>제목</th>
-                <th colspan="3">작성자</th>
+                <th>題目</th>
+                <th colspan="3">内容</th>
               </tr>
               <!-- start review list -->
-              <?
+              <?php
                 while($review = $sql_review->fetch_array()) {
                   echo <<< html
                   <tr>
@@ -83,22 +83,22 @@
               ?>
               <!-- end review list -->
             </table>
-            <div><input type="submit" class="btn btn-info pull-right" value="게시물 삭제"></div>
+            <div><input type="submit" class="btn btn-info pull-right" value="削除"></div>
           </fieldset>
         </form>
         <!-- <sapn><a href="./recipe_delete.php" class="btn btn-info pull-right">게시물 삭제</a></sapn> -->
         <br /><br />
         <form class="form-inline" action="./member_delete.php" method="POST">
           <fieldset>
-            <legend>회원 리스트</legend>
+            <legend>会員リスト</legend>
             <table class="table table-bordered">
               <tr class="info">
                 <th style="width: 22%;">
                   <label>
-                    <input type="checkbox" value="all" name="member" class="check_all2" />&nbsp;선택
+                    <input type="checkbox" value="all" name="member" class="check_all2" />&nbsp;選択
                   </label>
                 </th>
-                <th style="width: 78%;">아이디</th>
+                <th style="width: 78%;">ID</th>
               </tr>
               <!-- start member list -->
               <?php
@@ -115,12 +115,12 @@ html;
               ?>
               <!-- end member list -->
             </table>
-            <div><input type="submit" class="btn btn-info pull-right" value="게시물 삭제"></div>
+            <div><input type="submit" class="btn btn-info pull-right" value="削除"></div>
           </fieldset>
         </form>
         <br /><br /><br />
         <div class="text-center">
-          <a href="../index.php" class="btn btn-info">홈으로</a>
+          <a href="../index.php" class="btn btn-info">ホームへ</a>
         </div>
       </div>
     </div>

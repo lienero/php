@@ -71,7 +71,7 @@
   </head>
   <body>
     <div id="container">
-      <h2>후기 작성 페이지</h2>
+      <h2>後記作成ページ</h2>
       <form action="./review_new_ok.php" method="POST"  enctype="multipart/form-data">
         <!-- category + title -->
         <div class="input-group mb-3">

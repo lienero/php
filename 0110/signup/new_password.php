@@ -40,7 +40,7 @@
                 <input type="password" id="pw" class="form-control rounded mx-auto d-block" name="userpw" placeholder="パスワード" onKeyup="safetyPasswordPattern(this); isSame();" style="ime-mode:disabled;" required>
                 <label for="pw"><font style="vertical-align: inherit;"></font></label>
             </div>
-            <div id="makyText">:: パスワードをご入力ください　(대소문자, 숫자, 특수문자 포함) ::</div>
+            <div id="makyText">:: パスワードをご入力ください　(大小文字, 数字, 特殊文字含め) ::</div>
             <br>
             <div></div>
             <!--비밀번호 확인 입력칸-->
@@ -48,7 +48,7 @@
                 <input type="password" id="pwcheck" class="form-control rounded mx-auto d-block" name="userpwconfirm" placeholder="パスワード確認" onKeyup="isSame()" style="ime-mode:disabled;" required>
                 <label for="pwcheck"><font style="vertical-align: inherit;"></font></label>
             </div>
-            <div id="same">パスワードを確認します。</div>
+            <div id="same">パスワードを確認します</div>
             <br>
             <br>
             <br>

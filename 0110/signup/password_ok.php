@@ -10,6 +10,6 @@
     if($member) {
         echo "<script> location.href='./new_password.php?id=$id'; </script>";
     } else {
-        echo "<script>alert('해당 계정의 정보가 존재하지 않습니다.'); history.back(); </script>";
+        echo "<script>alert('このパスワードは間違っています'); history.back(); </script>";
     }
 ?>

@@ -10,11 +10,11 @@
     if($_POST['email']) {
         // if $member is false >> page back
         if($member) {
-            echo "<script>alert('당신의 id는 ".$member['mem_id']."'); location.href='./login.html'; </script>";
+            echo "<script>alert('あなたのIDは ".$member['mem_id']."'); location.href='./login.html'; </script>";
         } else {
-            echo "<script>alert('해당 계정의 정보가 존재하지 않습니다.'); history.back(); </script>";
+            echo "<script>alert('このIDは存在していません.'); history.back(); </script>";
         }
     } else {
-        echo "<script>alert('입력이 되지 않았습니다.'); history.back(); </script>";
+        echo "<script>alert('入力されていません'); history.back(); </script>";
     }
 ?>

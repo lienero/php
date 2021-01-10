@@ -210,8 +210,8 @@ if(isset($_SESSION['mem_id'])){
                         <h4 class="card-title">
                             <a href="#"><?php echo $recipe_info["recipe_name"];?>&nbsp;</a>
                         </h4>
-                        <h5>좋아요 수:<td><?php echo $recipe_info["recipe_likes"];?>&nbsp;</td></h5>
-                        <p class="card-text">작성자: <?php echo $recipe_info["mem_id"];?>&nbsp;</p>
+                        <h5>イイね:<td><?php echo $recipe_info["recipe_likes"];?>&nbsp;</td></h5>
+                        <p class="card-text">by: <?php echo $recipe_info["mem_id"];?>&nbsp;</p>
                     </div>
                 </div>
                 <?php

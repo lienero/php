@@ -91,7 +91,7 @@
                 <div class="col-md-6" style="float-left">
                     <div class="input-group mb-3">
                         <div class="custom-file">
-                            <label class="custom-file-label" for="inputGroupFile02">파일</label>
+                            <label class="custom-file-label" for="inputGroupFile02">File</label>
                             <input type="file" class="custom-file-input" name="imgMain" id="imgMain" >
                         </div>
                     </div>
@@ -109,29 +109,29 @@
                     <!-- recipe contant -->
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon3">유튜브 입력</span>
+                            <span class="input-group-text" id="basic-addon3">ユーチューブ</span>
                         </div>
                         <input type="text" class="form-control" name="youtube_url" id="basic-url aria-describedby="basic-addon3">
                     </div>
                     <!-- recipe 스파이시 -->
                     <div class="input-group-prepend mb-3">
-                        <span class="input-group-text" id="basic-addon3">매운맛 선택</span>
+                        <span class="input-group-text" id="basic-addon3">辛さ</span>
                     </div>
                     <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
                         <div class="btn-group mr-2 text-center" role="group" aria-label="First group">
                             <div class="radio_margin">
                             <span>      
                             &nbsp;
-                            <input type="radio" class="center-block" value = 0 name="spicy" required>안 매운맛
+                            <input type="radio" class="center-block" value = 0 name="spicy" required>辛くない
                             </span>
                             <span>      
-                            <input type="radio" class="" value = 1 name="spicy" required>조금 매운맛 
+                            <input type="radio" class="" value = 1 name="spicy" required>少し辛い 
                             </span>
                             <span>      
-                            <input type="radio" class="" value = 2 name="spicy" required>매운맛 
+                            <input type="radio" class="" value = 2 name="spicy" required>辛い 
                             </span>
                             <span>     
-                            <input type="radio" class="" value = 3 name="spicy" required>그냥 죽여라냥
+                            <input type="radio" class="" value = 3 name="spicy" required>死んじゃうニャー
                             </label>
                             </span>
                             </div>
@@ -141,7 +141,7 @@
                 </div> 
                 <!-- main img -->
                 <div class="col-md-6 text-center" id="mainImg">
-                    <p> - 미리보기 화면 -</p>
+                    <p> - プレビュー -</p>
                     <img id="LoadImg" src="" width="300px">
                 </div>
             </div>
@@ -152,41 +152,41 @@
                         <label class="input-group-text" for="inputGroupSelect01">Options</label>
                     </div>
                     <select class="custom-select" id="inputGroupSelect01" name="human" required>
-                        <option selected>인물</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option selected>人物</option>
+                        <option value="1">백종원</option>
+                        <option value="2">방탄소년단</option>
+                        <option value="3">유재석</option>
                     </select>
                     <select class="custom-select" id="inputGroupSelect02" name="tv_show" required>
                         <option selected>방송</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value="1">ユーチューブ</option>
+                        <option value="2">골목식당</option>
+                        <option value="3">V-LOG</option>
                     </select>
                 </div>
             </div>
             <div class="input-group-prepend mb-3">
-                        <span class="input-group-text" id="basic-addon3">재료 선택</span>
+                        <span class="input-group-text" id="basic-addon3">食材</span>
                         <div class="checkbox_margin">
                         <span role="toolbar" aria-label="Toolbar with button groups" class="align-center">
                         &nbsp;&nbsp;        
                             <label>
-                                <input type="checkbox" name="pork" value="pork">돼지고기&nbsp;&nbsp;
+                                <input type="checkbox" name="pork" value="pork">豚肉&nbsp;&nbsp;
                             </label>
                             <label>
-                                <input type="checkbox" name="beef" value="beef">소고기&nbsp;&nbsp;
+                                <input type="checkbox" name="beef" value="beef">牛肉&nbsp;&nbsp;
                             </label>
                             <label>
-                                <input type="checkbox" name="chicken" value="chicken">닭고기&nbsp;&nbsp;
+                                <input type="checkbox" name="chicken" value="chicken">鳥肉&nbsp;&nbsp;
                             </label>
                             <label>
-                                <input type="checkbox" name="vegetable" value="vegetable">채소&nbsp;&nbsp;
+                                <input type="checkbox" name="vegetable" value="vegetable">野菜&nbsp;&nbsp;
                             </label>
                             <label>
-                                <input type="checkbox" name="fruit" value="fruit">과일&nbsp;&nbsp;
+                                <input type="checkbox" name="fruit" value="fruit">果物&nbsp;&nbsp;
                             </label>
                             <label>
-                                <input type="checkbox" name="seasoning" value="seasoning">조미료&nbsp;&nbsp;
+                                <input type="checkbox" name="seasoning" value="seasoning">調味料&nbsp;&nbsp;
                             </label>
                     </span>
                     </div>
@@ -243,7 +243,7 @@
             </div>
 
             <!-- button -->
-            <input type="submit" class="btn btn-outline-danger" value="등록하기" id="buttonNew" >
+            <input type="submit" class="btn btn-outline-danger" value="登録する" id="buttonNew" >
         </form>
     </div>
 </body>

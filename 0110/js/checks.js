@@ -9,7 +9,7 @@ function checkid() {
     // window.open('새창에 불러올 문서','새창이름','새창속성') : 새창을 열어주는 함수
     window.open(url, "chkid", "width=300,height=100");
   } else {
-    alert("아이디를 입력하세요");
+    alert("IDを入力してください");
   }
 }
 
@@ -26,7 +26,7 @@ function safetyPasswordPattern(str) {
     // .length 변수의 길이를 알아내는 함수
     // .length의 길이를
     if (pass.length < 8 || pass.length > 16) {
-      message = ":: 최소 8자 이상, 최대 16자 이하 ::";
+      message = ":: 8の字以上, 16の字以下 ::";
       color = "#A23E48";
     }
 
@@ -59,21 +59,21 @@ function safetyPasswordPattern(str) {
       }
 
       if (checkPoint >= 3) {
-        message = ":: 보안성이 취약한 비밀번호 ::";
+        message = ":: セキュリティ性の脆弱なパスワード ::";
         color = "#A23E48";
       } else if (checkPoint == 2) {
-        message = ":: 보안성이 낮은 비밀번호 ::";
+        message = ":: セキュリティ性の低いパスワード ::";
         color = "#FF8C42";
       } else if (checkPoint == 1) {
-        message = ":: 보안성이 보통인 비밀번호 ::";
+        message = ":: セキュリティ性のあるパスワード ::";
         color = "#FF8C42";
       } else {
-        message = ":: 보안성이 강력한 비밀번호 ::";
+        message = ":: セキュリティ性の高いパスワード ::";
         color = "#0000CD";
       }
     }
   } else {
-    message = ":: 비밀번호를 입력해 주세요 (대소문자, 숫자, 특수문자 포함) ::";
+    message = ":: パスワードをご入力ください　(大小文字, 数字, 特殊文字含め) ::";
     color = "#000000";
   }
   // document : HTML 문서
@@ -94,10 +94,10 @@ function isSame() {
       document.getElementById("pw").value == document.getElementById("pwcheck").value
     ) {
       // id : same을 매개체로 비밀번호 확인 밑에서 비밀번호의 확인 메세지를 출력함
-      document.getElementById("same").innerHTML = "비밀번호가 일치합니다.";
+      document.getElementById("same").innerHTML = "パスワードが一致しています";
       document.getElementById("same").style.color = "blue";
     } else {
-      document.getElementById("same").innerHTML = "비밀번호가 일치하지 않습니다.";
+      document.getElementById("same").innerHTML = "パスワードが一致していません";
       document.getElementById("same").style.color = "red";
     }
   }

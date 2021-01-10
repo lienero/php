@@ -14,11 +14,11 @@
         $_SESSION['mem_id'] = $id;
 
         // move to index.php
-        echo "<script>alert('로그인 되셨습니다.'); location.href='../index.php';</script>";
+        echo "<script>alert('ログインできました'); location.href='../index.php';</script>";
     } else {
         // insert data
         $sql = mq("INSERT INTO po_member (mem_id,mem_email,rank) VALUES('".$id."','".$email."','".$rank."')");
-        echo "<script>alert('구글로 회원가입 되셨습니다.'); location.href='../index.php';</script>";
+        echo "<script>alert('グーグルで新規登録されました'); location.href='../index.php';</script>";
     }
 
 ?>

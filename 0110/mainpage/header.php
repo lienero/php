@@ -2,7 +2,10 @@
 <html lang="en">
 
 <?php
-include "../db/db.php";
+include $_SERVER['DOCUMENT_ROOT']."/recipe_site/db/db.php";
+if(isset($_SESSION['mem_id'])){
+    $userid = $_SESSION['mem_id'];
+}
 ?>
     
 
@@ -42,11 +45,25 @@ include "../db/db.php";
             </div>
             <?php
             if(isset($_SESSION['mem_id'])){
-            ?>    
-                <div class="col-md-2 box1 text-center row">
+            ?>
+            <div class="col-md-2 box1 text-center row">
                 <div class="login_button_wrap">
-                    <a href="../signup/logout.php"><button class="btn login_button">ログアウト</button></a>
-                    <a href="../mypage/mypage.php"><button class="btn login_button2">マイページ</button></a>
+                <?php
+                $sql = mq("select * from po_member where mem_id='".$userid."'");
+                // $sql에 있는 fetch_array(): 인덱스를 변수에 삽입
+                $member = $sql->fetch_array();
+                if($member['rank'] == "manager"){
+                ?>
+                    <a href="/recipe_site/signup/logout.php"><button class="btn login_button">ログアウト</button></a>
+                    <a href="/recipe_site/managerpage/managerpage.php"><button class="btn login_button2">マネージャーページ</button></a>
+                <?php    
+                } else {
+                ?>    
+                    <a href="/recipe_site/signup/logout.php"><button class="btn login_button">ログアウト</button></a>
+                    <a href="/recipe_site/mypage/mypage.php"><button class="btn login_button2">マイページ</button></a>
+                <?php     
+                }
+                ?>     
                 </div>
                 <br>
                 <div class="login_text">
@@ -133,7 +150,7 @@ include "../db/db.php";
                         <a class="dropdown-item" href="#">中食</a>
                     </div>
                 </li>
-                <li class="nav-item col-md-3"> <a class="nav-link" href="#">後記</a> </li>
+                <li class="nav-item col-md-3"> <a class="nav-link" href="../review/review.php">後記</a> </li>
                 <!-- <li class="nav-item col-md-20"> <a class="nav-link" href="#">マイページ</a> </li>  마이페이지-->
 
             </ul>

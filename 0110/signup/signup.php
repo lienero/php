@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="./js/bootstrap.js.map">
     <link rel="stylesheet" href="./css/signup2.css">
     <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
-	<title>회원가입</title>
+	<title>新規登録</title>
 	<!-- 아이디 중복 검사 와 비밀번호 보안성 체크 함수가 담긴 js파일 -->
 	<script src ="../js/checks.js"></script>
 </head>
@@ -52,7 +52,7 @@
         </div>
       </div>      
 			<!-- id="makyText" : onkeyyup 할 시 작동하는 함수가 변경하는 html  -->
-      <div id="makyText">:: 비밀번호를 입력해 주세요(대소문자, 숫자, 특수문자 포함) ::</div>
+      <div id="makyText">:: パスワードをご入力ください　(大小文字, 数字, 特殊文字含め) ::</div>
 			<!--비밀번호 확인 입력칸-->
 			<!-- isSame() : 비밀번호가 비밀번호 확인과 일치하는 지를 체크함 -->
 			<!-- ime-mode:disabled - 영문자만 입력 가능하도록 설정  -->
@@ -62,7 +62,7 @@
         </div>
       </div>  
 			<!-- id="same" : onkeyyup 할 시 작동하는 함수가 변경하는 html  -->
-      <div id="same">비밀번호를 확인합니다.</div>
+      <div id="same">パスワードを確認してください.</div>
       <!--이메일 입력칸-->
       <div class="row">
         <div class="form-group input-group">
@@ -81,7 +81,7 @@
       <div class="row">
         <div class="checkbox mb-3" style="text-align: center;">
           <label>  
-            <input type="checkbox" id="jb-checkbox" name="agree" value="agree">동의하시겠습니까?
+            <input type="checkbox" id="jb-checkbox" name="agree" value="agree">同意しますか?
           </label>      
         </div>
       </div>  

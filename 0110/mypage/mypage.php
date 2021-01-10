@@ -103,7 +103,7 @@ $like = $sql_like->fetch_array();
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>마이페이지</title>
+    <title>マイページ</title>
     <!-- <script src="/recipe_site/js/jquery-3.5.1.min.js"></script>
     <script src="/recipe_site/js/bootstrap.min.js"></script> -->
     <script>
@@ -141,59 +141,60 @@ $like = $sql_like->fetch_array();
             <div class="col-md-12">
                 <!-- class="page-header"라는 스타일은 헤더 부분의 스타일 클래스-->
                 <div class="page-header">
-                    <h3 class="text-info"><a href ="./mypage.php">마이페이지</a></h3>
+                    <h3 class="text-info"><a href ="./mypage.php">マイページ</a></h3>
+                    <img src="../img/logo_huge_pink.png" alt="" width="200" class="img-responsive left-block" />
                     <br>
                 </div>
                 <!-- <form class="form-inline"> : 입력폼의 입력 항목이 가로로 표시되게 된다. -->
                 <form class="form-inline" method="get" action="./myfilter.php">
                     <fieldset>
-                        <legend>체크박스다냥</legend>
+                        <legend>チェックボックスだニャー</legend>
                         <div class="checkbox">
                             <!--<label>태그는 양식 입력 창 (form control)을 설명하는 이름표다. 
                     label 요소로 묶인 텍스트를 클릭하면, form control(양식 입력 창)이 선택 됨.
                     <label for = 'id'> 는 해당 입력폼의 id를 지정함-->
-                            재료&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;
+                            食材&nbsp;&nbsp;: &nbsp;
                             <label>
-                                <input type="checkbox" name="pork" value="pork" <?php echo $num[0];?>/>돼지고기&nbsp;&nbsp;
+                                <input type="checkbox" name="pork" value="pork" <?php echo $num[0];?>/>豚肉&nbsp;&nbsp;
                             </label>
                             <label>
-                                <input type="checkbox" name="beef" value="beef" <?php echo $num[1];?>/>소고기&nbsp;&nbsp;
+                                <input type="checkbox" name="beef" value="beef" <?php echo $num[1];?>/>牛肉&nbsp;&nbsp;
                             </label>
                             <label>
-                                <input type="checkbox" name="chicken" value="chicken" <?php echo $num[2];?>/>닭고기&nbsp;&nbsp;
+                                <input type="checkbox" name="chicken" value="chicken" <?php echo $num[2];?>/>鳥肉&nbsp;&nbsp;
                             </label>
                             <label>
-                                <input type="checkbox" name="vegetable" value="vegetable" <?php echo $num[3];?>/>채소&nbsp;&nbsp;
+                                <input type="checkbox" name="vegetable" value="vegetable" <?php echo $num[3];?>/>野菜&nbsp;&nbsp;
                             </label>
                             <label>
-                                <input type="checkbox" name="fruit" value="fruit" <?php echo $num[4];?>/>과일&nbsp;&nbsp;
+                                <input type="checkbox" name="fruit" value="fruit" <?php echo $num[4];?>/>果物&nbsp;&nbsp;
                             </label>
                             <label>
-                                <input type="checkbox" name="seasoning" value="seasoning" <?php echo $num[5];?>/>조미료&nbsp;&nbsp;
+                                <input type="checkbox" name="seasoning" value="seasoning" <?php echo $num[5];?>/>調味料&nbsp;&nbsp;
                             </label>
                         </div>
                         </br>
                         <div class="checkbox">
-                            매운맛&nbsp;: &nbsp;
+                            辛さ&nbsp;&nbsp;: &nbsp;
                             <label>
-                                <input type="checkbox" name="spicy0" value="0" <?php echo $idx[0];?>/> 안 매운맛&nbsp;
+                                <input type="checkbox" name="spicy0" value="0" <?php echo $idx[0];?>/> 辛くない&nbsp;
                             </label>
                             <label>
-                                <input type="checkbox" name="spicy1" value="1" <?php echo $idx[1];?>/> 조금 매운맛&nbsp;&nbsp;
+                                <input type="checkbox" name="spicy1" value="1" <?php echo $idx[1];?>/> 少し辛い&nbsp;&nbsp;
                             </label>
                             <label>
-                                <input type="checkbox" name="spicy2" value="2" <?php echo $idx[2];?>/> 매운맛&nbsp;&nbsp;
+                                <input type="checkbox" name="spicy2" value="2" <?php echo $idx[2];?>/> 辛い &nbsp;&nbsp;
                             </label>
                             <label>
-                                <input type="checkbox" name="spicy3" value="3" <?php echo $idx[3];?>/> 그냥 죽여라냥&nbsp;&nbsp;
+                                <input type="checkbox" name="spicy3" value="3" <?php echo $idx[3];?>/> 死んじゃうニャー&nbsp;&nbsp;
                             </label>
                         </div>
                     </fieldset>
-                    <div><input type="submit" class="btn btn-info pull-right" value="저장"></div>
+                    <div><input type="submit" class="btn btn-info pull-right" value="セーブ"></div>
                 </form>
                 <br><br>
                 <fieldset>
-                    <legend>내정보</legend>
+                    <legend>会員情報</legend>
                     <table class="table table-bordered">
                         <tr>
                             <th class="info" style="width: 17%;">ID:</th>
@@ -205,17 +206,17 @@ $like = $sql_like->fetch_array();
                         </tr>
                     </table>
                 </fieldset>
-                <sapn><a href="./member_modify.php" class="btn btn-info pull-right">정보수정</a></sapn>
-                <sapn><a href="./member_withdrawal.php" class="btn btn-info pull-right">회원탈퇴</a></sapn>
+                <sapn><a href="./member_modify.php" class="btn btn-info pull-right">情報変更</a></sapn>
+                <sapn><a href="./member_withdrawal.php" class="btn btn-info pull-right">会員退会</a></sapn>
                 <br><br>
                 <form class="form-inline" action="./review_delete.php" method="POST">
                     <fieldset>
-                        <legend>작성한 후기리스트</legend>
+                        <legend>作成した後記リスト</legend>
                         <table class="table table-bordered">
                             <tr class="info">
-                                <th><label><input type="checkbox" value="all" class="check_all">&nbsp;선택</label></th>
-                                <th>제목</th>
-                                <th colspan="3">내용</th>
+                                <th><label><input type="checkbox" value="all" class="check_all">&nbsp;選択</label></th>
+                                <th>題目</th>
+                                <th colspan="3">内容</th>
                             </tr>
                            <!-- start -->
                            <?php
@@ -238,27 +239,27 @@ html;
                           //$pre 변수에 $page-1을 해준다.
                         $pre = $page-1;
                        //이전 버튼을 클릭할 시에 ($_GET('page')값에 $pre변수를 삽입
-                          echo "<li class='page-item'><a href='?page=$pre&page1=$page1'>이전</a></li>";
+                          echo "<li class='page-item'><a href='?page=$pre&page1=$page1'>前に</a></li>";
                           }
                     //만약에 현재 블록이 블록의 총 갯수 미만일 경우
                     if($page < $total){
                     //$next 변수에 $page변수에 1을 더한 값을 삽입
                     $next = $page+1;
                     // 다음 버튼을 클릭할 시 ($_GET('page')값에 $next 변수를 삽입
-                        echo "<li class='page-item'><a href='?page=$next&page1=$page1'>다음</a></li>";
+                        echo "<li class='page-item'><a href='?page=$next&page1=$page1'>後に</a></li>";
                             }
                     ?>
-                <sapn><input type="submit" class="btn btn-info pull-right" value="게시물 삭제"></sapn>
+                <sapn><input type="submit" class="btn btn-info pull-right" value="削除"></sapn>
                 </form>
                 <br><br>
                 <form class="form-inline" action="./likes_delete.php" method="POST">
                     <fieldset>
-                        <legend>좋아요 리스트</legend>
+                        <legend>イイねリスト</legend>
                         <table class="table table-bordered table-hover">
                             <tr class="info">
-                                <th><label><input type="checkbox" value="all" class="check_all2">&nbsp;선택</label></th>
-                                <th>제목</th>
-                                <th colspan="3">내용</th>
+                                <th><label><input type="checkbox" value="all" class="check_all2">&nbsp;選択</label></th>
+                                <th>題目</th>
+                                <th colspan="3">内容</th>
                             </tr>
                             <!-- start -->
                             <?php
@@ -299,21 +300,21 @@ html;
                           //$pre 변수에 $page-1을 해준다.
                         $pre1 = $page1-1;
                        //이전 버튼을 클릭할 시에 ($_GET('page')값에 $pre변수를 삽입
-                          echo "<li class='page-item'><a href='?page=$page&page1=$pre1'>이전</a></li>";
+                          echo "<li class='page-item'><a href='?page=$page&page1=$pre1'>前に</a></li>";
                           }
                     //만약에 현재 블록이 블록의 총 갯수 미만일 경우
                     if($page1 < $total1){
                     //$next 변수에 $page변수에 1을 더한 s값을 삽입
                     $next1 = $page1+1;
                     // 다음 버튼을 클릭할 시 ($_GET('page')값에 $next 변수를 삽입
-                        echo "<li class='page-item'><a href='?page=$page&page1=$next1'>다음</a></li>";
+                        echo "<li class='page-item'><a href='?page=$page&page1=$next1'>後に</a></li>";
                             }
                     ?>
                 <!--<sapn><a href="" class="btn btn-info pull-right">좋아요 취소</a></sapn>-->
-                <sapn><input type="submit" class="btn btn-info pull-right" value="좋아요 취소"></sapn>
+                <sapn><input type="submit" class="btn btn-info pull-right" value="削除"></sapn>
                 </form>
                 <br><br><br>
-                <div class="text-center"><a href="" class="btn btn-info">홈으로</a></div>
+                <div class="text-center"><a href="/recipe_site/index.php" class="btn btn-info">ホームへ</a></div>
             </div>
         </div>
     </div>
