@@ -1,5 +1,5 @@
 <?php
-    include "../db/db.php";
+    include $_SERVER['DOCUMENT_ROOT']."/recipe_site/db/db.php";
     
     $email = $_POST['email'].$_POST['emailaddress'];
 

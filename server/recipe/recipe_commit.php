@@ -1,6 +1,8 @@
 <?php
+//db 폴더에 있는 db.php 불러오기
 include $_SERVER['DOCUMENT_ROOT']."/recipe_site/db/db.php";
-include "../signup/method/password.php";
+//method 폴더에 있는 passwrod.php;를 불러온다.
+include  $_SERVER['DOCUMENT_ROOT']."/recipe_site/method/password.php";
 // 현재 시간을 'Asia/Seoul'을 기준으로 맞춘다
 date_default_timezone_set('Asia/Seoul');
 // 세션에서 아이디를 가져와서 삽입

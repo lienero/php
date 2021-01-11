@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-include '../mainpage/header.php';
-include "../signup/method/password.php";
+include $_SERVER['DOCUMENT_ROOT']."/recipe_site/mainpage/header.php";
+//method 폴더에 있는 passwrod.php;를 불러온다.
+include $_SERVER['DOCUMENT_ROOT']."/recipe_site/method/password.php";
 if(isset($_SESSION['mem_id'])){
     $userid = $_SESSION['mem_id'];
 }
@@ -262,7 +263,7 @@ if(isset($_SESSION['mem_id'])){
             </div>
     </div>
     <!--푸터구역-->
-    <?php include "../mainpage/footer.php"; ?>
+    <?php include $_SERVER['DOCUMENT_ROOT']."/recipe_site/mainpage/footer.php"; ?>
 </body>
 
 </html>

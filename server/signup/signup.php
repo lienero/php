@@ -1,6 +1,6 @@
 <?php 
 	//db 폴더에 있는 db.php 불러오기
-	include "../db/db.php";
+	include $_SERVER['DOCUMENT_ROOT']."/recipe_site/db/db.php";
 ?>
 <!DOCTYPE html>
 <html>

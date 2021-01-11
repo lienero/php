@@ -1,6 +1,6 @@
 <?php
 	//db 폴더에 있는 db.php 불러오기
-	include "../db/db.php";
+	include $_SERVER['DOCUMENT_ROOT']."/recipe_site/db/db.php";
 	// session_destroy() : 모든 세션 데이타를 파괴
 	session_destroy();
 ?>

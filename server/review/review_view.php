@@ -1,5 +1,5 @@
 <?php
-  include "../mainpage/header.php";
+  include $_SERVER['DOCUMENT_ROOT']."/recipe_site/mainpage/header.php";
   $ddd = $_GET['seq'];
   $sql_read = mq("SELECT * FROM po_review WHERE review_seq = '".$ddd."'");
   $read = $sql_read->fetch_array();
@@ -89,6 +89,6 @@
         
     </div>
     <!-- footer -->
-    <?php include "../mainpage/footer.php"; ?>
+    <?php include $_SERVER['DOCUMENT_ROOT']."/recipe_site/mainpage/footer.php"; ?>
   </body>
 </html>

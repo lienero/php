@@ -1,6 +1,6 @@
 <?php
-    //db 연결
-    include "../db/db.php";
+	//db 폴더에 있는 db.php 불러오기
+	include $_SERVER['DOCUMENT_ROOT']."/recipe_site/db/db.php";
     // 삭제할 데이터 (실제로는 체크하면 받아짐)
     $like = $_POST['likes'];
     if(!isset($_SESSION)) 

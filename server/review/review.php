@@ -1,5 +1,5 @@
 <?php
-  include "../mainpage/header.php";
+  include $_SERVER['DOCUMENT_ROOT']."/recipe_site/mainpage/header.php";
     //입력값 확인
     if(isset($_GET['page'])){
       $page = $_GET['page'];
@@ -148,6 +148,6 @@ html;
     </div>
   </div>
   <!-- footer -->
-  <?php include "../mainpage/footer.php"; ?>
+  <?php include $_SERVER['DOCUMENT_ROOT']."/recipe_site/mainpage/footer.php"; ?>
   </body>
 </html>

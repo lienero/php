@@ -1,6 +1,6 @@
 <?php
-    include "../db/db.php";
-    include "./method/password.php";
+    include $_SERVER['DOCUMENT_ROOT']."/recipe_site/db/db.php";
+    include $_SERVER['DOCUMENT_ROOT']."/recipe_site/method/password.php";
 
     $id = $_GET['id'];
     $pw = password_hash($_POST['userpw'], PASSWORD_DEFAULT);
