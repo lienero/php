@@ -1,6 +1,9 @@
 <?php
 include $_SERVER['DOCUMENT_ROOT']."/recipe_site/db/db.php";
 include $_SERVER['DOCUMENT_ROOT']."/recipe_site/signup/method/password.php";
+if(!isset($_SESSION)) {
+    session_start();
+}
 // 서버에 있는 아이디를 $userid변수에 삽입
 if(isset($_SESSION['mem_id'])){
     $userid = $_SESSION['mem_id'];

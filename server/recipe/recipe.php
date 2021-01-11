@@ -1,8 +1,8 @@
 <?php
 	//db 폴더에 있는 db.php 불러오기
-	include $_SERVER['DOCUMENT_ROOT']."/recipe_site/db/db.php";
+	include $_SERVER['DOCUMENT_ROOT']."/recipe_site/mainpage/header.php";
 	//method 폴더에 있는 passwrod.php;를 불러온다.
-	include $_SERVER['DOCUMENT_ROOT']."/recipe_site/method/password.php";
+	include $_SERVER['DOCUMENT_ROOT']."/recipe_site/signup/method/password.php";
     $security_seq = $_GET['recipe_seq'];
     $rec_seq = mq("SELECT recipe_seq FROM po_recipe");
     while($re_seq = $rec_seq->fetch_array()) {

@@ -2,7 +2,7 @@
 	//db 폴더에 있는 db.php 불러오기
 	include $_SERVER['DOCUMENT_ROOT']."/recipe_site/db/db.php";
 	//method 폴더에 있는 passwrod.php;를 불러온다.
-	include $_SERVER['DOCUMENT_ROOT']."/recipe_site/method/password.php";
+	include $_SERVER['DOCUMENT_ROOT']."/recipe_site/signup/method/password.php";
 
     //POST로 받아온 아이다와 비밀번호가 비었다면 알림창을 띄우고 전 페이지로 돌아갑니다.
 	if($_POST["mem_id"] == "" || $_POST["mem_pw"] == "") {
@@ -21,7 +21,7 @@
             
             print("성공");
             if($member['rank'] == "admin"){
-                echo "<script>alert('ログインされました'); location.href='../managerpage/managerpage.html';</script>";
+                echo "<script>alert('ログインされました'); location.href='../managerpage/managerpage.php';</script>";
             } else {
                 echo "<script>alert('ログインされました'); location.href='../index.php';</script>";
             }
