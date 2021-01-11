@@ -2,7 +2,7 @@
 //db 폴더에 있는 db.php 불러오기
 include $_SERVER['DOCUMENT_ROOT']."/recipe_site/db/db.php";
 //method 폴더에 있는 passwrod.php;를 불러온다.
-include  $_SERVER['DOCUMENT_ROOT']."/recipe_site/method/password.php";
+include $_SERVER['DOCUMENT_ROOT']."/recipe_site/method/password.php";
 // 현재 시간을 'Asia/Seoul'을 기준으로 맞춘다
 date_default_timezone_set('Asia/Seoul');
 // 세션에서 아이디를 가져와서 삽입
@@ -33,7 +33,7 @@ $tmp_imgMain = $_FILES['imgMain']['tmp_name'];
 $o_imgMain = $_FILES['imgMain']['name'];
 // iconv(문자열 charset, 변경할 charset, 문자열) : 문자열을 요청 된 문자 인코딩으로 변환합니다.
 $name_imgMain = iconv("UTF-8", "EUC-KR//IGNORE",($recipe_seq+1)."_main_img.jpeg");
-$img_folder="../img/".$name_imgMain;
+$img_folder= $_SERVER['DOCUMENT_ROOT']."/recipe_site/img/".$name_imgMain;
 $recipe_sub_img=$_POST['recipe_imgs[]'];
 
 //move_uploaded_file(서버로 전송된 파일, 지정위치)은x    서버로 전송된 파일을 폴더에 저장할 때 사용하는 함수입니다.
@@ -56,7 +56,7 @@ for($j = 0; $j < count($file_text); $j++){
     $tmp_img_name = $_FILES['recipe_imgs']['tmp_name'][$j];
     $o_img_name = $_FILES['recipe_imgs']['name'][$j];
     $name_imgSub[] = iconv("UTF-8", "EUC-KR//IGNORE",($recipe_seq+1)."_sub_img_".$j.".jpeg");
-    $img_folder="../img/".$name_imgSub[$j];
+    $img_folder= $_SERVER['DOCUMENT_ROOT']."/recipe_site/img/".$name_imgSub[$j];
     move_uploaded_file($tmp_img_name,$img_folder);
 }
 

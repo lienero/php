@@ -19,7 +19,7 @@
         $tmpfile = $_FILES['inputGroupFile01']['tmp_name'][$i];
         $o_name = $_FILES['inputGroupFile01']['name'][$i];
         $filename = iconv("UTF-8","EUC-KR",$_FILES['inputGroupFile01']['name'][$i]);
-        $folder = "./img/".$filename;
+        $folder = $_SERVER['DOCUMENT_ROOT']."/recipe_site/img/".$filename;
         move_uploaded_file($tmpfile,$folder);
 
     }
