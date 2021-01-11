@@ -206,7 +206,7 @@ if(isset($_SESSION['mem_id'])){
                 <div class="col-md-3 col-sm-3">
                     <a href="../recipe/recipe.php?recipe_seq=<?php 
                     $security_seq = password_hash($recipe_info["recipe_seq"], PASSWORD_DEFAULT);
-                    echo $security_seq;?>"><img class="card-img-top img-responsive img-rounded" src="http://localhost/recipe_site/img/<?php echo $recipe_info["img"];?>" style="width: 212px; height: 160px;" text-center></a>
+                    echo $security_seq;?>"><img class="card-img-top img-responsive img-rounded" src="/recipe_site/img/<?php echo $recipe_info["img"];?>" style="width: 212px; height: 160px;" text-center></a>
                     <div class="card-body">
                         <h4 class="card-title">
                             <a href="#"><?php echo $recipe_info["recipe_name"];?>&nbsp;</a>
