@@ -95,7 +95,7 @@
             <!--레시피 대표 이미지-->
             <div class="row flex_box">
                 <div class="col-md-10 text-center">
-                    <img src="http://localhost/recipe_site/img/<?php echo $recipe["img"];?>" class="img-thumbnail rounded">
+                    <img src="/recipe_site/img/<?php echo $recipe["img"];?>" class="img-thumbnail rounded">
                 </div>
             </div>
             <!--레시피 제목-->
@@ -239,7 +239,7 @@
             </div>
             <!--레시피 이미지-->
             <div class="col-md-6" style="width:250px; height:150px">
-                <img src="http://localhost/recipe_site/img/<?php echo $recipe_cont["recipe_img"];?> "style="width:250px; height:150px">
+                <img src="/recipe_site/img/<?php echo $recipe_cont["recipe_img"];?> "style="width:250px; height:150px">
             </div>
         </div>
     </div>
@@ -343,7 +343,7 @@
                     if( $comment_info["com_img"] != "") {
                 ?>
                 <div class="media-left">
-                    <img src="http://localhost/recipe_site/img/<?php echo $comment_info["com_img"];?>" style="width:50px; height:50px">
+                    <img src="/recipe_site/img/<?php echo $comment_info["com_img"];?>" style="width:50px; height:50px">
                 </div>
                 <div class="media-body" style="width:auto">
                     <h4><b><?php echo $comment_info["mem_id"];?></b> | <?php echo $comment_info['com_date']; ?></h4><?php echo $comment_info['com_cont']; ?>
@@ -353,7 +353,7 @@
                     } else {
                 ?>
                 <div class="media-left">
-                    <img src="http://localhost/recipe_site/img/logo_huge_pink.png" style="width:50px; height:50px">
+                    <img src="/recipe_site/img/logo_huge_pink.png" style="width:50px; height:50px">
                 </div>
                 <div class="media-body" style="width:auto">
                     <h4><b><?php echo $comment_info["mem_id"];?></b> | <?php echo $comment_info['com_date']; ?></h4><?php echo $comment_info['com_cont']; ?>
