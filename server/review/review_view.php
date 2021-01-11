@@ -1,3 +1,5 @@
+<!doctype html>
+<html lang="en">
 <?php
   include $_SERVER['DOCUMENT_ROOT']."/recipe_site/mainpage/header.php";
   $ddd = $_GET['seq'];
@@ -5,8 +7,6 @@
   $read = $sql_read->fetch_array();
   $sql_img = mq("SELECT review_img FROM po_review_seq WHERE review_seq = '".$ddd."' ");
 ?>
-<!doctype html>
-<html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">

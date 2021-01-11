@@ -1,3 +1,5 @@
+<!doctype html>
+<html lang="en">
 <?php
   include $_SERVER['DOCUMENT_ROOT']."/recipe_site/mainpage/header.php";
     //입력값 확인
@@ -20,22 +22,20 @@
     $start_num = ($page-1) * 10;
     $sql3 = mq("SELECT review_seq, review_kind, review_name, review_date, mem_id FROM po_review order by review_seq limit $start_num,10");
 ?>
-<!doctype html>
-<html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="../js/vendor/jquery-ui-1.10.3.custom.min.js"></script>
     <script type="text/javascript" src="../js/index.js"></script>
     <script src="../js/vendor/modernizr-custom.js"></script>
-    <link rel="stylesheet" href="../css/index.css"> -->
+    <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/review.css">
-    <!-- <link rel="stylesheet" href="../css/bootstrap-theme.css">
+    <link rel="stylesheet" href="../css/bootstrap-theme.css">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/bootstrap-theme.css">
     <link rel="stylesheet" href="../js/bootstrap.js">
@@ -43,7 +43,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
     <title>review page</title>
    
   </head>
