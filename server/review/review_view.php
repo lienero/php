@@ -78,7 +78,7 @@
       <div class="img">
         <?php
           while($review = $sql_img->fetch_array()) {
-            echo "<img class=\"mb-3\" src = \"img/$review[0]\" style =\"height: 350px;\">";
+            echo "<img class=\"mb-3\" src = \"/recipe_site/img/$review[0]\" style =\"height: 350px;\">";
         } ?>
       </div>
       <!-- 내용이 들어오는 장소 -->
