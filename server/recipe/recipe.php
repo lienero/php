@@ -60,10 +60,10 @@
                 , content : {
                     title:"피키캣(입짧은 고양이)"   // 콘텐츠의 타이틀
                     , description:"\"피키캣\"에서레시피를 확신해보세요!"   // 콘텐츠 상세설명
-                    , imageUrl: "http://localhost/recipe_site/img/logo_pink.png" // 썸네일 이미지
+                    , imageUrl: "http://www.smagic.co.kr/recipe_site/img/logo_pink.png" // 썸네일 이미지
                     , link : {
-                        mobileWebUrl:"http://localhost/recipe_site/img/logo_pink.png"   // 모바일 카카오톡에서 사용하는 웹 링크 URL
-                        , webUrl:"http://localhost/recipe_site/img/logo_pink.png" // PC버전 카카오톡에서 사용하는 웹 링크 URL
+                        mobileWebUrl:"http://www.smagic.co.kr/recipe_site/img/logo_pink.png"   // 모바일 카카오톡에서 사용하는 웹 링크 URL
+                        , webUrl:"http://www.smagic.co.kr/recipe_site/img/logo_pink.png" // PC버전 카카오톡에서 사용하는 웹 링크 URL
                     }
                 }
                 , social : {
@@ -75,8 +75,8 @@
                     {
                         title:"게시글 확인"    // 버튼 제목
                         , link : {
-                            mobileWebUrl:"http://localhost/recipe_site/index.php"   // 모바일 카카오톡에서 사용하는 웹 링크 URL
-                        , webUrl:"http://localhost/recipe_site/index.php" // PC버전 카카오톡에서 사용하는 웹 링크 URL
+                            mobileWebUrl:"http://www.smagic.co.kr/recipe_site/index.php"   // 모바일 카카오톡에서 사용하는 웹 링크 URL
+                        , webUrl:"http://www.smagic.co.kr/recipe_site/index.php" // PC버전 카카오톡에서 사용하는 웹 링크 URL
                         }
                     }
                 ]
